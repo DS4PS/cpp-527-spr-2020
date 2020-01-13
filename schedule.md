@@ -258,34 +258,39 @@ Here are some helpful examples:
 
 
 
+*** { @unit = "", @title = "Control Structures", @reading, @foldout  }
+
+
+
+
+
+
 *** { @unit = "", @title = "Readings", @reading, @foldout  }
 
 <br>
 <br>
 
+## Review
+
+Please revisit the following chapter from last semester:
+
+[Functions](http://ds4ps.org/dp4ss-textbook/ch-040-functions.html)
+
+
 ## Assigned Reading
 
 Required:
 
-[Assignment](http://ds4ps.org/dp4ss-textbook/ch-033-calculator.html)
+[Control Structures in R](https://bookdown.org/rdpeng/rprogdatascience/control-structures.html)
 
-[Functions](http://ds4ps.org/dp4ss-textbook/ch-040-functions.html)
+[Scope](https://bookdown.org/rdpeng/rprogdatascience/scoping-rules-of-r.html)
 
-[Vectors](http://ds4ps.org/dp4ss-textbook/ch-050-vectors.html)
 
-Background Chapters:
+## Recommended Reading 
 
-**You will start simple and get practice with these tools on labs. Skim these, then return for reference as you get stuck or want to deepend your knowledge.**
+This topic builds off of the use of loops and thus is a little more advanced - we will cover it in CPP 528. It would not hurt to preview the topic now, though. 
 
-[Learning to Learn R](http://ds4ps.org/dp4ss-textbook/ch-032-learning_r.html)
-
-[Core R](http://ds4ps.org/dp4ss-textbook/ch-010-core-r.html)
-
-[R Studio](http://ds4ps.org/dp4ss-textbook/ch-020-rstudio.html)
-
-[Data-Driven Docs](http://ds4ps.org/dp4ss-textbook/ch-030-data-driven-docs.html)
-
-[Markdown](http://ds4ps.org/dp4ss-textbook/ch-031-markdown.html)
+[Don't Loop - Apply](https://bookdown.org/rdpeng/rprogdatascience/loop-functions.html)
 
 
 <br>
