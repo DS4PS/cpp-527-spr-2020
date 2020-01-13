@@ -101,7 +101,7 @@ b1 = cov(x,y) / var(x)
 
 ## Description
 
-This section introduces control structures that serves to incorporate decision-making into computer code. It enables things like *if-then* logic to determine what code should be used based upon specified conditions. 
+This section introduces [control structures](https://intellipaat.com/blog/tutorial/r-programming/decision-making-and-loops/) that serves to incorporate decision-making into computer code. It enables things like *if-then* logic to determine what code should be used based upon specified conditions. 
 
 
 ## Learning Objectives
@@ -135,6 +135,8 @@ Please revisit the following chapter from last semester:
 ## Assigned Reading
 
 Required:
+
+[Quick Reference on Control Structures](https://intellipaat.com/blog/tutorial/r-programming/decision-making-and-loops/) 
 
 [Control Structures in R](https://bookdown.org/rdpeng/rprogdatascience/control-structures.html)
 
