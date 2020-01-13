@@ -3,38 +3,38 @@ layout: index
 title: Syllabus
 
 index:
-    title: Foundations of Data Science Part I
+    title: Foundations of Data Science Part II
     image: data-science.png
-    subtitle: This course introduces students to the field of data science and its applications in the public and nonprofit sectors. Modern performance management and evaluation processes require strong data literacy and the ability to combine and analyze data from a variety of sources to inform managerial processes. We offer a practical, tools-based approach that is designed to build strong foundations for people that want to work as analysts, data-driven managers, or data-driven journalists. We will cover data programming fundamentals, visualization, text analysis, automated reporting, and dynamic reporting using dashboards. The course is analytically rigorous, but no prior programming experience is assumed.
+    subtitle: This course builds from the foundations in R programming covered in CPP 526 Data Science I. We will learn how to use custom functions to make analysis more efficient, build simulations and animations, create R packages, learn text analysis functions in R, and build a website using the Jekyll framework in GitHub. 
     
 info: 
  program_title: Program Evaluation and Data Analytics
  program_website: https://asuonline.asu.edu/online-degree-programs/graduate/program-evaluation-and-data-analytics-ms/
- course_title: Foundations of Data Science Part I
- course_number: CPP 526 
+ course_title: Foundations of Data Science Part II
+ course_number: CPP 527 
  course_level: Graduate 
- course_website: 'https://canvas.asu.edu/courses/29528'
+ course_website: 'https://canvas.asu.edu/courses/41575'
  course_start_end_dates: Jan 13th to March 02, 2020
  course_prerequisites:  
  class_meets_when:  Asynchronous  
  class_meets_where:  'https://asu.zoom.us/j/944016877'
  review_sessions_when: TBD 
  review_sessions_where: Zoom
- discussion_board_url: 'https://ds4ps.org/cpp-526-spr-2020/help/'
+ discussion_board_url: 'https://ds4ps.org/cpp-527-spr-2020/help/'
 
 instructor:
--  name: Jamison Crawford
-   title: Instructor 
-   email: 
-   office_location: 
-   website_url: https://rpubs.com/JamisonCrawford
-   github_url: 'https://github.com/JamisonCrawford' 
+-  name: Jesse Lecy
+   title: Professor
+   email: jdlecy@asu.edu   
+   office_location: UCENT 517
+   website_url: http://www.lecy.info/
+   github_url: 'https://github.com/lecy' 
    twitter_url: 
-   scholar_url: 
+   scholar_url: https://scholar.google.com/citations?user=Ir8H4wMAAAAJ&hl=en
    linked_in_url:
    office_hours_time: Flexible
-   office_hours_location:  Zoom
-   office_hours_app_url:  
+   office_hours_location:  Zoom or Office
+   office_hours_app_url: 'https://calendly.com/lecy/15min'
    
 
 textbooks:
@@ -53,21 +53,6 @@ textbooks:
   edition: Free Online
   link: https://leanpub.com/artofdatascience
   required: Not Required
-- title: 'Fundamentals of Data Visualization: A Primer on Making Informative and Compelling Figures' 
-  authors: C.O. Wilke 
-  edition: Free Online 
-  link: https://serialmentor.com/dataviz/
-  required: Not Required 
-- title: Modern Dive, Intro to Stats and Data Sciences via R
-  authors: Chester Ismay & Albert Y. Kim
-  edition: Free Online
-  link: https://moderndive.com/4-tidy.html
-  required: Not Required  
-- title: Big Book of Dashboards
-  authors: Smith, Smith, and Johnson
-  edition: 2017
-  link: https://www.amazon.com/Big-Book-Dashboards-Visualizing-Real-World/dp/1119282713/
-  required: Not Required 
   
 --- 
 
@@ -79,45 +64,40 @@ textbooks:
 
 # I.  Course Description, Course Goal and Course Learning Objectives
 
-Data is an essential ingredient of any program evaluation or performance management system. Organizations that want to embrace an evidence-based approach to management need to develop processes for gathering data, linking multiple datasets, running analysis, and sharing results with stakeholders through reports, dashboards, or web applications. The ability to collect, organize and analyze data is a desirable skill set for professional knowledge workers, high-level management, and evaluators.
-
-The course introduces students to the R data programming language, an open source platform that has become an industry standard because of its flexibility and power. It was designed to allow people to quickly develop and share new statistical tools. It has evolved into a more general data analytics platform that can be used for analytics, customized visualizations, GIS applications, text analysis, building web applications, and much more. It has a large and active user community that has developed thousands of free custom programs.
-
-Typically only 10-20% of a project is spent analyzing data. The other 80-90% consists of merging data sources, cleaning data, defining new variables, and arranging data into the proper format. These steps require knowledge about data wrangling as well as general project management process. The Foundations of Data Science sequence teaches both the data programming fundamentals and well as project management skills to ensure that analysis is transparent, error-free and reproducible.
-
 The Foundations of Data Science course sequence will cover the fundamentals of data programming – building unique datasets using APIs and custom tools, importing data from the cloud, linking multiple data sources, and wrangling processes to clean, transform, and reshape datasets. Advanced topics will be introduced such as writing functions, running simulations, writing packages for R, and de-bugging techniques. We will spend roughly a third of the units on graphing procedures and reporting packages.
 
-This course, Foundations of Data Science I, will cover the building blocks of data programming in R. We will learn about variables, operators, functions, dataset construction, group structure in data, visualization, and simulation. Students will also be introduced to markdown documents and automated reporting.
+This course, Foundations of Data Science II, will introduce the data preparation cycle: gather, clean, tidy, and wrangle the data to produce a custom research database. 
 
-The six main learning objectives for the course are:
+After completing the course students will be able to:
 
-- Mastery of functions as the building blocks of all R programs, including arguments and scope
-- Knowledge of variable types and data structures in R, including construction and manipulation of data sets
-- Use of logical statements to create and analyze groups within data
-- Ability to build custom visualizations through the base R graphics package
-- Creation of dynamic graphics and data dashboards using R shiny tools
+* Import data from multiple standard and nonstandard formats and data APIs.
+* Apply string processing and regular expressions to clean data and analyze text. 
+* Generate new variables through transformations and group aggregation techniques.
+* Create an R package
+* Build a website using the Jekyll framework in GitHub 
 
-# Course Prerequisites:
+Course Prerequisites: 	
 
-There are no prerequisites, and we do not assume any prior background in computer programming or statistics. Students should, however, have installed R and R Studio, and worked through a basic tutorial on R Studio.
+This course builds upon basic R programming material from CPP 526 Foundations of Data Science I.
 
-# II. Assessment of Student Learning Performance & Proficiency: Keys to Student Success
+# II.	Assessment of Student Learning Performance & Proficiency: Keys to Student Success
 
 Assessment of student performance in this course is based on indications that the course learning objectives stated above have been achieved.  Several areas of measurement will be used to produce a final student performance rating.  These areas of performance assessment include the following:
 
-- The ability to build a custom dataset by important data from multiple sources, merging data, and reshaping, filtering or subsetting as necessary.
-- Translating from plain English business cases to logical statements in R using logical operators and analytical techniques applied to groups.
-- Communicating information by developing custom visualizations and graphics.
-- Using markdown documents to generate data-driven reports and data dashboards.
+* Importing data through APIs. 
+* Using text operations to clean datasets. 
+* Creating new variables through transformations or calculations of group statistics.
+* Creating and documenting a new R package. 
+* Building a personal website on GitHub 
 
-Students will demonstrate competency in understanding, producing and communicating results of their analyses through the following assignments:
+Students will demonstrate competency in understanding, producing and communicating results of their analyses through the following assignments:  
 
-- In-lecture assessment questions to ensure basic comprehension of key concepts and to help students and instructors track progress through the course.
-- Weekly labs that provide opportunities to consolidate and apply material from the lectures.
-- Discussion topics on broad data science trends. 
-- A final project that integrates several skills to create a data dashboard. 
+* Weekly labs that provide opportunities to consolidate and apply material from the lectures.
+* A final project that integrates several components of the learning objectives above.
+* Participation in discussion boards. 
 
-Assigned work, including the course final project, and the quality of active participation in the regular online discussion sessions that are a critical part of the course learning strategy are the tools the instructors will use to measure comprehension and skill; the student&#39;s course grade is a direct reflection of demonstrated performance. Students should take stated expectations seriously regarding preparation, conduct, and academic honesty in order to receive a grade reflective of outstanding performance.  Students should be aware that merely completing assigned work in no way guarantees an outstanding grade in the course. To receive an outstanding course grade (using the grading scheme described below and the performance assessment approach noted above) all assigned work should completed on time with careful attention to assignment details.
+Assigned work, including the course final project, and the quality of active participation in the regular online discussion sessions that are a critical part of the course learning strategy are the tools the instructors will use to measure comprehension and skill; the student’s course grade is a direct reflection of demonstrated performance. Students should take stated expectations seriously regarding preparation, conduct, and academic honesty in order to receive a grade reflective of outstanding performance.  Students should be aware that merely completing assigned work in no way guarantees an outstanding grade in the course. To receive an outstanding course grade (using the grading scheme described below and the performance assessment approach noted above) all assigned work should completed on time with careful attention to assignment details.  
+
 
 # III. Course Structure and Operations; Performance Expectations
 
@@ -139,9 +119,9 @@ The online discussions are explicitly intended to meet the objectives stated abo
 
 ## B. Assigned Reading Materials
 
-We will use a custom textbook for this course available at the link above. 
+We will use some chapters from the program textbook. 
 
-* [Course Textbook](https://ds4ps.org/cpp-526-fall-2019/textbook/)
+* [Course Textbook](https://ds4ps.org/dp4ss/)
 
 The following texts are recommended as good reference material for topics covered in this course:
 
@@ -159,7 +139,7 @@ In addition to the required textbooks, the instructor will supplement the assign
 Letter grades comport with a traditional set of intervals:
 
 ------------|--------
-100 – 99%   |  A+  
+100 – 99%   |  A+*
 98 – 94%    |  A  
 93 – 90%    |  A - 
 89 – 87%    |  B+  
@@ -167,11 +147,15 @@ Letter grades comport with a traditional set of intervals:
 83 – 80%    |  B –  
 Below 80%   |  C, D, F  
 
+\*An A+ is given at the discretion of the professors, and is normally limited to one or two students per term. 
+
 The assigned work for the term comes in the form of four elements, described below:
 
 - **Weekly Labs (50%):**  Each week you will receive a short lab that will help you synthesize the lectures from the week though exercises that involve data, analysis, and important formulas from the lectures. These labs contain exercises that are similar in form or difficulty to what will be presented on the final exam. **They are graded pass / fail** by the instructors based upon an assessment of whether you have sincerely attempted the lab and answered over half of the questions correctly. This is designed to hold you accountable for the material, but not create anxiety about perfection.
 
-- **Final Dashboard Project (30%):**  This course will close with a final project that requires you to analyze some data and present your results as a data dashboard. It is designed to give you practice integrating material the we have covered throughout the course.
+- **R Package (10%):**  This course will close with a final project that requires you to analyze some data and present your results as a data dashboard. It is designed to give you practice integrating material the we have covered throughout the course.
+
+- **Jekyll Website (20%):**  This course will close with a final project that requires you to analyze some data and present your results as a data dashboard. It is designed to give you practice integrating material the we have covered throughout the course.
 
 - **Explainer Assignment (10%):**  You are invited to pick one topic from the class that you want to learn more about, or that you think might provide value to your classmates. Create a short tutorial to make your topic accessible to your peers. It can be a blog post, a video, a GIF, or a tutorial that explains an important concept from data programming, presents a helpful framework, illustrates a useful R tool or approach to data programming, or introduces classmates to a new package or function. 
 
@@ -237,37 +221,25 @@ As students are all aware, ASU Online courses are typically offered on a seven a
 
 Please note: the course instructor may from time to time adjust assigned readings or adjust the due dates for assignment. The basic course content approach and learning objectives will not change, but slight modifications are possible if circumstances warrant an adjustment.
 
-[Schedule](https://ds4ps.org/cpp-526-fall-2019/schedule/)
+Use the **Schedule** tab on the navigation bar for detailed information each week.
 
 ## Couse Schedule
 
-### Unit 0: R Data Science Toolkit 
-- CH-01 Core R 
-- CH-02 R Studio
-- CH-03 Data-Driven Docs & RMD
 
+### Unit 1: Programming Control Structures 
 
-### Unit 1: Functions and Vectors
-- CH-03, CH-04
-- Lab #1 
+### Unit 2: Simulation & Building R Packages 
+ 
+### Unit 3: GitHub Pages / CSS 
 
-### Unit 2: Operators and Descriptives
-- Lab #2 
+### Unit 4: Regular Expressions 
 
-### Unit 3: Visualization
-- Lab #3
+### Unit 5: Data APIs 
 
-### Unit 4: Dynamic Visualization
-- Lab #4 
+### Unit 6: Tidy Data 
 
-### Unit 5: Data Wrangling
-- Lab #5
+### Unit 7: Customized Reports in RMD 
 
-### Unit 6: Data IO and Joins
-- Lab #6
-
-### Unit 7: Dashboards
-- Start Final Project
 
 
 <br>
