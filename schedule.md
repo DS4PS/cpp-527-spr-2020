@@ -612,7 +612,7 @@ Required:
 
 
 
-*** { @unit = "MON Mar 2nd", @title = "Code-Through Assignment", @assignment, @foldout }
+*** { @unit = "MON Mar 2nd", @title = "Code-Through Assignment", @assignment }
 
 <br>
 
