@@ -138,7 +138,6 @@ Required:
 
 [Control Structures in R](https://bookdown.org/rdpeng/rprogdatascience/control-structures.html)
 
-[Scope](https://bookdown.org/rdpeng/rprogdatascience/scoping-rules-of-r.html)
 
 
 ## Recommended Reading 
@@ -148,6 +147,8 @@ This topic builds off of the use of loops and thus is a little more advanced - w
 [Don't Loop - Apply](https://bookdown.org/rdpeng/rprogdatascience/loop-functions.html)
 
 [Simulation](https://bookdown.org/rdpeng/rprogdatascience/simulation.html) 
+
+[Scope](https://bookdown.org/rdpeng/rprogdatascience/scoping-rules-of-r.html)
 
 <br>
 <br>
