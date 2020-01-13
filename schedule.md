@@ -3,8 +3,8 @@ layout: schedule
 title: Schedule
 
 canvas: 
-  assignment_url: 'https://canvas.asu.edu/courses/41578/assignments'
-  yellowdig_url: 'https://www.yellowdig.com/board/43114'
+  assignment_url: 'https://canvas.asu.edu/courses/41575/assignments'
+  yellowdig_url: 'https://www.yellowdig.com/board/43206'
 ---
  
 <!--- 
@@ -32,141 +32,23 @@ Submit Buttons -
 ** Welcome
 
 
-*** { @unit = "", @title = "PROGRAM ORIENTATION", @lecture, @foldout   }
+*** { @unit = "", @title = "Course Overview",  @foldout   }
 
+<br> 
 
-## Welcome !
+## Welcome Back!
 
-R is a foundational tool within a toolkit that I will refer to as the "data science ecosystem". 
-
-The orientation video below provides a brief introduction to the "ecosystem" - the community of people that are creating cool analytical tools and building tutorials and case studies for how they might be applied, as well as a core set of tools that are all designed to work nicely together in order to implement projects. 
-
-You can think of R, R Studio, and Markdown kindof like Excel (analysis), Word (report-writing), and Power Point (presentations). R allows you to analyze your data, but these results are not useful unless you can share them with others. Here is where [data-driven documents](http://ds4ps.org/dp4ss-textbook/ch-030-data-driven-docs.html) developed using R Studio and Markdown really shine. You can quickly package your R code as cool reports, websites, presentations, or dashboards to format the information in whatever way is most accessible and useful for your clients or stakeholders. 
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/oC1xz97aoYI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-
-## References
-
-[Course Overview Powerpoint for Zoom Call](https://github.com/DS4PS/dp4ss-textbook/raw/master/resources/Couse-Overview.pdf)
-
-The course shells for CPP 523 and CPP 526 are located at:
-
-[https://ds4ps.org/cpp-526-spr-2020/](https://ds4ps.org/cpp-526-spr-2020/)  
-[https://ds4ps.org/cpp-523-spr-2020/](https://ds4ps.org/cpp-523-spr-2020/)  
-
-The *unofficial* program website can be found at:
-
-[https://ds4ps.org/ms-prog-eval-data-analytics/](https://ds4ps.org/ms-prog-eval-data-analytics/)
-
-And the dashboard example in R can be found here:
-
-[R Storyboard Example](https://beta.rstudioconnect.com/jjallaire/htmlwidgets-showcase-storyboard/htmlwidgets-showcase-storyboard.html)
-
-
-
-
-
-*** { @unit = "", @title = "Your Course Prep Checklist", @reading, @foldout }
-
-
-- [ ] [Read the Syllabus](https://ds4ps.org/cpp-526-spr-2020/) 
-- [ ] [Install R](https://cran.rstudio.com/) and [R Studio Desktop](https://www.rstudio.com/products/rstudio/download/) 
-- [ ] [Sign-Up for a GitHub Account](https://github.com/join) 
-- [ ] Introduce Yourself on [YellowDig](https://canvas.asu.edu/courses/41578/assignments/959542) (see below)
-
-
-
-
-
-*** { @unit = "", @title = "The R Toolkit", @reading, @foldout }
-
-
-## Introducing R 
+CPP 527 is the second course in the Foundations of Data Science sequence. This semester 
 
 <br>
 <br>
 
-<iframe src="https://player.vimeo.com/video/180644880" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-
-
-<br>
-<br>
-
-
-## The R Toolkit
-
-
-In this course we cover the foundations of data programming with the R language. In order to create robust and dynamic analysis we need to use a couple of tools that were built to leverage the power of R and create compelling narratives. R Studio helps you manage projects by organizing files, scripts, packages and output. Markdown is a simple formatting convention that allows you to create publication-quality documents. And R Markdown is a specific version of Markdown that allows you to combine text and code to create data-driven documents. 
-
-[CH-01 Core R](http://ds4ps.org/dp4ss-textbook/ch-010-core-r.html)
-
-[CH-02 R Studio](http://ds4ps.org/dp4ss-textbook/ch-020-rstudio.html)
-
-[Data-Driven Docs](http://ds4ps.org/dp4ss-textbook/ch-030-data-driven-docs.html)
-
-[A Markdown Guide](http://ds4ps.org/dp4ss-textbook/ch-031-markdown.html)
-
-<br>
-
-![](https://github.com/DS4PS/dp4ss-textbook/blob/master/figures/r-tools-overview.png?raw=true)
-
-<br>
-<br>
-
-
-
-
-## R Markdown
-
-[Getting Started with R Markdown](https://rmarkdown.rstudio.com/lesson-1.html)
-
-You will have plenty of practice with these tools this semester. You will submit your labs as knitted R Markdown (RMD) files.
-
-[![](https://github.com/DS4PS/ds4ps.github.io/blob/master/gifs/NewCodeChunk/NewCodeChunk_media/NewCodeChunk.gif?raw=true)](../gifs/NewCodeChunk/NewCodeChunk.html)
-
-<br>
-<br>
-
-
-
-
-*** { @unit = "Due Jan 15", @title = "Introduce Yourself", @assignment, @foldout   }
-
-<br>
-
-## Introduce yourself to the class
-
-We will be using a discussion board called YellowDig for this course. Introduce yourself to the class and share a bit about:
-
-1. A little about yourself
-2. Your previous experience with data analytics 
-3. One thing you hope to do with your new skills in data analytics 
-
-<a class="uk-button uk-button-default" href="https://canvas.asu.edu/courses/41578/assignments/959542">Post to YellowDig</a>
-
-<br>
-<br>
 
 
 *** { @unit = "", @title = "Getting Help", @assignment, @foldout  }
 
 
 ## Getting Help
-
-Nerds are stereotypically perceived as being anti-social, but in reality data analytics is a very social activity and real-world analytics projects are almost always collaborative. 
-
-Learning how to seek help and use discussion boards will accelerate learning and facilitate collaboration. Social coding tools like GitHub use these features extensively. 
-
-We are going to throw a lot at you, but also provide a lot of support. Over these first couple of weeks feel free to reach out for anything you might need. 
-
-If you find something confusing let us know (likely others will find it confusing as well). 
-
-* We can jump on a [Zoom call](https://calendly.com/lecy/15min?month=2019-08) to do a screen share if you want to walk through anything. 
-* You can post a question to the homework discussion board for [data science I](https://ds4ps.org/cpp-526-spr-2020/help/) or [program evaluation I](https://ds4ps.org/cpp-523-spr-2020/help/).  
-* Or you can request a walk-through of a problem. The instructor will provide an example with the solution. 
-
-As a general rule of thumb, if you are stuck on the math or code for a problem, need clarification about what the question is asking, want to make sure you understand a formula, or are having similar issues then the help discussion page is the easiest and quickest way to get help. If you are confused about concepts or having a hard time even formulating your question then virtual office hours are your best option.
 
 Note that the discussion board is hosted by the GitHub issues feature. It is a great forum because:
 
@@ -200,10 +82,6 @@ b1 = cov(x,y) / var(x)
 These courses are designed to be interactive, and a lot of learning occurs by practicing the technical jargon from the field and learning how to talk about data and models. 
 
 Please reach out if you have questions or feel stuck!  
-
-**PRACTICE:**
-
-Navigate to the [Help! Board](https://ds4ps.github.io/cpp-526-spr-2020/help/) for the course. Click on the **practice post**, and reply by telling the class your name and your favorite [**color in R**](http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf). 
 
 <br>
 <br>
@@ -284,6 +162,99 @@ head( dat )
 <br>
 <br>
 
+
+*** { @unit = "", @title = "Psuedo-Code", @lecture, @foldout  }
+
+<br>
+
+## Planning Your Code with Pseudo-Code
+
+Typically as you start a specific task in programming there are two things to consider. 
+
+(1) What are the steps needed to complete the task? 
+(2) How do I implement each step? How do I translate them into the appropriate functions and syntax? 
+
+It will save you a huge amount of time if you separate these tasks. First, take a step back from the problem that think about the steps. Write down each step in order. Make some notes about what data is needed from the previous step, and what the return result will be from the current step. 
+
+Think back to the cooking example. If we are going to bake cookies our pseudo-code would look something like this: 
+
+1. Preheat the oven. 
+2. In a large bowl, mix butter with the sugars until well-combined. 
+3. Stir in vanilla and egg until incorporated. 
+4. Addflour, baking soda, and salt.  
+5. Stir in chocolate chips. 
+6. Bake. 
+
+Note that it lacks many necessary details. How much of each ingredient? What temperature does the oven need to be? How long do we bake for? 
+
+Once we have the big picture down and are comfortable with the process then we can start to fill in these details:
+
+
+1. Preheat the oven. 
+  - Preheat to 375 degrees 
+  
+2. In a large bowl, mix butter with the sugars until well-combined. 
+  - 1/3 cup butter    
+  - 1/2 cup sugar    
+  - 1/4 cup brown sugar   
+  - mix until the consistency of wet sand 
+ 
+Note that in computer programming terms butter, sugar, and brown sugar are the inputs or **arguments** needed for a function. The wet sand mixture is the **return value** of the process. 
+
+In the final step, we will begin to implement code. 
+
+```r
+# 1. Preheat the oven. 
+#    - preheat to 375 degrees 
+
+preheat_oven <- function( temp=375 )
+{
+   start_oven( temp )
+   return( NULL )
+}
+
+
+# 2. In a large bowl, mix butter with the sugars until well-combined. 
+#    - 1/3 cup butter    
+#    - 1/2 cup sugar    
+#    - 1/4 cup brown sugar   
+#    - mix until the consistency of wet sand 
+
+mix_sugar <- function( butter=0.33, sugar=0.5, brown.sugar=0.25 )
+{
+   sugar.mixture <- mix( butter, sugar, brown.sugar )
+   return( sugar.mixture )
+}
+
+
+# 3. Stir in vanilla and egg until incorporated. 
+#    - add to sugar mixture 
+#    - mix until consistency of jelly 
+
+add_wet_ingredients <- function( sugar=sugar.mixture, eggs=2, vanilla=2 )
+{
+   # note that the results from the previous step are the inputs into this step
+}
+```
+
+We are describing here the process of writing pseudo-code. It it the practice of:
+
+1. Breaking an analytical task into discrete steps. 
+2. Noting the inputs and logic needed at each step. 
+3. Implementing code last. 
+
+Pseudo-code helps you start the process and work incrementally. It is important because the part of your brain that does general problem-solving (creating the basic recipe) is different than the part that drafts specific syntax in a langauge and de-bugs the code. If you jump right into the code it is easy to get lost or derailed.  
+
+More importantly, pseudo-code captures the problem logic, and thus it is independet of any specific computer language. When collaborating on projects one person might generate the system logic, and another might implement. So it is important to practice developing a general overview of your task at hand. 
+
+Here are some helpful examples: 
+
+* [Pseudocode guide](https://www.vikingcodeschool.com/software-engineering-basics/what-is-pseudo-coding)
+* [Khan Academy video](https://www.khanacademy.org/computing/computer-programming/programming/good-practices/pt/planning-with-pseudo-code) 
+
+
+<br>
+<br>
 
 
 
