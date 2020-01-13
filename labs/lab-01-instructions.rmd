@@ -1,19 +1,20 @@
 ---
-title: 'Lab 01 - Functions and Vectors'
+title: 'Lab 01 - Control Structures'
 output:
   html_document:
     theme: readable
     df_print: paged
     highlight: tango
+    include:
+      after_body: footer.html
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, message=F, warning=F)
+knitr::opts_chunk$set(echo = TRUE, message=F, warning=F, eval=F)
 library( dplyr )
 library( pander )
 ```
 
-#### [CPP 526: Foundations of Data Science I](https://ds4ps.org/cpp-526-fall-2019/)
 
 <br>
 
@@ -22,158 +23,223 @@ library( pander )
 
 <br>
 
-#### This lab offers practice with some basic R functions for summarizing vectors.
+For this lab you will design solution to the [Monty Hall Problem](http://www.montyhallproblem.com/).
+
+When the mathematical solution is beyond your reach, a good tractable way to approach these types of analytical problems is to write a program to solve it for you. In this case, we can create a simulation that allows us to play the game thousands of times, and record the results for the two strategies – staying with the initial door or switching (we already know that switching is superior).
+
+You will need to design a virtual game by creating a function for each step of the game. The virtual game will be played by running the functions in order in a script (which we will use next week to create a simulation to test strategies in the game). 
+
+1.	One function that sets up the game (three doors, one car, two goats).
+2.	One function that selects a door for your first guess.
+3.	One function that reveals a goat for the host.
+4.	One function that makes your final pick (depending upon if you intend to stay or switch).
+5.	One function that decides if you win the car or not.
 
 
-I have provided you with a **LAB-01 RMD template** to get you started: 
+The five functions form the basic steps of the virtual game. 
 
+For your homework, submit your knitted markdown file with the following:
 
-[![](images/download.png)](https://www.dropbox.com/s/43dj0oszgg34clc/Lab-01-LastName.Rmd?dl=1)
+* Your five functions, each in its own code chunk.
+* Below each include another chunk that tests the function using appropriate arguments and input data. 
 
+Note that you will need to think carefully about input arguments and return values for each function. Some function do not need arguments. 
 
---- 
+The first function that creates a new game, for example, does not require any additional information other than a new game is required. It will randomly assign the two goats and one car to the three doors in the game and return the game set-up. 
 
-<br><br>
-
-## Functions
-
-You will use the following functions for this lab: 
-
-```{r,eval=F}
-names()                 # variable names
-head()                  # preview dataset
-length()                # vector length (number of elements)
-dim(), nrow(), ncol()   # dataset dimensions
-sum(), summary()        # summarize numeric vectors
-table()                 # summarize factors / character vectors
-```
-
-<br><br>
-
-
-
-# Data
-
-This lab uses **city tax parcel data** from Syracuse, NY. [ [Data Dictionary](https://ds4ps.github.io/Data-Science-Class/DATA/syr_parcels.html) ]
-
-* Each house, business, park or empty lot in the city sits on a parcel of land, and the tax rate for that parcel is determined by the city. 
-* All of the characteristics of each parcel is stored in a central database, along with information about the land use classifications, owners, and whether the property is up-to-date on taxes and water bills.  
-* Each row represents one tax parcel, and all tax parcels in the city are recorded in the dataset.  
-
-```{r, echo=F}
-URL <- "https://raw.githubusercontent.com/DS4PS/Data-Science-Class/master/DATA/syr_parcels.csv"
-dat <- read.csv( URL, stringsAsFactors=FALSE )
-head( dat, 10 ) # show first ten rows of data
-```
-
-<br>
-<br>
-
-
-## Loading Data Into R
-
-You can load the dataset by including the following code chunk in your file: 
-
-```{r, eval=F}
-URL <- "https://raw.githubusercontent.com/DS4PS/Data-Science-Class/master/DATA/syr_parcels.csv"
-dat <- read.csv( URL, stringsAsFactors=FALSE )
-```
-
-Note that referencing variables in R requires both the **dataset name** and **variable name**, separated by the `$` operator:
-
-```{r, eval=F}
-summary( dat$acres )
-```
-
-Unlike other stats programs, you can have several datasets loaded at the same time in R. They will often have variables with the same name (if you create a subset, for example, and save it as a new object you will have two datasets with identical names). To avoid conflicts R forces you to use the `dataset$variable` convention.
-
-
-<br><br>
-
-# Lab Instructions
-
-Answer the following questions using the Syracuse parcels dataset and the functions listed. 
-
-Your solution should include a written response to the question, as well as the code used to generate the result.
-
-
---- 
-
-
-
-#### 1. How many tax parcels are in Syracuse? 
-
-> dataset dimensions: **dim()** or **nrow()** 
-
-<br>
-    
-#### 2. How many acres of land are in syracuse?
-
-> **sum()** over the numeric **acres** vector
-
-<br>
-
-
-#### 3. How many vacant BUILDINGS are there in Syracuse?
-
-> **sum()** over the **vacantbuil** logical vector
-
-<br>
-
-    
-#### 4. What proportion of parcels are tax exempt?
-
-> **sum()** plus **length()** functions withthe logical **tax.exempt** vector
-
-<br>
-
-
-    
-#### 5. Which neighborhood contains the most tax parcels?
-
-> **table()** with the **neighborhood** variable
-
-<br>
-
-    
-#### 6. Which neighborhood contains the most vacant LOTS?
-
-> **table()** with the **neighborhood** and **land_use** variables
+For the final function, however, in order to determine if the player has won we need information about the door they have selected and the game set-up in order to evaluate whether they win the car or the goat. 
 
 
 ---
 
 
-<br>
 
-**HELPFUL HINTS:**
-
-
-When you apply a **sum()** function to a numeric vector it returns the sum of all elements in the vector. 
-
-```{r, eval=F}
-sum( c(10,20,5) )  # 35
-```
-
-When you apply a **sum()** function to a logical vector, it will count all of the TRUEs:
-
-```{r, eval=F}
-x <- c( TRUE, TRUE, FALSE, FALSE, FALSE )
-sum( x )                # number of TRUEs
-sum( x ) / length( x )  # proportion of TRUEs
-```
+Here is some code to get you started. 
 
 
-R wants to make sure you are aware of missing values, so it will return NA (not available) for functions performed on vectors with missing values. 
 
-Add the 'NA remove' argument (`na.rm=TRUE`) to functions to ignore missing values: 
 
-```{r, eval=F}
-sum( dat$star, na.rm=T )
+
+## STEP 1 - CREATE A NEW GAME
+
+```{r}
+create_game <- function( )
+{
+
+    a.game <- sample( x=c("goat","goat","car"), size=3, replace=F )
+ 
+    return( a.game )
+} 
+
 ```
 
 
----
+
+**Test of Function:**
+
+```{r}
+# try three times to see randomization 
+create_game()  
+create_game() 
+create_game() 
+```
+
+
+
+
+
+
+
+
+
+## STEP 2 - SELECT A DOOR 
+
+The contestant makes their first selection. Write a function to select a door at random.  
+
+```{r}
+select_door <- function( )
+{
+
+   # YOUR CODE HERE...
+   
+   return( a.pick )  # number between 1 and 3
+
+}
+```
+
+
+```{r}
+# test the function
+select_door()
+select_door()
+select_door()
+```
+
+
+
+
+
+## STEP 3 - HOST OPENS GOAT DOOR
+
+
+Note to call this function you need information from previous functions. 
+
+The host will always open a door with a goat behind it. But it can't be a door the contestant has already selected. So it must be a door that is not a car and not a current contestant selection. 
+
+Note that if the contestant selects the car on the first guess the host can open either door, but if the contestant selects a goat the host only has one option. 
+
+
+```{r}
+open_goat_door <- function( game, a.pick )
+{
+
+   # YOUR CODE HERE...
+
+   return( opened.door ) # number between 1 and 3
+
+}
+```
+
+
+
+```{r}
+# test it
+
+this.game <- create_game()
+
+this.game
+
+my.initial.pick <- select_door()
+
+my.initial.pick
+
+open_goat_door( this.game, my.initial.pick )
+
+```
+
+
+
+
+## STEP 4 - CHANGE DOORS
+
+
+The contestant is given the option to change from their initial selection to the other door that is still closed. The function will represent the game-playing strategy as the argument **stay=TRUE** or **stay=FALSE**. 
+
+
+```{r}
+change_door <- function( stay=T, opened.door, a.pick )
+{
+
+   # YOUR CODE HERE...
+
+   return( final.pick )  # number between 1 and 3
+
+}
+```
+
+
+
+```{r}
+# test it
+
+opened.door <- open_goat_door( this.game, my.initial.pick )
+
+change_door( stay=T, opened.door=opened.door, a.pick=my.initial.pick )
+change_door( stay=F, opened.door=opened.door, a.pick=my.initial.pick )
+
+my.final.pick <- change_door( stay=F, opened.door=opened.door, a.pick=my.initial.pick )
+
+this.game
+my.initial.pick
+my.final.pick 
+```
+
+
+
+
+
+## STEP 5 - DETERMINE IF CONTENSTANT HAS WON
+
+
+```{r}
+determine_winner <- function( final.pick, game )
+{
+
+   if( ...YOUR CODE HERE... )
+   {
+      return( "WIN" )
+   }
+   if( ...YOUR CODE HERE... )
+   {
+      return( "LOSE" )
+   }
+
+}
+```
+
+
+```{r}
+# test code
+
+this.game
+my.initial.pick
+
+my.final.pick <- changeDoor( stay=T, opened.door=opened.door, a.pick=my.initial.pick )
+determine_winner( final.pick=my.final.pick, game=this.game )
+
+my.final.pick <- changeDoor( stay=F, opened.door=opened.door, a.pick=my.initial.pick )
+determine_winner( final.pick=my.final.pick, game=this.game )
+```
+
+
+
+
+
+
+
+
+
+-----
 
 
 <br>
@@ -200,7 +266,7 @@ See [Google's R Style Guide](https://google.github.io/styleguide/Rguide.xml) for
 
 ## Markdown Trouble?
 
-If you are having problems with your RMD file, visit the [**RMD File Styles and Knitting Tips**](https://ds4ps.org/cpp-526-fall-2019/labs/r-markdown-files.html) manual.
+If you are having problems with your RMD file, visit the [**RMD File Styles and Knitting Tips**](https://ds4ps.org/cpp-526-spr-2020/labs/r-markdown-files.html) manual.
 
 
 ### Notes on Knitting
@@ -220,5 +286,24 @@ blockquote {
     font-size: 18px;
     border-left: 5px solid lightgray;
 }
+.footer {
+  background-color:#726e6e;
+  height:100px;
+  color:white;
+  padding: 20px 3px 20px 3px;
+  margin:0px;
+}
+.footer a {
+  color: orange;
+}
+
+.footer body{
+     font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+     font-size:calc(1.5em + 0.25vw);
+     font-weight:300;line-height:1.65;
+     -webkit-font-smoothing:antialiased;
+     -moz-osx-font-smoothing:grayscale;
+     margin-left:20%;
+     margin-right:20%}
 </style>
 
