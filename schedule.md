@@ -79,9 +79,7 @@ b1 = cov(x,y) / var(x)
 
 ----
 
-These courses are designed to be interactive, and a lot of learning occurs by practicing the technical jargon from the field and learning how to talk about data and models. 
 
-Please reach out if you have questions or feel stuck!  
 
 <br>
 <br>
@@ -96,71 +94,65 @@ Please reach out if you have questions or feel stuck!
 
 
 
-** Week 1 - Functions and Vectors 
+** Week 1 - Control Structures  
 
 *** { @unit = "", @title = "Unit Overview", @foldout  }
 
 
 ## Description
 
-This section introduces functions and vectors, two important building blocks of data programming. 
+This section introduces control structures that serves to incorporate decision-making into computer code. It enables things like *if-then* logic to determine what code should be used based upon specified conditions. 
 
 
 ## Learning Objectives
 
 Once you have completed this section you will be able to 
-* create new objects in R 
-* use functions 
-* summarize vectors by type
-  - numeric vectors 
-  - character vectors 
-  - logical vectors 
+* implement if-else statements 
+* use while loops 
+* use functions as steps in problem-solving 
 
+## Lab
 
-
-## Lab 
-
-Lab-01 covers the following topics:
-
-* R Markdown (template provided)
-* Vectors
-  - numeric 
-  - character 
-  - factor 
-  - logical 
-
-**Functions**
-
-```r
-names()                 # variable names
-head()                  # preview dataset
-$ operator              # reference a vector inside a dataset
-length()                # vector dimensions
-dim(), nrow(), ncol()   # dataset dimensions
-sum(), summary()        # summarize numeric vectors
-table()                 # summarize factors / character vectors
-```
-
-**Data**:
-
-Syracuse tax parcels: [ [documentation](https://ds4ps.org/Data-Science-Class/DATA/syr_parcels.html) ]
-
-```r
-URL <- "https://raw.githubusercontent.com/DS4PS/Data-Science-Class/master/DATA/syr_parcels.csv"
-dat <- read.csv( URL, stringsAsFactors=FALSE )
-head( dat )
-```
-
-**Downtown Syracuse**
-
-![](https://github.com/DS4PS/dp4ss-textbook/blob/master/figures/downtown-syr.png?raw=true)
-
-**All 42,000 Parcels**
-
-![](https://github.com/DS4PS/dp4ss-textbook/blob/master/figures/syracus-parcels.png?raw=true)
+Your assignment this week will be to design computer code to simulate the steps in the game show Let's Make a Deal. 
 
 <br>
 <br>
+
+
+
+*** { @unit = "", @title = "Readings", @reading, @foldout  }
+
+<br>
+<br>
+
+## Review
+
+Please revisit the following chapter from last semester:
+
+[Functions](http://ds4ps.org/dp4ss-textbook/ch-040-functions.html)
+
+
+## Assigned Reading
+
+Required:
+
+[Control Structures in R](https://bookdown.org/rdpeng/rprogdatascience/control-structures.html)
+
+[Scope](https://bookdown.org/rdpeng/rprogdatascience/scoping-rules-of-r.html)
+
+
+## Recommended Reading 
+
+This topic builds off of the use of loops and thus is a little more advanced - we will cover it in CPP 528. It would not hurt to preview the topic now, though. 
+
+[Don't Loop - Apply](https://bookdown.org/rdpeng/rprogdatascience/loop-functions.html)
+
+[Simulation](https://bookdown.org/rdpeng/rprogdatascience/simulation.html) 
+
+<br>
+<br>
+
+
 
 
 *** { @unit = "", @title = "Psuedo-Code", @lecture, @foldout  }
@@ -258,90 +250,6 @@ Here are some helpful examples:
 
 
 
-*** { @unit = "", @title = "Control Structures", @reading, @foldout  }
-
-
-
-
-
-
-*** { @unit = "", @title = "Readings", @reading, @foldout  }
-
-<br>
-<br>
-
-## Review
-
-Please revisit the following chapter from last semester:
-
-[Functions](http://ds4ps.org/dp4ss-textbook/ch-040-functions.html)
-
-
-## Assigned Reading
-
-Required:
-
-[Control Structures in R](https://bookdown.org/rdpeng/rprogdatascience/control-structures.html)
-
-[Scope](https://bookdown.org/rdpeng/rprogdatascience/scoping-rules-of-r.html)
-
-
-## Recommended Reading 
-
-This topic builds off of the use of loops and thus is a little more advanced - we will cover it in CPP 528. It would not hurt to preview the topic now, though. 
-
-[Don't Loop - Apply](https://bookdown.org/rdpeng/rprogdatascience/loop-functions.html)
-
-[Simulation](https://bookdown.org/rdpeng/rprogdatascience/simulation.html) 
-
-<br>
-<br>
-
-
-
-
-
-*** { @unit = "Due Jan 17th", @title = "Discussion Topic: The Promise of Big and Open Data", @assignment, @foldout  }
-
-## The Promise of Big, Open Data
-
-
-The world is simultaneously generating more data than it has ever before, as well as pushing for policies for making government data more accessible and democratic. These trends and movements is an important enabling aspect of data science, becuse it provides opportunity for real insights that can change our understanding of systems and allow us to hold institutions accountable.
-
-So ignoring potential problems with big and open data for now, read about two interesting cases where big and open data have offered deep insights into city planning and human nature. 
-
-"[A Data Analyst's Blog](https://www.npr.org/sections/alltechconsidered/2014/11/28/367046864/a-data-analysts-blog-is-transforming-how-new-yorkers-see-their-city
-) Is Transforming How New Yorkers See Their City", NPR, Nov 2018.
-
-[How a blog saved OK Cupid](https://fivethirtyeight.com/features/christian-rudder-dataclysm-okcupid/), FiveThirtyEight Blog, Nov 2014.
-
-
-<br> 
-
-**ASSIGNMENT:** 
-
-> For your discussion topic this week, find one data-driven blog post from Ben Wellington's [I Quant NY](http://iquantny.tumblr.com/) and/or OK Cupid's [OK Trends](https://theblog.okcupid.com/tagged/data) where you discovered something cool that you did not know, and share it with the group. In your post highlight what is interesting about the example, and what data made it possible.
-
-**Please post your reflection as a new pin on YellowDig.**
-
-<a class="uk-button uk-button-primary" href="{{page.canvas.yellowdig_url}}">Post to Yellowdig</a>
-
-<br>
-
-You can also check out Ben's [Ted Talk](https://www.youtube.com/watch?v=6xsvGYIxJok), or this short interview. 
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ZTdPpoUp25w?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-
-<br>
-
-**NOTE:** 
-
-You get points on Yellowdig by interacting with content. That means creating new posts and participating in posts that your classmates create. Your Yellowdig posts are due on Friday, but you gain points throughout the week by participating in discussions. 
-
-You can earn up to 20 points a week, and points reset on Fridays. You need to earn 100 points throughout the seven-week term, which means averaging 15 points a week. 
-
-<br>
-<br>
 
 
 
@@ -350,9 +258,20 @@ You can earn up to 20 points a week, and points reset on Fridays. You need to ea
 
 <br>
 
-## Lab-01 - Practice with Vectors
+## Lab-01 - Control Structures 
 
-<a class="uk-button uk-button-default" href="https://ds4ps.org/cpp-526-spr-2020/labs/lab-01-instructions.html">LAB-01 Instructions</a>
+This lab is based upon the famous [Monty Hall Problem](http://www.montyhallproblem.com/). 
+
+Although there was much debate about the correct solution when it was initially introduced there are many concise explanations of the proper solution:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/9vRUxbzJZ9Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+The Monty Hall Problem is a great example of a mathematical problem that might be hard to solve using a mathematical proof, but it is fairly easy to solve using simulation. Since it is just a game with simple and explicit rules we can build our own virtual version. Then we can compare how outcomes differ when we deploy the two different strategies for selecting doors. 
+
+In Lab 01 we will use control structures to build a virtual version of the game. In Lab 02 we will use simulation to play the game thousands of times so that we can get stable estimates of the payoff of each strategy. 
+
+
+<a class="uk-button uk-button-default" href="https://ds4ps.org/cpp-527-spr-2020/labs/lab-01-instructions.html">LAB-01 Instructions</a>
 
 ## Submit Solutions to Canvas:
 
