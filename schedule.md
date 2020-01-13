@@ -38,7 +38,7 @@ Submit Buttons -
 
 ## Welcome Back!
 
-CPP 527 is the second course in the Foundations of Data Science sequence. This semester 
+CPP 527 is the second course in the Foundations of Data Science sequence. This semester extends work done in CPP 526 by introducing programming topics like control structures, loops, and regular expressions that are necessary for building simulations and specialized applications in R. We will also cover the foundations of document design using both GitHub pages (free websites like this one) and customized RMD templates so that you can begin developing custom reporting formats so that enable you to better structure results from analytical projects or automate tasks. 
 
 <br>
 <br>
