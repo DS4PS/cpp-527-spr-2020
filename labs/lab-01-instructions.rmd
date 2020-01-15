@@ -235,9 +235,21 @@ determine_winner( final.pick=my.final.pick, game=this.game )
 
 
 
+## Challenge Questions
 
+**PART 01:**
 
+We are building functions to play a game in a static world. There are always three doors, one car, and two goats. 
 
+What happens if we are in a dynamic world? The game can have three or more doors (in a game with two doors there would be no switching so there is no strategy to study). And we can also have one or more cars up to N-2 (N being the number of doors). 
+
+How would you change the code to model this new world? 
+
+**PART 02:**
+
+Let's change the rules a little to make outcomes more interesting. Create a board with 5 doors and 2 cars. After the contestant makes an initial selection the host will open one car door and one goat door. If the contestand decides to switch they then have to select from the two remaining doors 
+
+How does this new board change the pay-off from the game? Is switching still the best strategy? 
 
 -----
 
