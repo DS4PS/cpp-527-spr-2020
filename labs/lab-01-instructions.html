@@ -1841,16 +1841,19 @@ $(document).ready(function () {
 <a class="sourceLine" id="cb10-8" title="8"></a>
 <a class="sourceLine" id="cb10-9" title="9">my.final.pick &lt;-<span class="st"> </span><span class="kw">changeDoor</span>( <span class="dt">stay=</span>F, <span class="dt">opened.door=</span>opened.door, <span class="dt">a.pick=</span>my.initial.pick )</a>
 <a class="sourceLine" id="cb10-10" title="10"><span class="kw">determine_winner</span>( <span class="dt">final.pick=</span>my.final.pick, <span class="dt">game=</span>this.game )</a></code></pre></div>
+<p><br> <br></p>
 </div>
 <div id="challenge-questions" class="section level2">
 <h2>Challenge Questions</h2>
+<p><br></p>
 <p><strong>PART 01:</strong></p>
-<p>We are building functions to play a game in a static world. There are always three doors, one car, and two goats.</p>
-<p>What happens if we are in a dynamic world? The game can have three or more doors (in a game with two doors there would be no switching so there is no strategy to study). And we can also have one or more cars up to N-2 (N being the number of doors).</p>
-<p>How would you change the code to model this new world?</p>
-<p><strong>PART 02:</strong></p>
 <p>Let’s change the rules a little to make outcomes more interesting. Create a board with 5 doors and 2 cars. After the contestant makes an initial selection the host will open one car door and one goat door. If the contestand decides to switch they then have to select from the two remaining doors</p>
 <p>How does this new board change the pay-off from the game? Is switching still the best strategy?</p>
+<p><br></p>
+<p><strong>PART 02:</strong></p>
+<p>We are building functions to play a game in a static world. There are always three doors, one car, and two goats.</p>
+<p>What happens if we are in a dynamic world? The game can have three or more doors (in a game with two doors there would be no switching so there is no strategy to study). And we can also have one or more cars up to N-2 (N being the number of doors, there always need to be at least two goats so that the host can open a goat door, even if the contestant selected a goat in the first round).</p>
+<p>How would you change the code to model this new world?</p>
 <hr />
 <p><br></p>
 </div>
