@@ -243,7 +243,7 @@ determine_winner( final.pick=my.final.pick, game=this.game )
 
 **PART 01:**
 
-Let's change the rules a little to make outcomes more interesting. Create a board with 5 doors and 2 cars. After the contestant makes an initial selection the host will open one car door and one goat door. If the contestand decides to switch they then have to select from the two remaining doors 
+Let's change the rules a little to make outcomes more interesting. Create a board with 5 doors and 2 cars. After the contestant makes an initial selection the host will open one car door and one goat door. If the contestand decides to switch they then have to select from the two remaining doors.
 
 How does this new board change the pay-off from the game? Is switching still the best strategy? 
 
@@ -308,7 +308,7 @@ blockquote {
 }
 .footer {
   background-color:#726e6e;
-  height:100px;
+  height:200px;
   color:white;
   padding: 20px 3px 20px 3px;
   margin:0px;
