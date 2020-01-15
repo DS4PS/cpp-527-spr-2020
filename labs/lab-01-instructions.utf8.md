@@ -9,11 +9,7 @@ output:
       after_body: footer.html
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, message=F, warning=F, eval=F)
-library( dplyr )
-library( pander )
-```
+
 
 
 <br>
@@ -62,7 +58,8 @@ Here is some code to get you started.
 
 ## STEP 1 - CREATE A NEW GAME
 
-```{r}
+
+```r
 create_game <- function( )
 {
 
@@ -70,14 +67,14 @@ create_game <- function( )
  
     return( a.game )
 } 
-
 ```
 
 
 
 **Test of Function:**
 
-```{r}
+
+```r
 # try three times to see randomization 
 create_game()  
 create_game() 
@@ -96,7 +93,8 @@ create_game()
 
 The contestant makes their first selection. Write a function to select one door at random.  
 
-```{r}
+
+```r
 select_door <- function( )
 {
 
@@ -108,7 +106,8 @@ select_door <- function( )
 ```
 
 
-```{r}
+
+```r
 # test the function
 select_door()
 select_door()
@@ -129,7 +128,8 @@ The host will always open a door with a goat behind it. But it can't be a door t
 Note that if the contestant selects the car on the first guess the host can open either door, but if the contestant selects a goat the host only has one option. 
 
 
-```{r}
+
+```r
 open_goat_door <- function( game, a.pick )
 {
 
@@ -142,7 +142,8 @@ open_goat_door <- function( game, a.pick )
 
 
 
-```{r}
+
+```r
 # test it
 
 this.game <- create_game()
@@ -154,7 +155,6 @@ my.initial.pick <- select_door()
 my.initial.pick
 
 open_goat_door( this.game, my.initial.pick )
-
 ```
 
 
@@ -166,7 +166,8 @@ open_goat_door( this.game, my.initial.pick )
 The contestant is given the option to change from their initial selection to the other door that is still closed. The function will represent the game-playing strategy as the argument **stay=TRUE** or **stay=FALSE**. 
 
 
-```{r}
+
+```r
 change_door <- function( stay=T, opened.door, a.pick )
 {
 
@@ -179,7 +180,8 @@ change_door <- function( stay=T, opened.door, a.pick )
 
 
 
-```{r}
+
+```r
 # test it
 
 opened.door <- open_goat_door( this.game, my.initial.pick )
@@ -201,7 +203,8 @@ my.final.pick
 ## STEP 5 - DETERMINE IF CONTENSTANT HAS WON
 
 
-```{r}
+
+```r
 determine_winner <- function( final.pick, game )
 {
 
@@ -218,7 +221,8 @@ determine_winner <- function( final.pick, game )
 ```
 
 
-```{r}
+
+```r
 # test code
 
 this.game
