@@ -65,9 +65,7 @@ Here is some code to get you started.
 ```{r}
 create_game <- function( )
 {
-
     a.game <- sample( x=c("goat","goat","car"), size=3, replace=F )
- 
     return( a.game )
 } 
 
@@ -195,13 +193,13 @@ my.final.pick
 ```
 
 
-
+<br>
 
 
 ## STEP 5 - DETERMINE IF CONTENSTANT HAS WON
 
 
-```{r}
+```{r, eval=F}
 determine_winner <- function( final.pick, game )
 {
 
@@ -231,6 +229,40 @@ my.final.pick <- changeDoor( stay=F, opened.door=opened.door, a.pick=my.initial.
 determine_winner( final.pick=my.final.pick, game=this.game )
 ```
 
+
+<br>
+
+## TEST THE GAME
+
+```{r}
+# your game "recipe" 
+this.game <- create_game()
+my.initial.pick <- select_door()
+opened.goat.door <- open_goat_door( this.game, my.initial.pick )
+# save results for both strategies for the game
+my.final.pick.stay <- change_door( stay=T, opened.door=opened.goat.door, a.pick=my.initial.pick )
+my.final.pick.switch <- change_door( stay=F, opened.door=opened.goat.door, a.pick=my.initial.pick )
+
+# print game details and if you won
+
+# if you stayed:
+paste0( "GAME SETUP" )
+this.game
+paste0( "My initial selection: ", my.initial.pick )
+paste0( "The opened goat door: ", opened.goat.door )
+paste0( "My final selection: ", my.final.pick.stay )
+paste0( "GAME OUTCOME:" )
+determine_winner( final.pick=my.final.pick.stay, game=this.game )
+
+# if you switched:
+paste0( "GAME SETUP" )
+this.game
+paste0( "My initial selection: ", my.initial.pick )
+paste0( "The opened goat door: ", opened.goat.door )
+paste0( "My final selection: ", my.final.pick.switch )
+paste0( "GAME OUTCOME:" )
+determine_winner( final.pick=my.final.pick.switch, game=this.game )
+```
 
 
 <br>
@@ -306,24 +338,6 @@ blockquote {
     font-size: 18px;
     border-left: 5px solid lightgray;
 }
-.footer {
-  background-color:#726e6e;
-  height:200px;
-  color:white;
-  padding: 20px 3px 20px 3px;
-  margin:0px;
-}
-.footer a {
-  color: orange;
-}
 
-.footer body{
-     font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-     font-size:calc(1.5em + 0.25vw);
-     font-weight:300;line-height:1.65;
-     -webkit-font-smoothing:antialiased;
-     -moz-osx-font-smoothing:grayscale;
-     margin-left:20%;
-     margin-right:20%}
 </style>
 

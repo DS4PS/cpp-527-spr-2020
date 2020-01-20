@@ -7,6 +7,7 @@
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 
@@ -1550,7 +1551,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
       if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
       var style = rule.style.cssText;
       // check if color or background-color is set
-      if (rule.style.color === '' || rule.style.backgroundColor === '') continue;
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
       // replace div.sourceCode by a pre.sourceCode rule
       sheets[i].deleteRule(j);
       sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
@@ -1593,9 +1594,7 @@ h6 {
 </style>
 
 
-</head>
 
-<body>
 
 <style type="text/css">
 .main-container {
@@ -1609,7 +1608,6 @@ code {
 }
 img {
   max-width:100%;
-  height: auto;
 }
 .tabbed-pane {
   padding-top: 12px;
@@ -1626,8 +1624,6 @@ summary {
 </style>
 
 
-
-<div class="container-fluid main-container">
 
 <!-- tabsets -->
 
@@ -1685,20 +1681,17 @@ summary {
 }
 </style>
 
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
-  });
-});
-</script>
-
 <!-- code folding -->
 
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
 
 
 
@@ -1815,6 +1808,7 @@ $(document).ready(function () {
 <a class="sourceLine" id="cb8-10" title="10">this.game</a>
 <a class="sourceLine" id="cb8-11" title="11">my.initial.pick</a>
 <a class="sourceLine" id="cb8-12" title="12">my.final.pick </a></code></pre></div>
+<p><br></p>
 </div>
 <div id="step-5---determine-if-contenstant-has-won" class="section level2">
 <h2>STEP 5 - DETERMINE IF CONTENSTANT HAS WON</h2>
@@ -1841,6 +1835,37 @@ $(document).ready(function () {
 <a class="sourceLine" id="cb10-8" title="8"></a>
 <a class="sourceLine" id="cb10-9" title="9">my.final.pick &lt;-<span class="st"> </span><span class="kw">changeDoor</span>( <span class="dt">stay=</span>F, <span class="dt">opened.door=</span>opened.door, <span class="dt">a.pick=</span>my.initial.pick )</a>
 <a class="sourceLine" id="cb10-10" title="10"><span class="kw">determine_winner</span>( <span class="dt">final.pick=</span>my.final.pick, <span class="dt">game=</span>this.game )</a></code></pre></div>
+<p><br></p>
+</div>
+<div id="test-the-game" class="section level2">
+<h2>TEST THE GAME</h2>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1"><span class="co"># your game &quot;recipe&quot; </span></a>
+<a class="sourceLine" id="cb11-2" title="2">this.game &lt;-<span class="st"> </span><span class="kw">create_game</span>()</a>
+<a class="sourceLine" id="cb11-3" title="3">my.initial.pick &lt;-<span class="st"> </span><span class="kw">select_door</span>()</a>
+<a class="sourceLine" id="cb11-4" title="4">opened.goat.door &lt;-<span class="st"> </span><span class="kw">open_goat_door</span>( this.game, my.initial.pick )</a>
+<a class="sourceLine" id="cb11-5" title="5"><span class="co"># save results for both strategies for the game</span></a>
+<a class="sourceLine" id="cb11-6" title="6">my.final.pick.stay &lt;-<span class="st"> </span><span class="kw">change_door</span>( <span class="dt">stay=</span>T, <span class="dt">opened.door=</span>opened.goat.door, <span class="dt">a.pick=</span>my.initial.pick )</a>
+<a class="sourceLine" id="cb11-7" title="7">my.final.pick.switch &lt;-<span class="st"> </span><span class="kw">change_door</span>( <span class="dt">stay=</span>F, <span class="dt">opened.door=</span>opened.goat.door, <span class="dt">a.pick=</span>my.initial.pick )</a>
+<a class="sourceLine" id="cb11-8" title="8"></a>
+<a class="sourceLine" id="cb11-9" title="9"><span class="co"># print game details and if you won</span></a>
+<a class="sourceLine" id="cb11-10" title="10"></a>
+<a class="sourceLine" id="cb11-11" title="11"><span class="co"># if you stayed:</span></a>
+<a class="sourceLine" id="cb11-12" title="12"><span class="kw">paste0</span>( <span class="st">&quot;GAME SETUP&quot;</span> )</a>
+<a class="sourceLine" id="cb11-13" title="13">this.game</a>
+<a class="sourceLine" id="cb11-14" title="14"><span class="kw">paste0</span>( <span class="st">&quot;My initial selection: &quot;</span>, my.initial.pick )</a>
+<a class="sourceLine" id="cb11-15" title="15"><span class="kw">paste0</span>( <span class="st">&quot;The opened goat door: &quot;</span>, opened.goat.door )</a>
+<a class="sourceLine" id="cb11-16" title="16"><span class="kw">paste0</span>( <span class="st">&quot;My final selection: &quot;</span>, my.final.pick.stay )</a>
+<a class="sourceLine" id="cb11-17" title="17"><span class="kw">paste0</span>( <span class="st">&quot;GAME OUTCOME:&quot;</span> )</a>
+<a class="sourceLine" id="cb11-18" title="18"><span class="kw">determine_winner</span>( <span class="dt">final.pick=</span>my.final.pick.stay, <span class="dt">game=</span>this.game )</a>
+<a class="sourceLine" id="cb11-19" title="19"></a>
+<a class="sourceLine" id="cb11-20" title="20"><span class="co"># if you switched:</span></a>
+<a class="sourceLine" id="cb11-21" title="21"><span class="kw">paste0</span>( <span class="st">&quot;GAME SETUP&quot;</span> )</a>
+<a class="sourceLine" id="cb11-22" title="22">this.game</a>
+<a class="sourceLine" id="cb11-23" title="23"><span class="kw">paste0</span>( <span class="st">&quot;My initial selection: &quot;</span>, my.initial.pick )</a>
+<a class="sourceLine" id="cb11-24" title="24"><span class="kw">paste0</span>( <span class="st">&quot;The opened goat door: &quot;</span>, opened.goat.door )</a>
+<a class="sourceLine" id="cb11-25" title="25"><span class="kw">paste0</span>( <span class="st">&quot;My final selection: &quot;</span>, my.final.pick.switch )</a>
+<a class="sourceLine" id="cb11-26" title="26"><span class="kw">paste0</span>( <span class="st">&quot;GAME OUTCOME:&quot;</span> )</a>
+<a class="sourceLine" id="cb11-27" title="27"><span class="kw">determine_winner</span>( <span class="dt">final.pick=</span>my.final.pick.switch, <span class="dt">game=</span>this.game )</a></code></pre></div>
 <p><br> <br></p>
 </div>
 <div id="challenge-questions" class="section level2">
@@ -1886,13 +1911,69 @@ blockquote {
     font-size: 18px;
     border-left: 5px solid lightgray;
 }
-.footer {
-  background-color:#726e6e;
-  height:200px;
-  color:white;
-  padding: 20px 3px 20px 3px;
-  margin:0px;
+
+</style>
+</div>
+</div>
+</div>
+
+<div class="footer">
+    <div class="footerFloatOuter"><br></div>
+    <div class="footerFloatInner1">
+
+       <a href="https://ds4ps.org/">
+         <img src="data:image/png;base64,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" alt="ds4ps" width="200" align="middle">
+         <h4 style="text-align: center;color:white;">Data Science for<br>Public Service</h4>
+       </a>
+
+    </div>
+
+    <div class="footerFloatInner2">
+
+     <br>
+     <ul style="list-style-type:none;">
+
+        <br>
+        <li>Labs designed by <a href="https:lecy.info" target="_blank">Jesse D. Lecy</a></li>
+        <li>Source code is available on <a href="https://github.com/DS4PS/" target="_blank">GitHub</a></li>
+        <br>
+        <li>Creative Common License:</li>
+        <li><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"> (CC BY-NC-SA 4.0)</a></li>
+        <br>
+        <li>CPP 527 <a href="https://ds4ps.org/cpp-527-spr-2020/" target="_blank">Foundations of Data Science II</a></li>
+        <li>Part of the <a href="http://ds4ps.org/ms-prog-eval-data-analytics/" target="_blank">MS in Evaluation and Analytics</a></li>
+        <li>@ <a href="https://asuonline.asu.edu/online-degree-programs/graduate/program-evaluation-and-data-analytics-ms/" target="_blank">Arizona State University</a></li>
+        <br>
+        <li>Pages powered by <a href="http://jekyllrb.com" target="_blank" style="color:orange">Jekyll</a></li>
+     </ul>
+
+    </div>
+
+    <div class="footerFloatOuter"><br></div>
+
+</div>
+
+
+
+
+<style>
+
+blockquote {
+    padding: 11px 22px;
+    margin: 0 0 22px;
+    font-size: 18px;
+    border-left: 5px solid lightgray;
 }
+
+.footer {
+  color:white;
+  min-height: 340px;
+  background-color: #696969;
+  padding-bottom: 3em;
+  padding-top: 3em;
+  margin: auto;
+}
+
 .footer a {
   color: orange;
 }
@@ -1904,31 +1985,46 @@ blockquote {
      -webkit-font-smoothing:antialiased;
      -moz-osx-font-smoothing:grayscale;
      margin-left:20%;
-     margin-right:20%}
+     margin-right:20%
+}
+
+.footerFloatOuter {
+	width: 25%;
+	float: left;
+}
+
+.footerFloatInner1 {
+	width: 20%;
+	float: left;
+	align: left;
+	margin-left: 0px;
+}
+
+.footerFloatInner2 {
+	width: 50%;
+	float: left;
+	text-align: left;
+}
+
+
+
+.footer ul li {
+	font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-size:calc(0.55em + 0.25vw) !important;
+  font-weight:300;
+  line-height:1.2 !important;
+  color: #FFF;
+	text-transform: uppercase;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
 </style>
-</div>
-</div>
-</div>
-
-
-<div class="footer">
-<div class="row" align="center">
-
-  Labs designed by <a href="https:lecy.info" target="_blank">Jesse D. Lecy</a><br>
-  Content licensed under Creative Commons: <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"> (CC BY-NC-SA 4.0)</a><br>
-  Source code is available on <a href="https://github.com/DS4PS/cpp-527-spr-2020/tree/master/labs" target="_blank">GitHub</a><br>
-  <br>
-  CPP 527 <a href="https://ds4ps.org/cpp-527-spr-2020/" target="_blank">Foundations of Data Science II</a><br>
-  Part of the <a href="http://ds4ps.org/ms-prog-eval-data-analytics/" target="_blank">MS in Evaluation and Analytics</a><br>
-  @ <a href="https://asuonline.asu.edu/online-degree-programs/graduate/program-evaluation-and-data-analytics-ms/" target="_blank">Arizona State University</a><br>
-
-<br>
-<br>
-<br>
-<br>
-
-</div>
-</div>
 
 
 
@@ -1946,6 +2042,23 @@ $(document).ready(function () {
 
 
 </script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
