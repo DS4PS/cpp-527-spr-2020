@@ -418,7 +418,7 @@ Please review the instructions at the end of the lecture notes:
 
 
 
-<a class="uk-button uk-button-default" href="">LAB-02 Instructions</a>
+<a class="uk-button uk-button-default" href="https://ds4ps.org/cpp-527-spr-2020/lectures/p-02-loops.html#30">LAB-02 Instructions</a>
 
 ## Submit Solutions to Canvas:
 
