@@ -870,7 +870,7 @@ for( i in 1:length(lat) )
 {
   # look up address at 
   # position lat[i] lon[i]
-  results[[i]] 
+  results[[i]]                         #<< 
   <- rev_geocode( lat[i], lon[i] )     #<< 
 }
 dat <- dplyr::bind_rows( results )  #<<
