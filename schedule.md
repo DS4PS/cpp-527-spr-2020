@@ -299,42 +299,27 @@ In Lab 01 we will use control structures to build a virtual version of the game.
 ** Week 2 - Simulations 
 
 
-*** { @unit = "", @title = "Unit Overview" }
+*** { @unit = "", @title = "Unit Overview", @lecture, @foldout }
 
 
 <br>
 
 ## Description
 
-This section introduces logical statements used to create custom groups from your data.  
-
+This section introduces loops. We will use them to create simulations. 
 
 ## Learning Objectives
 
 Once you have completed this section you will be able to 
-* translate human language phrases to a computer language
-* create subsets of data 
-
-## Assigned Reading
-
-Required:
-
-[Group Construction with Logical Statements](http://ds4ps.org/dp4ss-textbook/p-050-business-logic.html)
-
-
-## Lab 
-
-Lab-02 covers the following topics:
-
-* Logical operators
-* Group construction 
-* Descriptive statistics 
+* use a loop responsibly in your code 
+* select appropriate iterators 
+* be mindful of the collector vector needed for the loop 
 
 <br>
 <br>
 
 
-*** { @unit = "", @title = "Readings", @reading }
+*** { @unit = "", @title = "Readings", @reading, @foldout }
 
 <br>
 <br>
@@ -343,7 +328,15 @@ Lab-02 covers the following topics:
 
 Required:
 
-[Group Construction with Logical Statements](http://ds4ps.org/dp4ss-textbook/p-050-business-logic.html)
+[Building Simulations in R: Mastering Loops](https://ds4ps.org/cpp-527-spr-2020/lectures/p-02-loops.html)
+
+[Creating Animations with Loops](https://ds4ps.org/cpp-527-spr-2020/lectures/Animations.html)
+
+Background reading:
+
+[Why Americans Are So Damn Unhealthy, In 4 Shocking Charts](https://www.buzzfeednews.com/article/peteraldhous/american-health-care)
+
+[Buzzfeed Replication Files](https://github.com/BuzzFeedNews/2017-05-us-health-care)
 
 <br>
 <br>
@@ -351,15 +344,54 @@ Required:
 
 
 
-*** { @unit = "FRI Jan 24th", @title = "YellowDig Practice Problems", @assignment }
+*** { @unit = "FRI Jan 24th", @title = "YellowDig Practice Problems", @assignment, @foldout }
 
 <br>
 
+How can you make interesting animations in R? 
 
+We covered a very basic animation - a random walk - in the lecture notes. 
+
+Start game with $10 in cash and see how long you last. At each step you flip a coin and win a dollar, lose a dollar, or stay the same. How long does the average player survive before going bankrupt? 
+
+```r
+cash <- 10  
+results <- NULL
+count <- 1  
+while( cash > 0 )
+{
+  cash <- cash +   
+    sample( c(-1,0,1), size=1 )  
+  results[count] <- cash  
+  count <- count + 1  
+}
+```
+
+This is a one-dimensional outcome tracked over time. Physicists have used a similar model to examine particle motion. It is called a Brownian Motion model. It is similar to the betting model above except for each time period the particle moves in two dimensions. 
+
+```r
+x <- 0  
+y <- 0 
+for( i in 1:1000 )
+{
+  x[i+1] <- x[i] + rnorm(1)
+  y[i+1] <- y[i] + rnorm(1)
+}
+```
+
+Consider the two following problems. 
+
+(1) How long does the **typical** person take to go bankrupt? If you don't want to do a complicated mathematical proof, you can create a simulation, play the game 10,000 times, then report the average period each game lasted. 
+
+What is the code to make this work? 
+
+(2) Note the trailing tail in the Brownian Motion animation. How would you create that as part of an animation? 
 
 <br>
 
-**Please post your reflection as a new pin on YellowDig:**
+**Post your ideas or solutions on YellowDig:**
+
+Share your ideas about these problems with your classmates. Or share another animation that you found that uses loops. 
 
 <a class="uk-button uk-button-primary" href="{{page.canvas.yellowdig_url}}">YELLOWDIG</a>
 
@@ -370,14 +402,19 @@ Required:
 
 
 
-*** { @unit = "TUES Jan 28th", @title = "Lab 02", @assignment }
+*** { @unit = "TUES Jan 28th", @title = "Lab 02", @assignment, @foldout }
 
 <br>
+
+Please review the instructions at the end of the lecture notes: 
+
+[Building Simulations in R: Mastering Loops](https://ds4ps.org/cpp-527-spr-2020/lectures/p-02-loops.html)
+
 <br>
 
 
 
-<a class="uk-button uk-button-default" href="https://ds4ps.org/cpp-527-spr-2020/labs/lab-02-instructions.html">LAB-02 Instructions</a>
+<a class="uk-button uk-button-default" href="">LAB-02 Instructions</a>
 
 ## Submit Solutions to Canvas:
 
