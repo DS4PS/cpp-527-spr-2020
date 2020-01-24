@@ -379,6 +379,10 @@ for( i in 1:1000 )
 }
 ```
 
+![](https://raw.githubusercontent.com/DS4PS/cpp-527-spr-2020/master/lectures/gifs/brownian_motion.gif)
+
+## Questions 
+
 Consider the two following problems. 
 
 (1) How long does the **typical** person take to go bankrupt? If you don't want to do a complicated mathematical proof, you can create a simulation, play the game 10,000 times, then report the average period each game lasted. 
