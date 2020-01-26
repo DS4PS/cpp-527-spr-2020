@@ -1760,7 +1760,7 @@ summary {
 <a class="sourceLine" id="cb9-11" title="11">}</a>
 <a class="sourceLine" id="cb9-12" title="12"></a>
 <a class="sourceLine" id="cb9-13" title="13">test.cases  <span class="co"># should be 1 or 3</span></a></code></pre></div>
-<pre><code>##  [1] 1 1 1 1 1 1 1 3 1 1</code></pre>
+<pre><code>##  [1] 1 3 1 1 3 3 1 3 1 3</code></pre>
 <p>But we end up with strange results when we first select a goat?</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1">game &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;goat&quot;</span>,<span class="st">&quot;car&quot;</span>,<span class="st">&quot;goat&quot;</span>)</a>
 <a class="sourceLine" id="cb11-2" title="2">a.pick &lt;-<span class="st"> </span><span class="dv">1</span></a>
@@ -1775,14 +1775,16 @@ summary {
 <a class="sourceLine" id="cb11-11" title="11">}</a>
 <a class="sourceLine" id="cb11-12" title="12"></a>
 <a class="sourceLine" id="cb11-13" title="13">test.cases  <span class="co"># should always be 3</span></a></code></pre></div>
-<pre><code>##  [1] 1 1 3 2 2 1 3 2 2 3</code></pre>
+<pre><code>##  [1] 2 3 3 1 2 3 2 3 2 3</code></pre>
 <p>This is a problem! Our function now violates all of the rules by sometimes opening Door 2 with the car behind it, and sometimes opening Door 1, our current selection.</p>
 <p>What is going on here???</p>
-<div id="bug-hunters" class="section level2">
-<h2>Bug Hunters</h2>
+<hr />
 <p><strong>Can anyone figure out the cause of this very subtle but very serious bug???</strong></p>
 <p>I will tell you that the logic of the above functions is correct.</p>
 <p>Maybe look back to the stable solution that uses the if-else structure to test initial cases. Why would that fix the code? Which scenario appears to be problematic?</p>
+<hr />
+<div id="bug-hunters" class="section level2">
+<h2>Bug Hunters</h2>
 <p>This bug demonstrates an important concept in computer science and unit testing - that of an <strong>edge case</strong> - an outcome that is usually the most extreme case possible so it is not properly considered in the code, and as a result functions break when then encounter them.</p>
 <p>For example, if you make a payment on a bill and enter a negative number, do you receive a refund from the company?</p>
 <p>If a user enters text into a numeric field, will that break the code?</p>

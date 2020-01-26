@@ -116,8 +116,7 @@ This is a problem! Our function now violates all of the rules by sometimes openi
 
 What is going on here???
 
-
-## Bug Hunters
+-----------
 
 
 **Can anyone figure out the cause of this very subtle but very serious bug???**
@@ -125,6 +124,12 @@ What is going on here???
 I will tell you that the logic of the above functions is correct. 
 
 Maybe look back to the stable solution that uses the if-else structure to test initial cases. Why would that fix the code? Which scenario appears to be problematic? 
+
+-----------
+
+
+## Bug Hunters
+
 
 This bug demonstrates an important concept in computer science and unit testing - that of an **edge case** - an outcome that is usually the most extreme case possible so it is not properly considered in the code, and as a result functions break when then encounter them. 
 

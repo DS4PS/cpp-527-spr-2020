@@ -158,11 +158,18 @@ for( i in 1:10000 )  # iterator
 table( results.df ) 
 ```
 
-Or to make it a bit easier to interpret: 
+Or to make it a bit easier to interpret, what are the proportion of each outcome? Divide by the total number of games:
+
+```{r}
+( table( results.df ) / 10000 ) %>% 
+  round( 2 )
+```
+
+Or use the table proportions function **prop.table()**. The default is to report each cell as a proportion of the total, **margin=1** returns row proportions (the total is the sum of all values across a row) and **margin=2** returns a column proportion. 
 
 ```{r}
 table( results.df ) %>% 
-  prop.table( margin=1 ) %>% 
+  prop.table( margin=1 ) %>%  # row proportions
   round( 2 )
 ```
 
@@ -186,7 +193,7 @@ results.df <- rbind( results.df, game.outcome )
 ### Note on Append Functions 
 
 
-During simulations we play the game a bunch of times and save the results in the object called *results.df**:
+During simulations we play the game a bunch of times and save the results in the object called **results.df**:
 
 ```{r, eval=F}
 # creating an empty collector object
