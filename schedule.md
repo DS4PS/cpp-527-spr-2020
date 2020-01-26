@@ -454,9 +454,12 @@ Please review the instructions at the end of the lecture notes:
 
 
 
-*** { @unit = "FRI Jan 31st", @title = "YellowDig Practice Problems", @assignment }
+*** { @unit = "FRI Jan 31st", @title = "YellowDig Practice Problems", @assignment, @foldout }
 
 <br>
+
+<a class="uk-button uk-button-default" href="https://ds4ps.org/cpp-527-spr-2020/labs/challenge-question-02.html">PRACTICE QUESTION</a>
+
 <br>
 
 
