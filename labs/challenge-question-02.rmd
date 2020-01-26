@@ -126,6 +126,30 @@ I will tell you that the logic of the above functions is correct.
 
 Maybe look back to the stable solution that uses the if-else structure to test initial cases. Why would that fix the code? Which scenario appears to be problematic? 
 
+This bug demonstrates an important concept in computer science and unit testing - that of an **edge case** - an outcome that is usually the most extreme case possible so it is not properly considered in the code, and as a result functions break when then encounter them. 
+
+For example, if you make a payment on a bill and enter a negative number, do you receive a refund from the company? 
+
+If a user enters text into a numeric field, will that break the code? 
+
+Here is one example of such a case:
+
+```{r}
+x <- c( 5, 40 )
+x[1]
+x[2]
+
+x[2] > x[1]  # 40 is bigger than 5
+
+x <- c( x, "10" )  # add new number to the vector
+
+x[2] > x[1]  # should be TRUE!
+```
+
+
+What happened???
+
+Which edge case should we check for to ensure the code runs correctly here? 
 
 
 <br>
