@@ -296,11 +296,16 @@ The first challenge question required you build a game with 5 doors: 3 goats and
 
 In this new game set-up, is *SWITCH* still the dominant strategy for contestants? 
 
+---- 
+
 Using the solutions provided for Lab 01 (or your own functions if you were able to successfully implement it) wrap the game steps into a single **play_game()** function. Similar to the example above, return a data frame that contains results from one game. 
 
 Use a loop to build a simulation that plays the game 10,000 times. Create a table to report the results.
 
 **Q1: Is _SWITCH_ still the dominant strategy?** Support your answer with your data. 
+
+-----
+
 
 
 ### Part II
@@ -317,6 +322,9 @@ Create three separate simulations, each with 10 doors total but analyzing three 
 
 Use your results to answer the following questions: 
 
+-----
+
+
 **Q1: Is _SWITCH_ still the dominant strategy? Report your chances of winning for each strategy for each scenario.**
 
 **Q2: How much better off are you switching in the original game? How much did it improve your chances of winning?** 
@@ -324,6 +332,9 @@ Use your results to answer the following questions:
 * $Pr( win | switch ) - Pr( win | stay )$  
 
 **Q3: How much better off are you switching in each of the three scenario with 10 doors and 1 to 3 cars?**  
+
+-----
+
 
 <br>
 
