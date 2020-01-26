@@ -4,7 +4,7 @@ title: Schedule
 
 canvas: 
   assignment_url: 'https://canvas.asu.edu/courses/41575/assignments'
-  yellowdig_url: 'https://www.yellowdig.com/board/43206'
+  yellowdig_url: 'https://canvas.asu.edu/courses/41575/assignments/959520'
 ---
  
 <!--- 
@@ -406,7 +406,7 @@ Share your ideas about these problems with your classmates. Or share another ani
 
 
 
-*** { @unit = "TUES Jan 28th", @title = "Lab 02", @assignment, @foldout }
+*** { @unit = "THUR Jan 20th", @title = "Lab 02", @assignment, @foldout }
 
 <br>
 
@@ -418,7 +418,7 @@ Please review the instructions at the end of the lecture notes:
 
 
 
-<a class="uk-button uk-button-default" href="">LAB-02 Instructions</a>
+<a class="uk-button uk-button-default" href="https://ds4ps.org/cpp-527-spr-2020/lectures/p-02-loops.html#30">LAB-02 Instructions</a>
 
 ## Submit Solutions to Canvas:
 
