@@ -300,7 +300,7 @@ Using the solutions provided for Lab 01 (or your own functions if you were able 
 
 Use a loop to build a simulation that plays the game 10,000 times. Create a table to report the results.
 
-**Is _SWITCH_ still the dominant strategy?** Support your answer with your data. 
+**Q1: Is _SWITCH_ still the dominant strategy?** Support your answer with your data. 
 
 
 ### Part II
@@ -317,13 +317,13 @@ Create three separate simulations, each with 10 doors total but analyzing three 
 
 Use your results to answer the following questions: 
 
-**Is _SWITCH_ still the dominant strategy? Report your chances of winning for each strategy for each scenario.**
+**Q1: Is _SWITCH_ still the dominant strategy? Report your chances of winning for each strategy for each scenario.**
 
-**How much better off are you switching in the original game? How much did it improve your chances of winning?** 
+**Q2: How much better off are you switching in the original game? How much did it improve your chances of winning?** 
 
-$Pr( win | switch ) - Pr( win | stay )$
+* $Pr( win | switch ) - Pr( win | stay )$  
 
-**How much better off are you switching in each scenario above?**
+**Q3: How much better off are you switching in each of the three scenario with 10 doors and 1 to 3 cars?**  
 
 <br>
 
