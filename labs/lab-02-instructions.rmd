@@ -378,7 +378,7 @@ Remember to:
 
 
 
-## Some Notes on Constructors 
+# Some Notes on Constructors 
 
 The term **constructors** refers to the act of creating a new object. We have typically used assignment to do this:
 
@@ -638,7 +638,7 @@ play_game()
 
 
 
-### Efficient Collectors 
+## Efficient Collectors 
 
 The examples above used append operators like **rbind()** to build the results data frame inside of a loop:
 
@@ -718,18 +718,18 @@ Even if we do not pre-declare the size of the vector it will still scale well us
 
 <br>
 
-## Markdown Trouble?
-
-If you are having problems with your RMD file, visit the [**RMD File Styles and Knitting Tips**](https://ds4ps.org/cpp-526-spr-2020/labs/r-markdown-files.html) manual.
 
 
-### Notes on Knitting
+# Notes on Knitting
 
 Note that when you knit a file, it starts from a blank slate. You might have packages loaded or datasets active on your local machine, so you can run code chunks fine. But when you knit you might get errors that functions cannot be located or datasets don't exist. Be sure that you have included chunks to load these in your RMD file.
 
 Your RMD file will not knit if you have errors in your code. If you get stuck on a question, just add `eval=F` to the code chunk and it will be ignored when you knit your file. That way I can give you credit for attempting the question and provide guidance on fixing the problem.
 
 
+## Markdown Trouble?
+
+If you are having problems with your RMD file, visit the [**RMD File Styles and Knitting Tips**](https://ds4ps.org/cpp-526-spr-2020/labs/r-markdown-files.html) manual.
 
 
 
