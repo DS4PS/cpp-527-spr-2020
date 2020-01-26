@@ -321,7 +321,7 @@ summary {
 <a class="sourceLine" id="cb1-21" title="21"><span class="kw">play_game</span>()</a></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["strategy"],"name":[1],"type":["chr"],"align":["left"]},{"label":["outcome"],"name":[2],"type":["chr"],"align":["left"]}],"data":[{"1":"stay","2":"WIN"},{"1":"switch","2":"LOSE"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["strategy"],"name":[1],"type":["chr"],"align":["left"]},{"label":["outcome"],"name":[2],"type":["chr"],"align":["left"]}],"data":[{"1":"stay","2":"LOSE"},{"1":"switch","2":"WIN"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 <p>Once we have this implemented, we are ready to ready to run the simulation.</p>
@@ -342,16 +342,16 @@ summary {
 <a class="sourceLine" id="cb2-10" title="10"><span class="kw">table</span>( results.df ) </a></code></pre></div>
 <pre><code>##         outcome
 ## strategy LOSE  WIN
-##   stay   6725 3275
-##   switch 3275 6725</code></pre>
+##   stay   6649 3351
+##   switch 3351 6649</code></pre>
 <p>Or to make it a bit easier to interpret:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">table</span>( results.df ) <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb4-2" title="2"><span class="st">  </span><span class="kw">prop.table</span>( <span class="dt">margin=</span><span class="dv">1</span> ) <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb4-3" title="3"><span class="st">  </span><span class="kw">round</span>( <span class="dv">2</span> )</a></code></pre></div>
 <pre><code>##         outcome
 ## strategy LOSE  WIN
-##   stay   0.67 0.33
-##   switch 0.33 0.67</code></pre>
+##   stay   0.66 0.34
+##   switch 0.34 0.66</code></pre>
 <p>Note that each game played produces a data frame with two rows and two columns:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">play_game</span>()</a></code></pre></div>
 <div data-pagedtable="false">
@@ -381,7 +381,7 @@ summary {
 <a class="sourceLine" id="cb11-3" title="3"><span class="kw">rbind</span>( game1, game2 )</a></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["strategy"],"name":[1],"type":["chr"],"align":["left"]},{"label":["outcome"],"name":[2],"type":["chr"],"align":["left"]}],"data":[{"1":"stay","2":"WIN"},{"1":"switch","2":"LOSE"},{"1":"stay","2":"WIN"},{"1":"switch","2":"LOSE"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["strategy"],"name":[1],"type":["chr"],"align":["left"]},{"label":["outcome"],"name":[2],"type":["chr"],"align":["left"]}],"data":[{"1":"stay","2":"WIN"},{"1":"switch","2":"LOSE"},{"1":"stay","2":"LOSE"},{"1":"switch","2":"WIN"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 <p>If we would try to append new rows onto a data frame with c() we would break our object type and end up with a mess:</p>
@@ -396,14 +396,14 @@ summary {
 ## [1] &quot;stay&quot;   &quot;switch&quot;
 ## 
 ## $outcome
-## [1] &quot;WIN&quot;  &quot;LOSE&quot;</code></pre>
+## [1] &quot;LOSE&quot; &quot;WIN&quot;</code></pre>
 <p>So it’s important to use the proper appending functions when you are building objects inside of loops.</p>
 <p>The other thing to note is you need to create or “declare” your collector object before you can use it inside of the append function. We do this using a NULL assignment. If we skip this step we will get an error during the rbind() call.</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1">results.df &lt;-<span class="st"> </span><span class="ot">NULL</span> </a>
 <a class="sourceLine" id="cb14-2" title="2"><span class="kw">rbind</span>( results.df, game.outcome )</a></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["strategy"],"name":[1],"type":["chr"],"align":["left"]},{"label":["outcome"],"name":[2],"type":["chr"],"align":["left"]}],"data":[{"1":"stay","2":"WIN"},{"1":"switch","2":"LOSE"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["strategy"],"name":[1],"type":["chr"],"align":["left"]},{"label":["outcome"],"name":[2],"type":["chr"],"align":["left"]}],"data":[{"1":"stay","2":"LOSE"},{"1":"switch","2":"WIN"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -447,8 +447,8 @@ summary {
 <a class="sourceLine" id="cb16-10" title="10"><span class="kw">table</span>( results.df ) </a></code></pre></div>
 <pre><code>##         outcome
 ## strategy LOSE  WIN
-##   stay   6727 3273
-##   switch 3273 6727</code></pre>
+##   stay   6651 3349
+##   switch 3349 6651</code></pre>
 <p>We can then quickly determine the optimal outcome:</p>
 <div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" title="1"><span class="kw">table</span>( results.df ) <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb18-2" title="2"><span class="st">  </span><span class="kw">prop.table</span>( <span class="dt">margin=</span><span class="dv">1</span> ) <span class="op">%&gt;%</span><span class="st"> </span></a>
@@ -561,7 +561,7 @@ summary {
 <a class="sourceLine" id="cb29-8" title="8">}</a>
 <a class="sourceLine" id="cb29-9" title="9"></a>
 <a class="sourceLine" id="cb29-10" title="10"><span class="kw">play_game</span>()</a></code></pre></div>
-<pre><code>## [1] &quot;LOSE&quot; &quot;WIN&quot;</code></pre>
+<pre><code>## [1] &quot;WIN&quot;  &quot;LOSE&quot;</code></pre>
 <p>The problem is that now when we put the game function into a loop we have no idea how to interpret the results because we do not know which game they belong to.</p>
 <div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" title="1">results &lt;-<span class="st"> </span><span class="ot">NULL</span></a>
 <a class="sourceLine" id="cb31-2" title="2"></a>
@@ -572,8 +572,8 @@ summary {
 <a class="sourceLine" id="cb31-7" title="7">}</a>
 <a class="sourceLine" id="cb31-8" title="8"></a>
 <a class="sourceLine" id="cb31-9" title="9">results</a></code></pre></div>
-<pre><code>##  [1] &quot;WIN&quot;  &quot;WIN&quot;  &quot;WIN&quot;  &quot;WIN&quot;  &quot;LOSE&quot; &quot;WIN&quot;  &quot;WIN&quot;  &quot;LOSE&quot; &quot;WIN&quot;  &quot;LOSE&quot;
-## [11] &quot;LOSE&quot; &quot;LOSE&quot; &quot;LOSE&quot; &quot;LOSE&quot; &quot;WIN&quot;  &quot;LOSE&quot; &quot;LOSE&quot; &quot;WIN&quot;  &quot;WIN&quot;  &quot;WIN&quot;</code></pre>
+<pre><code>##  [1] &quot;WIN&quot;  &quot;LOSE&quot; &quot;WIN&quot;  &quot;WIN&quot;  &quot;LOSE&quot; &quot;LOSE&quot; &quot;WIN&quot;  &quot;LOSE&quot; &quot;WIN&quot;  &quot;WIN&quot; 
+## [11] &quot;WIN&quot;  &quot;LOSE&quot; &quot;LOSE&quot; &quot;WIN&quot;  &quot;LOSE&quot; &quot;WIN&quot;  &quot;LOSE&quot; &quot;WIN&quot;  &quot;LOSE&quot; &quot;LOSE&quot;</code></pre>
 <p>We can utilize vector attributes to assign each game outcome a label:</p>
 <div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb33-1" title="1"><span class="co">####</span></a>
 <a class="sourceLine" id="cb33-2" title="2"></a>
@@ -591,13 +591,13 @@ summary {
 <a class="sourceLine" id="cb34-8" title="8"></a>
 <a class="sourceLine" id="cb34-9" title="9">results</a></code></pre></div>
 <pre><code>##   stay switch   stay switch   stay switch   stay switch   stay switch 
-##  &quot;WIN&quot; &quot;LOSE&quot; &quot;LOSE&quot; &quot;LOSE&quot; &quot;LOSE&quot; &quot;LOSE&quot;  &quot;WIN&quot; &quot;LOSE&quot; &quot;LOSE&quot; &quot;LOSE&quot;</code></pre>
+## &quot;LOSE&quot; &quot;LOSE&quot; &quot;LOSE&quot; &quot;LOSE&quot; &quot;LOSE&quot; &quot;LOSE&quot;  &quot;WIN&quot;  &quot;WIN&quot;  &quot;WIN&quot; &quot;LOSE&quot;</code></pre>
 <p>This is a big improvement because now we won’t mix up which result belong to which strategy.</p>
 <p>The only problem is that we can’t access the strategy during the analysis.</p>
 <div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" title="1"><span class="kw">table</span>( results )</a></code></pre></div>
 <pre><code>## results
 ## LOSE  WIN 
-##    8    2</code></pre>
+##    7    3</code></pre>
 <div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" title="1">results <span class="op">==</span><span class="st"> &quot;stay&quot;</span></a></code></pre></div>
 <pre><code>##   stay switch   stay switch   stay switch   stay switch   stay switch 
 ##  FALSE  FALSE  FALSE  FALSE  FALSE  FALSE  FALSE  FALSE  FALSE  FALSE</code></pre>
@@ -608,7 +608,7 @@ summary {
 <pre><code>##         results
 ## strategy LOSE WIN
 ##   stay      3   2
-##   switch    5   0</code></pre>
+##   switch    4   1</code></pre>
 <p>Not horrible, but it makes our life a little harder. What if we organized them as a data frame instead of a vector?</p>
 <div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb42-1" title="1"><span class="co">####</span></a>
 <a class="sourceLine" id="cb42-2" title="2"></a>
@@ -621,7 +621,7 @@ summary {
 <div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb43-1" title="1"><span class="kw">play_game</span>()</a></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["stay"],"name":[1],"type":["chr"],"align":["left"]},{"label":["switch"],"name":[2],"type":["chr"],"align":["left"]}],"data":[{"1":"LOSE","2":"LOSE"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["stay"],"name":[1],"type":["chr"],"align":["left"]},{"label":["switch"],"name":[2],"type":["chr"],"align":["left"]}],"data":[{"1":"WIN","2":"LOSE"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 <p>And we can bind our results using the row bind function <strong>rbind()</strong>.</p>
@@ -656,7 +656,7 @@ summary {
 <div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb50-1" title="1"><span class="kw">play_game</span>()</a></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["strategy"],"name":[1],"type":["chr"],"align":["left"]},{"label":["outcome"],"name":[2],"type":["chr"],"align":["left"]}],"data":[{"1":"stay","2":"LOSE"},{"1":"switch","2":"WIN"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["strategy"],"name":[1],"type":["chr"],"align":["left"]},{"label":["outcome"],"name":[2],"type":["chr"],"align":["left"]}],"data":[{"1":"stay","2":"WIN"},{"1":"switch","2":"LOSE"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 <div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb51-1" title="1">results.df &lt;-<span class="st"> </span><span class="kw">data.frame</span>()</a>
@@ -670,14 +670,14 @@ summary {
 <a class="sourceLine" id="cb51-9" title="9">results.df</a></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["strategy"],"name":[1],"type":["chr"],"align":["left"]},{"label":["outcome"],"name":[2],"type":["chr"],"align":["left"]}],"data":[{"1":"stay","2":"WIN"},{"1":"switch","2":"LOSE"},{"1":"stay","2":"WIN"},{"1":"switch","2":"LOSE"},{"1":"stay","2":"LOSE"},{"1":"switch","2":"LOSE"},{"1":"stay","2":"LOSE"},{"1":"switch","2":"LOSE"},{"1":"stay","2":"WIN"},{"1":"switch","2":"LOSE"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["strategy"],"name":[1],"type":["chr"],"align":["left"]},{"label":["outcome"],"name":[2],"type":["chr"],"align":["left"]}],"data":[{"1":"stay","2":"LOSE"},{"1":"switch","2":"WIN"},{"1":"stay","2":"WIN"},{"1":"switch","2":"LOSE"},{"1":"stay","2":"WIN"},{"1":"switch","2":"LOSE"},{"1":"stay","2":"LOSE"},{"1":"switch","2":"WIN"},{"1":"stay","2":"LOSE"},{"1":"switch","2":"WIN"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 <div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb52-1" title="1"><span class="kw">table</span>( results.df<span class="op">$</span>strategy, results.df<span class="op">$</span>outcome )</a></code></pre></div>
 <pre><code>##         
 ##          LOSE WIN
-##   stay      2   3
-##   switch    5   0</code></pre>
+##   stay      3   2
+##   switch    2   3</code></pre>
 <p>This tidy format will make our analytical steps more efficient, so when possible default to that format.</p>
 <div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb54-1" title="1">play_game &lt;-<span class="st"> </span><span class="cf">function</span>( )</a>
 <a class="sourceLine" id="cb54-2" title="2">{</a>
@@ -699,7 +699,7 @@ summary {
 <a class="sourceLine" id="cb54-18" title="18"><span class="kw">play_game</span>()</a></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["strategy"],"name":[1],"type":["chr"],"align":["left"]},{"label":["outcome"],"name":[2],"type":["chr"],"align":["left"]}],"data":[{"1":"stay","2":"WIN"},{"1":"switch","2":"LOSE"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["strategy"],"name":[1],"type":["chr"],"align":["left"]},{"label":["outcome"],"name":[2],"type":["chr"],"align":["left"]}],"data":[{"1":"stay","2":"LOSE"},{"1":"switch","2":"WIN"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 <div id="efficient-collectors" class="section level2">
@@ -723,12 +723,12 @@ summary {
 <a class="sourceLine" id="cb56-8" title="8">}</a></code></pre></div>
 <p>Unforunately we can’t create an empty data frame simply by declaring its size. But we have a couple of options.</p>
 <p>We can build it with empty values or NAs:</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb57-1" title="1">x &lt;-<span class="st"> </span><span class="kw">rep</span>( <span class="st">&quot;&quot;</span>, <span class="dv">10</span> )</a>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb57-1" title="1">x &lt;-<span class="st"> </span><span class="kw">rep</span>( <span class="ot">NA</span>, <span class="dv">10</span> )</a>
 <a class="sourceLine" id="cb57-2" title="2">df &lt;-<span class="st"> </span><span class="kw">data.frame</span>( <span class="dt">stay=</span>x, <span class="dt">switch=</span>x, <span class="dt">stringsAsFactors=</span>F )</a>
 <a class="sourceLine" id="cb57-3" title="3">df</a></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["stay"],"name":[1],"type":["chr"],"align":["left"]},{"label":["switch"],"name":[2],"type":["chr"],"align":["left"]}],"data":[{"1":"","2":""},{"1":"","2":""},{"1":"","2":""},{"1":"","2":""},{"1":"","2":""},{"1":"","2":""},{"1":"","2":""},{"1":"","2":""},{"1":"","2":""},{"1":"","2":""}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["stay"],"name":[1],"type":["lgl"],"align":["right"]},{"label":["switch"],"name":[2],"type":["lgl"],"align":["right"]}],"data":[{"1":"NA","2":"NA"},{"1":"NA","2":"NA"},{"1":"NA","2":"NA"},{"1":"NA","2":"NA"},{"1":"NA","2":"NA"},{"1":"NA","2":"NA"},{"1":"NA","2":"NA"},{"1":"NA","2":"NA"},{"1":"NA","2":"NA"},{"1":"NA","2":"NA"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 <p>And we can replace existing rows with new ones:</p>
@@ -737,7 +737,7 @@ summary {
 <a class="sourceLine" id="cb58-3" title="3">df</a></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["stay"],"name":[1],"type":["chr"],"align":["left"]},{"label":["switch"],"name":[2],"type":["chr"],"align":["left"]}],"data":[{"1":"","2":""},{"1":"","2":""},{"1":"WIN","2":"LOSE"},{"1":"","2":""},{"1":"","2":""},{"1":"","2":""},{"1":"","2":""},{"1":"","2":""},{"1":"","2":""},{"1":"","2":""}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["stay"],"name":[1],"type":["chr"],"align":["left"]},{"label":["switch"],"name":[2],"type":["chr"],"align":["left"]}],"data":[{"1":"NA","2":"NA"},{"1":"NA","2":"NA"},{"1":"WIN","2":"LOSE"},{"1":"NA","2":"NA"},{"1":"NA","2":"NA"},{"1":"NA","2":"NA"},{"1":"NA","2":"NA"},{"1":"NA","2":"NA"},{"1":"NA","2":"NA"},{"1":"NA","2":"NA"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 <p>The other option is to use a list, which is a more flexible data type. We can store a bunch of rows inside a list, and then easily convert it to a data frame when we are ready. Note that assignment to lists occurs with double brackets:</p>
@@ -753,8 +753,8 @@ summary {
 <a class="sourceLine" id="cb59-10" title="10">results.list</a></code></pre></div>
 <pre><code>## [[1]]
 ##   strategies game.outcomes
-## 1       stay           WIN
-## 2     switch          LOSE
+## 1       stay          LOSE
+## 2     switch           WIN
 ## 
 ## [[2]]
 ##   strategies game.outcomes
@@ -768,8 +768,8 @@ summary {
 ## 
 ## [[4]]
 ##   strategies game.outcomes
-## 1       stay           WIN
-## 2     switch          LOSE
+## 1       stay          LOSE
+## 2     switch           WIN
 ## 
 ## [[5]]
 ##   strategies game.outcomes
@@ -779,7 +779,7 @@ summary {
 <div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb61-1" title="1">dplyr<span class="op">::</span><span class="kw">bind_rows</span>( results.list )</a></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["strategies"],"name":[1],"type":["chr"],"align":["left"]},{"label":["game.outcomes"],"name":[2],"type":["chr"],"align":["left"]}],"data":[{"1":"stay","2":"WIN"},{"1":"switch","2":"LOSE"},{"1":"stay","2":"WIN"},{"1":"switch","2":"LOSE"},{"1":"stay","2":"LOSE"},{"1":"switch","2":"WIN"},{"1":"stay","2":"WIN"},{"1":"switch","2":"LOSE"},{"1":"stay","2":"WIN"},{"1":"switch","2":"LOSE"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["strategies"],"name":[1],"type":["chr"],"align":["left"]},{"label":["game.outcomes"],"name":[2],"type":["chr"],"align":["left"]}],"data":[{"1":"stay","2":"LOSE"},{"1":"switch","2":"WIN"},{"1":"stay","2":"WIN"},{"1":"switch","2":"LOSE"},{"1":"stay","2":"LOSE"},{"1":"switch","2":"WIN"},{"1":"stay","2":"LOSE"},{"1":"switch","2":"WIN"},{"1":"stay","2":"WIN"},{"1":"switch","2":"LOSE"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 <p>Even if we do not pre-declare the size of the vector it will still scale well using this approach.</p>

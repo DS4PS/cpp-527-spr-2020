@@ -673,7 +673,7 @@ Unforunately we can't create an empty data frame simply by declaring its size. B
 We can build it with empty values or NAs:
 
 ```{r}
-x <- rep( "", 10 )
+x <- rep( NA, 10 )
 df <- data.frame( stay=x, switch=x, stringsAsFactors=F )
 df
 ```
