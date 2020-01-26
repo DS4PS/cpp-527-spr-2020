@@ -406,7 +406,7 @@ Share your ideas about these problems with your classmates. Or share another ani
 
 
 
-*** { @unit = "FRI Jan 31th", @title = "Lab 02", @assignment, @foldout }
+*** { @unit = "FRI Jan 31st", @title = "Lab 02", @assignment, @foldout }
 
 <br>
 
