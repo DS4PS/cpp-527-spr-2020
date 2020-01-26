@@ -1728,188 +1728,408 @@ summary {
 <p>The first function that creates a new game, for example, does not require any additional information other than a new game is required. It will randomly assign the two goats and one car to the three doors in the game and return the game set-up.</p>
 <p>For the final function, however, in order to determine if the player has won we need information about the door they have selected and the game set-up in order to evaluate whether they win the car or the goat.</p>
 <hr />
+<div id="solutions" class="section level1">
+<h1>SOLUTIONS</h1>
 <div id="step-1---create-a-new-game" class="section level2">
 <h2>STEP 1 - CREATE A NEW GAME</h2>
+<p>Randomly assign the car to one of three doors, goats to other two.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1">create_game &lt;-<span class="st"> </span><span class="cf">function</span>( )</a>
 <a class="sourceLine" id="cb1-2" title="2">{</a>
 <a class="sourceLine" id="cb1-3" title="3">    a.game &lt;-<span class="st"> </span><span class="kw">sample</span>( <span class="dt">x=</span><span class="kw">c</span>(<span class="st">&quot;goat&quot;</span>,<span class="st">&quot;goat&quot;</span>,<span class="st">&quot;car&quot;</span>), <span class="dt">size=</span><span class="dv">3</span>, <span class="dt">replace=</span>F )</a>
 <a class="sourceLine" id="cb1-4" title="4">    <span class="kw">return</span>( a.game )</a>
 <a class="sourceLine" id="cb1-5" title="5">} </a></code></pre></div>
-<p><strong>Test of Function:</strong></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="co"># try three times to see randomization </span></a>
-<a class="sourceLine" id="cb2-2" title="2"><span class="kw">create_game</span>()  </a></code></pre></div>
-<pre><code>## [1] &quot;goat&quot; &quot;car&quot;  &quot;goat&quot;</code></pre>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">create_game</span>() </a></code></pre></div>
-<pre><code>## [1] &quot;car&quot;  &quot;goat&quot; &quot;goat&quot;</code></pre>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">create_game</span>() </a></code></pre></div>
-<pre><code>## [1] &quot;car&quot;  &quot;goat&quot; &quot;goat&quot;</code></pre>
+<p><em>Note that we must sample WITHOUT replacement to assign the game this way.</em></p>
 </div>
 <div id="step-2---contestant-selects-a-door" class="section level2">
 <h2>STEP 2 - CONTESTANT SELECTS A DOOR</h2>
 <p>The contestant makes their first selection. Write a function to select one door at random.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1">select_door &lt;-<span class="st"> </span><span class="cf">function</span>( )</a>
-<a class="sourceLine" id="cb8-2" title="2">{</a>
-<a class="sourceLine" id="cb8-3" title="3">  doors &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>) </a>
-<a class="sourceLine" id="cb8-4" title="4">  a.pick &lt;-<span class="st"> </span><span class="kw">sample</span>( doors, <span class="dt">size=</span><span class="dv">1</span> )</a>
-<a class="sourceLine" id="cb8-5" title="5">  <span class="kw">return</span>( a.pick )  <span class="co"># number between 1 and 3</span></a>
-<a class="sourceLine" id="cb8-6" title="6">}</a></code></pre></div>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1"><span class="co"># test the function</span></a>
-<a class="sourceLine" id="cb9-2" title="2"><span class="kw">select_door</span>()</a></code></pre></div>
-<pre><code>## [1] 3</code></pre>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1"><span class="kw">select_door</span>()</a></code></pre></div>
-<pre><code>## [1] 2</code></pre>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1"><span class="kw">select_door</span>()</a></code></pre></div>
-<pre><code>## [1] 1</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1">select_door &lt;-<span class="st"> </span><span class="cf">function</span>( )</a>
+<a class="sourceLine" id="cb2-2" title="2">{</a>
+<a class="sourceLine" id="cb2-3" title="3">  doors &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>) </a>
+<a class="sourceLine" id="cb2-4" title="4">  a.pick &lt;-<span class="st"> </span><span class="kw">sample</span>( doors, <span class="dt">size=</span><span class="dv">1</span> )</a>
+<a class="sourceLine" id="cb2-5" title="5">  <span class="kw">return</span>( a.pick )  <span class="co"># number between 1 and 3</span></a>
+<a class="sourceLine" id="cb2-6" title="6">}</a></code></pre></div>
 </div>
 <div id="step-3---host-opens-goat-door" class="section level2">
 <h2>STEP 3 - HOST OPENS GOAT DOOR</h2>
 <p>Note to call this function you need information from previous functions.</p>
 <p>The host will always open a door with a goat behind it. But it can’t be a door the contestant has already selected. So it must be a door that is not a car and not a current contestant selection.</p>
 <p>Note that if the contestant selects the car on the first guess the host can open either door, but if the contestant selects a goat the host only has one option.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" title="1">open_goat_door &lt;-<span class="st"> </span><span class="cf">function</span>( game, a.pick )</a>
-<a class="sourceLine" id="cb15-2" title="2">{</a>
-<a class="sourceLine" id="cb15-3" title="3">   doors &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)</a>
-<a class="sourceLine" id="cb15-4" title="4">   <span class="co"># if contestant selected car,</span></a>
-<a class="sourceLine" id="cb15-5" title="5">   <span class="co"># randomly select one of two goats </span></a>
-<a class="sourceLine" id="cb15-6" title="6">   <span class="cf">if</span>( game[ a.pick ] <span class="op">==</span><span class="st"> &quot;car&quot;</span> )</a>
-<a class="sourceLine" id="cb15-7" title="7">   { </a>
-<a class="sourceLine" id="cb15-8" title="8">     goat.doors &lt;-<span class="st"> </span>doors[ game <span class="op">!=</span><span class="st"> &quot;car&quot;</span> ] </a>
-<a class="sourceLine" id="cb15-9" title="9">     opened.door &lt;-<span class="st"> </span><span class="kw">sample</span>( goat.doors, <span class="dt">size=</span><span class="dv">1</span> )</a>
-<a class="sourceLine" id="cb15-10" title="10">   }</a>
-<a class="sourceLine" id="cb15-11" title="11">   <span class="cf">if</span>( game[ a.pick ] <span class="op">==</span><span class="st"> &quot;goat&quot;</span> )</a>
-<a class="sourceLine" id="cb15-12" title="12">   { </a>
-<a class="sourceLine" id="cb15-13" title="13">     opened.door &lt;-<span class="st"> </span>doors[ game <span class="op">!=</span><span class="st"> &quot;car&quot;</span> <span class="op">&amp;</span><span class="st"> </span>doors <span class="op">!=</span><span class="st"> </span>a.pick ] </a>
-<a class="sourceLine" id="cb15-14" title="14">   }</a>
-<a class="sourceLine" id="cb15-15" title="15">   <span class="kw">return</span>( opened.door ) <span class="co"># number between 1 and 3</span></a>
-<a class="sourceLine" id="cb15-16" title="16">}</a></code></pre></div>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" title="1"><span class="co"># test it</span></a>
-<a class="sourceLine" id="cb16-2" title="2">this.game &lt;-<span class="st"> </span><span class="kw">create_game</span>()</a>
-<a class="sourceLine" id="cb16-3" title="3">this.game</a></code></pre></div>
-<pre><code>## [1] &quot;car&quot;  &quot;goat&quot; &quot;goat&quot;</code></pre>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" title="1">my.initial.pick &lt;-<span class="st"> </span><span class="kw">select_door</span>()</a>
-<a class="sourceLine" id="cb18-2" title="2">my.initial.pick</a></code></pre></div>
-<pre><code>## [1] 3</code></pre>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" title="1"><span class="kw">open_goat_door</span>( this.game, my.initial.pick )</a></code></pre></div>
-<pre><code>## [1] 2</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1">open_goat_door &lt;-<span class="st"> </span><span class="cf">function</span>( game, a.pick )</a>
+<a class="sourceLine" id="cb3-2" title="2">{</a>
+<a class="sourceLine" id="cb3-3" title="3">   doors &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb3-4" title="4">   <span class="co"># if contestant selected car,</span></a>
+<a class="sourceLine" id="cb3-5" title="5">   <span class="co"># randomly select one of two goats </span></a>
+<a class="sourceLine" id="cb3-6" title="6">   <span class="cf">if</span>( game[ a.pick ] <span class="op">==</span><span class="st"> &quot;car&quot;</span> )</a>
+<a class="sourceLine" id="cb3-7" title="7">   { </a>
+<a class="sourceLine" id="cb3-8" title="8">     goat.doors &lt;-<span class="st"> </span>doors[ game <span class="op">!=</span><span class="st"> &quot;car&quot;</span> ] </a>
+<a class="sourceLine" id="cb3-9" title="9">     opened.door &lt;-<span class="st"> </span><span class="kw">sample</span>( goat.doors, <span class="dt">size=</span><span class="dv">1</span> )</a>
+<a class="sourceLine" id="cb3-10" title="10">   }</a>
+<a class="sourceLine" id="cb3-11" title="11">   <span class="cf">if</span>( game[ a.pick ] <span class="op">==</span><span class="st"> &quot;goat&quot;</span> )</a>
+<a class="sourceLine" id="cb3-12" title="12">   { </a>
+<a class="sourceLine" id="cb3-13" title="13">     opened.door &lt;-<span class="st"> </span>doors[ game <span class="op">!=</span><span class="st"> &quot;car&quot;</span> <span class="op">&amp;</span><span class="st"> </span>doors <span class="op">!=</span><span class="st"> </span>a.pick ] </a>
+<a class="sourceLine" id="cb3-14" title="14">   }</a>
+<a class="sourceLine" id="cb3-15" title="15">   <span class="kw">return</span>( opened.door ) <span class="co"># number between 1 and 3</span></a>
+<a class="sourceLine" id="cb3-16" title="16">}</a></code></pre></div>
 </div>
 <div id="step-4---change-doors" class="section level2">
 <h2>STEP 4 - CHANGE DOORS</h2>
 <p>The contestant is given the option to change from their initial selection to the other door that is still closed. The function will represent the game-playing strategy as the argument <strong>stay=TRUE</strong> or <strong>stay=FALSE</strong>.</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" title="1">change_door &lt;-<span class="st"> </span><span class="cf">function</span>( <span class="dt">stay=</span>T, opened.door, a.pick )</a>
-<a class="sourceLine" id="cb22-2" title="2">{</a>
-<a class="sourceLine" id="cb22-3" title="3">   doors &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>) </a>
-<a class="sourceLine" id="cb22-4" title="4">   </a>
-<a class="sourceLine" id="cb22-5" title="5">   <span class="cf">if</span>( stay )</a>
-<a class="sourceLine" id="cb22-6" title="6">   {</a>
-<a class="sourceLine" id="cb22-7" title="7">     final.pick &lt;-<span class="st"> </span>a.pick</a>
-<a class="sourceLine" id="cb22-8" title="8">   }</a>
-<a class="sourceLine" id="cb22-9" title="9">   <span class="cf">if</span>( <span class="op">!</span><span class="st"> </span>stay )</a>
-<a class="sourceLine" id="cb22-10" title="10">   {</a>
-<a class="sourceLine" id="cb22-11" title="11">     final.pick &lt;-<span class="st"> </span>doors[ doors <span class="op">!=</span><span class="st"> </span>opened.door <span class="op">&amp;</span><span class="st"> </span>doors <span class="op">!=</span><span class="st"> </span>a.pick ] </a>
-<a class="sourceLine" id="cb22-12" title="12">   }</a>
-<a class="sourceLine" id="cb22-13" title="13">  </a>
-<a class="sourceLine" id="cb22-14" title="14">   <span class="kw">return</span>( final.pick )  <span class="co"># number between 1 and 3</span></a>
-<a class="sourceLine" id="cb22-15" title="15">}</a></code></pre></div>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" title="1"><span class="co"># test it</span></a>
-<a class="sourceLine" id="cb23-2" title="2">opened.door &lt;-<span class="st"> </span><span class="kw">open_goat_door</span>( this.game, my.initial.pick )</a>
-<a class="sourceLine" id="cb23-3" title="3"><span class="kw">change_door</span>( <span class="dt">stay=</span>T, <span class="dt">opened.door=</span>opened.door, <span class="dt">a.pick=</span>my.initial.pick )</a></code></pre></div>
-<pre><code>## [1] 3</code></pre>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" title="1"><span class="kw">change_door</span>( <span class="dt">stay=</span>F, <span class="dt">opened.door=</span>opened.door, <span class="dt">a.pick=</span>my.initial.pick )</a></code></pre></div>
-<pre><code>## [1] 1</code></pre>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" title="1">my.final.pick &lt;-<span class="st"> </span><span class="kw">change_door</span>( <span class="dt">stay=</span>F, <span class="dt">opened.door=</span>opened.door, <span class="dt">a.pick=</span>my.initial.pick )</a>
-<a class="sourceLine" id="cb27-2" title="2"></a>
-<a class="sourceLine" id="cb27-3" title="3">this.game</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1">change_door &lt;-<span class="st"> </span><span class="cf">function</span>( <span class="dt">stay=</span>T, opened.door, a.pick )</a>
+<a class="sourceLine" id="cb4-2" title="2">{</a>
+<a class="sourceLine" id="cb4-3" title="3">   doors &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>) </a>
+<a class="sourceLine" id="cb4-4" title="4">   </a>
+<a class="sourceLine" id="cb4-5" title="5">   <span class="cf">if</span>( stay )</a>
+<a class="sourceLine" id="cb4-6" title="6">   {</a>
+<a class="sourceLine" id="cb4-7" title="7">     final.pick &lt;-<span class="st"> </span>a.pick</a>
+<a class="sourceLine" id="cb4-8" title="8">   }</a>
+<a class="sourceLine" id="cb4-9" title="9">   <span class="cf">if</span>( <span class="op">!</span><span class="st"> </span>stay )</a>
+<a class="sourceLine" id="cb4-10" title="10">   {</a>
+<a class="sourceLine" id="cb4-11" title="11">     final.pick &lt;-<span class="st"> </span>doors[ doors <span class="op">!=</span><span class="st"> </span>opened.door <span class="op">&amp;</span><span class="st"> </span>doors <span class="op">!=</span><span class="st"> </span>a.pick ] </a>
+<a class="sourceLine" id="cb4-12" title="12">   }</a>
+<a class="sourceLine" id="cb4-13" title="13">  </a>
+<a class="sourceLine" id="cb4-14" title="14">   <span class="kw">return</span>( final.pick )  <span class="co"># number between 1 and 3</span></a>
+<a class="sourceLine" id="cb4-15" title="15">}</a></code></pre></div>
+</div>
+<div id="step-5---determine-if-contestant-has-won" class="section level2">
+<h2>STEP 5 - DETERMINE IF CONTESTANT HAS WON</h2>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1">determine_winner &lt;-<span class="st"> </span><span class="cf">function</span>( final.pick, game )</a>
+<a class="sourceLine" id="cb5-2" title="2">{</a>
+<a class="sourceLine" id="cb5-3" title="3">   <span class="cf">if</span>( game[ final.pick ] <span class="op">==</span><span class="st"> &quot;car&quot;</span> )</a>
+<a class="sourceLine" id="cb5-4" title="4">   {</a>
+<a class="sourceLine" id="cb5-5" title="5">      <span class="kw">return</span>( <span class="st">&quot;WIN&quot;</span> )</a>
+<a class="sourceLine" id="cb5-6" title="6">   }</a>
+<a class="sourceLine" id="cb5-7" title="7">   <span class="cf">if</span>( game[ final.pick ] <span class="op">==</span><span class="st"> &quot;goat&quot;</span> )</a>
+<a class="sourceLine" id="cb5-8" title="8">   {</a>
+<a class="sourceLine" id="cb5-9" title="9">      <span class="kw">return</span>( <span class="st">&quot;LOSE&quot;</span> )</a>
+<a class="sourceLine" id="cb5-10" title="10">   }</a>
+<a class="sourceLine" id="cb5-11" title="11">}</a></code></pre></div>
+</div>
+<div id="test-code-for-each-step" class="section level2">
+<h2>Test Code for Each Step</h2>
+<p><br> As you develop your functions it is important to ensure they are working properly. The best way to do this is developing test code.</p>
+<p>Select cases where you know how your function <strong>should</strong> behave then compare the actual results to expected results.</p>
+<p>In software engineering this is a practice called <strong>unit testing</strong>. If you want to be a valuable team member, get good at writing unit tests. The hard part is coming up with a large set of scenarios that represent typical scenarios, and including edge cases - scenarios that are possible but unlikely - to make sure that your code is robust to all of the inputs it might encounter. <br></p>
+<p><strong>STEP 01</strong></p>
+<p>Try it three times to make sure randomization is working.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">create_game</span>()  </a></code></pre></div>
 <pre><code>## [1] &quot;car&quot;  &quot;goat&quot; &quot;goat&quot;</code></pre>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" title="1">my.initial.pick</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">create_game</span>() </a></code></pre></div>
+<pre><code>## [1] &quot;car&quot;  &quot;goat&quot; &quot;goat&quot;</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1"><span class="kw">create_game</span>() </a></code></pre></div>
+<pre><code>## [1] &quot;goat&quot; &quot;goat&quot; &quot;car&quot;</code></pre>
+<p><br></p>
+<p><strong>STEP 02</strong></p>
+<p>Try it three times to make sure randomization is working.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1"><span class="kw">select_door</span>()</a></code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1"><span class="kw">select_door</span>()</a></code></pre></div>
 <pre><code>## [1] 3</code></pre>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" title="1">my.final.pick </a></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" title="1"><span class="kw">select_door</span>()</a></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<p><br></p>
+<p><strong>STEP 03</strong></p>
+<p>Create a game then test the three possible cases for different initial selections:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" title="1">this.game &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;goat&quot;</span>,<span class="st">&quot;car&quot;</span>,<span class="st">&quot;goat&quot;</span>)</a>
+<a class="sourceLine" id="cb18-2" title="2"></a>
+<a class="sourceLine" id="cb18-3" title="3">my.initial.pick &lt;-<span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb18-4" title="4"><span class="kw">open_goat_door</span>( this.game, my.initial.pick ) <span class="co"># should be 3</span></a></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" title="1">my.initial.pick &lt;-<span class="st"> </span><span class="dv">2</span></a>
+<a class="sourceLine" id="cb20-2" title="2"><span class="kw">open_goat_door</span>( this.game, my.initial.pick ) <span class="co"># 1 or 3</span></a></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" title="1">my.initial.pick &lt;-<span class="st"> </span><span class="dv">3</span></a>
+<a class="sourceLine" id="cb22-2" title="2"><span class="kw">open_goat_door</span>( this.game, my.initial.pick ) <span class="co"># should be 1</span></a></code></pre></div>
 <pre><code>## [1] 1</code></pre>
 <p><br></p>
-</div>
-<div id="step-5---determine-if-contenstant-has-won" class="section level2">
-<h2>STEP 5 - DETERMINE IF CONTENSTANT HAS WON</h2>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb33-1" title="1">determine_winner &lt;-<span class="st"> </span><span class="cf">function</span>( final.pick, game )</a>
-<a class="sourceLine" id="cb33-2" title="2">{</a>
-<a class="sourceLine" id="cb33-3" title="3">   <span class="cf">if</span>( game[ final.pick ] <span class="op">==</span><span class="st"> &quot;car&quot;</span> )</a>
-<a class="sourceLine" id="cb33-4" title="4">   {</a>
-<a class="sourceLine" id="cb33-5" title="5">      <span class="kw">return</span>( <span class="st">&quot;WIN&quot;</span> )</a>
-<a class="sourceLine" id="cb33-6" title="6">   }</a>
-<a class="sourceLine" id="cb33-7" title="7">   <span class="cf">if</span>( game[ final.pick ] <span class="op">==</span><span class="st"> &quot;goat&quot;</span> )</a>
-<a class="sourceLine" id="cb33-8" title="8">   {</a>
-<a class="sourceLine" id="cb33-9" title="9">      <span class="kw">return</span>( <span class="st">&quot;LOSE&quot;</span> )</a>
-<a class="sourceLine" id="cb33-10" title="10">   }</a>
-<a class="sourceLine" id="cb33-11" title="11">}</a></code></pre></div>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" title="1"><span class="co"># test code</span></a>
-<a class="sourceLine" id="cb34-2" title="2">this.game</a></code></pre></div>
-<pre><code>## [1] &quot;car&quot;  &quot;goat&quot; &quot;goat&quot;</code></pre>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" title="1">my.initial.pick</a></code></pre></div>
+<p><strong>STEP 04</strong></p>
+<p>Note that you can use arguments directly to test the function. That way you know which outcomes are expected and can check to ensure your function is providing correct results.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" title="1"><span class="kw">change_door</span>( <span class="dt">stay=</span>T, <span class="dt">opened.door=</span><span class="dv">1</span>, <span class="dt">a.pick=</span><span class="dv">3</span> ) <span class="co"># should be 3</span></a></code></pre></div>
 <pre><code>## [1] 3</code></pre>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" title="1">my.final.pick &lt;-<span class="st"> </span><span class="kw">change_door</span>( <span class="dt">stay=</span>T, <span class="dt">opened.door=</span>opened.door, <span class="dt">a.pick=</span>my.initial.pick )</a>
-<a class="sourceLine" id="cb38-2" title="2"><span class="kw">determine_winner</span>( <span class="dt">final.pick=</span>my.final.pick, <span class="dt">game=</span>this.game )</a></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" title="1"><span class="kw">change_door</span>( <span class="dt">stay=</span>F, <span class="dt">opened.door=</span><span class="dv">1</span>, <span class="dt">a.pick=</span><span class="dv">3</span> ) <span class="co"># should be 2</span></a></code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<p><br></p>
+<p><strong>STEP 05</strong></p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" title="1">this.game &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;goat&quot;</span>,<span class="st">&quot;car&quot;</span>,<span class="st">&quot;goat&quot;</span>)</a>
+<a class="sourceLine" id="cb28-2" title="2"><span class="kw">determine_winner</span>( <span class="dt">final.pick=</span><span class="dv">1</span>, <span class="dt">game=</span>this.game )</a></code></pre></div>
 <pre><code>## [1] &quot;LOSE&quot;</code></pre>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb40-1" title="1">my.final.pick &lt;-<span class="st"> </span><span class="kw">change_door</span>( <span class="dt">stay=</span>F, <span class="dt">opened.door=</span>opened.door, <span class="dt">a.pick=</span>my.initial.pick )</a>
-<a class="sourceLine" id="cb40-2" title="2"><span class="kw">determine_winner</span>( <span class="dt">final.pick=</span>my.final.pick, <span class="dt">game=</span>this.game )</a></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" title="1"><span class="kw">determine_winner</span>( <span class="dt">final.pick=</span><span class="dv">2</span>, <span class="dt">game=</span>this.game )</a></code></pre></div>
 <pre><code>## [1] &quot;WIN&quot;</code></pre>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" title="1"><span class="kw">determine_winner</span>( <span class="dt">final.pick=</span><span class="dv">3</span>, <span class="dt">game=</span>this.game )</a></code></pre></div>
+<pre><code>## [1] &quot;LOSE&quot;</code></pre>
 <p><br></p>
 </div>
 <div id="test-the-game" class="section level2">
 <h2>TEST THE GAME</h2>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb42-1" title="1"><span class="co"># your game &quot;recipe&quot; </span></a>
-<a class="sourceLine" id="cb42-2" title="2">this.game &lt;-<span class="st"> </span><span class="kw">create_game</span>()</a>
-<a class="sourceLine" id="cb42-3" title="3">my.initial.pick &lt;-<span class="st"> </span><span class="kw">select_door</span>()</a>
-<a class="sourceLine" id="cb42-4" title="4">opened.goat.door &lt;-<span class="st"> </span><span class="kw">open_goat_door</span>( this.game, my.initial.pick )</a>
-<a class="sourceLine" id="cb42-5" title="5"><span class="co"># save results for both strategies for the game</span></a>
-<a class="sourceLine" id="cb42-6" title="6">my.final.pick.stay &lt;-<span class="st"> </span><span class="kw">change_door</span>( <span class="dt">stay=</span>T, <span class="dt">opened.door=</span>opened.goat.door, <span class="dt">a.pick=</span>my.initial.pick )</a>
-<a class="sourceLine" id="cb42-7" title="7">my.final.pick.switch &lt;-<span class="st"> </span><span class="kw">change_door</span>( <span class="dt">stay=</span>F, <span class="dt">opened.door=</span>opened.goat.door, <span class="dt">a.pick=</span>my.initial.pick )</a>
-<a class="sourceLine" id="cb42-8" title="8"></a>
-<a class="sourceLine" id="cb42-9" title="9">game.outcome.stay &lt;-<span class="st"> </span><span class="kw">determine_winner</span>( <span class="dt">final.pick=</span>my.final.pick.stay, <span class="dt">game=</span>this.game )</a>
-<a class="sourceLine" id="cb42-10" title="10">game.outcome.switch &lt;-<span class="st"> </span><span class="kw">determine_winner</span>( <span class="dt">final.pick=</span>my.final.pick.switch, <span class="dt">game=</span>this.game )</a>
-<a class="sourceLine" id="cb42-11" title="11"></a>
-<a class="sourceLine" id="cb42-12" title="12"><span class="co"># print game details and if you won</span></a>
-<a class="sourceLine" id="cb42-13" title="13"></a>
-<a class="sourceLine" id="cb42-14" title="14"><span class="co"># if you stayed:</span></a>
-<a class="sourceLine" id="cb42-15" title="15"><span class="kw">paste0</span>( <span class="st">&quot;OUTCOMES IF YOU STAYED&quot;</span> )</a>
-<a class="sourceLine" id="cb42-16" title="16"><span class="kw">paste0</span>( <span class="st">&quot;GAME SETUP: &quot;</span>, <span class="kw">paste0</span>( this.game, <span class="dt">collapse=</span><span class="st">&quot; &quot;</span> ) )</a>
-<a class="sourceLine" id="cb42-17" title="17"><span class="kw">paste0</span>( <span class="st">&quot;My initial selection: &quot;</span>, my.initial.pick )</a>
-<a class="sourceLine" id="cb42-18" title="18"><span class="kw">paste0</span>( <span class="st">&quot;The opened goat door: &quot;</span>, opened.goat.door )</a>
-<a class="sourceLine" id="cb42-19" title="19"><span class="kw">paste0</span>( <span class="st">&quot;My final selection: &quot;</span>, my.final.pick.stay )</a>
-<a class="sourceLine" id="cb42-20" title="20"><span class="kw">paste0</span>( <span class="st">&quot;GAME OUTCOME: &quot;</span>, game.outcome.stay )</a>
-<a class="sourceLine" id="cb42-21" title="21"></a>
-<a class="sourceLine" id="cb42-22" title="22"><span class="co"># if you switched:</span></a>
-<a class="sourceLine" id="cb42-23" title="23"><span class="kw">paste0</span>( <span class="st">&quot;OUTCOMES IF YOU SWITCHED&quot;</span> )</a>
-<a class="sourceLine" id="cb42-24" title="24"><span class="kw">paste0</span>( <span class="st">&quot;GAME SETUP: &quot;</span>, <span class="kw">paste0</span>( this.game, <span class="dt">collapse=</span><span class="st">&quot; &quot;</span> ) )</a>
-<a class="sourceLine" id="cb42-25" title="25"><span class="kw">paste0</span>( <span class="st">&quot;My initial selection: &quot;</span>, my.initial.pick )</a>
-<a class="sourceLine" id="cb42-26" title="26"><span class="kw">paste0</span>( <span class="st">&quot;The opened goat door: &quot;</span>, opened.goat.door )</a>
-<a class="sourceLine" id="cb42-27" title="27"><span class="kw">paste0</span>( <span class="st">&quot;My final selection: &quot;</span>, my.final.pick.switch )</a>
-<a class="sourceLine" id="cb42-28" title="28"><span class="kw">paste0</span>( <span class="st">&quot;GAME OUTCOME: &quot;</span>, game.outcome.switch )</a></code></pre></div>
-<p><strong>If STAY</strong></p>
-<pre><code>## [1] &quot;OUTCOMES IF YOU STAYED&quot;</code></pre>
-<pre><code>## [1] &quot;GAME SETUP: goat car goat&quot;</code></pre>
-<pre><code>## [1] &quot;My initial selection: 3&quot;</code></pre>
-<pre><code>## [1] &quot;The opened goat door: 1&quot;</code></pre>
-<pre><code>## [1] &quot;My final selection: 3&quot;</code></pre>
-<pre><code>## [1] &quot;GAME OUTCOME: LOSE&quot;</code></pre>
-<p><br></p>
-<p><strong>If SWITCH</strong></p>
-<pre><code>## [1] &quot;OUTCOMES IF YOU SWITCHED&quot;</code></pre>
-<pre><code>## [1] &quot;GAME SETUP: goat car goat&quot;</code></pre>
-<pre><code>## [1] &quot;My initial selection: 3&quot;</code></pre>
-<pre><code>## [1] &quot;The opened goat door: 1&quot;</code></pre>
-<pre><code>## [1] &quot;My final selection: 2&quot;</code></pre>
-<pre><code>## [1] &quot;GAME OUTCOME: WIN&quot;</code></pre>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" title="1"><span class="co"># your game &quot;recipe&quot; </span></a>
+<a class="sourceLine" id="cb34-2" title="2">this.game &lt;-<span class="st"> </span><span class="kw">create_game</span>()</a>
+<a class="sourceLine" id="cb34-3" title="3">my.initial.pick &lt;-<span class="st"> </span><span class="kw">select_door</span>()</a>
+<a class="sourceLine" id="cb34-4" title="4">opened.goat.door &lt;-<span class="st"> </span><span class="kw">open_goat_door</span>( this.game, my.initial.pick )</a>
+<a class="sourceLine" id="cb34-5" title="5"><span class="co"># save results for both strategies for the game</span></a>
+<a class="sourceLine" id="cb34-6" title="6">my.final.pick.stay &lt;-<span class="st"> </span><span class="kw">change_door</span>( <span class="dt">stay=</span>T, <span class="dt">opened.door=</span>opened.goat.door, <span class="dt">a.pick=</span>my.initial.pick )</a>
+<a class="sourceLine" id="cb34-7" title="7">my.final.pick.switch &lt;-<span class="st"> </span><span class="kw">change_door</span>( <span class="dt">stay=</span>F, <span class="dt">opened.door=</span>opened.goat.door, <span class="dt">a.pick=</span>my.initial.pick )</a>
+<a class="sourceLine" id="cb34-8" title="8"></a>
+<a class="sourceLine" id="cb34-9" title="9">game.outcome.stay &lt;-<span class="st"> </span><span class="kw">determine_winner</span>( <span class="dt">final.pick=</span>my.final.pick.stay, <span class="dt">game=</span>this.game )</a>
+<a class="sourceLine" id="cb34-10" title="10">game.outcome.switch &lt;-<span class="st"> </span><span class="kw">determine_winner</span>( <span class="dt">final.pick=</span>my.final.pick.switch, <span class="dt">game=</span>this.game )</a></code></pre></div>
 <p><br> <br></p>
+<div id="if-contestant-stays" class="section level3">
+<h3>IF CONTESTANT STAYS</h3>
+<p><br></p>
+<p>Game Setup: <strong>CAR GOAT GOAT</strong><br />
+Initial selection: <strong>1</strong><br />
+The opened goat door: <strong>2</strong><br />
+Final door selection: <strong>1</strong> Game outcome: <strong>WIN</strong></p>
+<p><br></p>
+<pre><code>## [1] &quot;  | CAR  |     | GOAT |     | GOAT |  &quot;</code></pre>
+<pre><code>## [1] &quot;  1st Pick                            &quot;</code></pre>
+<pre><code>## [1] &quot;                Opened                &quot;</code></pre>
+<pre><code>## [1] &quot;   Final                              &quot;</code></pre>
+<pre><code>## [1] &quot;  ! WIN !                            &quot;</code></pre>
+<p><br> <br></p>
+</div>
+<div id="if-contestant-switches" class="section level3">
+<h3>IF CONTESTANT SWITCHES</h3>
+<p><br></p>
+<p>Game Setup: <strong>CAR GOAT GOAT</strong><br />
+Initial selection: <strong>1</strong><br />
+The opened goat door: <strong>2</strong><br />
+Final door selection: <strong>3</strong><br />
+Game outcome: <strong>LOSE</strong></p>
+<p><br></p>
+<pre><code>## [1] &quot;  | CAR  |     | GOAT |     | GOAT |  &quot;</code></pre>
+<pre><code>## [1] &quot;  1st Pick                            &quot;</code></pre>
+<pre><code>## [1] &quot;                Opened                &quot;</code></pre>
+<pre><code>## [1] &quot;                             Final    &quot;</code></pre>
+<pre><code>## [1] &quot;                            ! LOSE !  &quot;</code></pre>
+<p><br> <br></p>
+<p><strong>Note on using variables outside of code chunks:</strong></p>
+<p>You can create formats for reports and other output in R Markdown documents by combinding text and code to insert current variable values directly into the text using in-line code.</p>
+<p>Enclose the R code with a single “fence” tick and a lowercase <strong>r</strong>:</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb45-1" title="1"><span class="co"># Type this directly into RMD outside of a chunk</span></a>
+<a class="sourceLine" id="cb45-2" title="2">Game Setup<span class="op">:</span><span class="st"> </span><span class="er">**</span><span class="st">`</span><span class="dt">r paste0( toupper(this.game), collapse=&quot; &quot; )</span><span class="st">`</span><span class="op">**</span><span class="st">  </span></a>
+<a class="sourceLine" id="cb45-3" title="3">Initial selection<span class="op">:</span><span class="st"> </span><span class="er">**</span><span class="st">`</span><span class="dt">r my.initial.pick</span><span class="st">`</span><span class="op">**</span><span class="st">  </span></a>
+<a class="sourceLine" id="cb45-4" title="4">The opened goat door<span class="op">:</span><span class="st"> </span><span class="er">**</span><span class="st">`</span><span class="dt">r opened.goat.door</span><span class="st">`</span><span class="op">**</span><span class="st">  </span></a>
+<a class="sourceLine" id="cb45-5" title="5">Final door selection<span class="op">:</span><span class="st"> </span><span class="er">**</span><span class="st">`</span><span class="dt">r my.final.pick.stay</span><span class="st">`</span><span class="op">**</span></a>
+<a class="sourceLine" id="cb45-6" title="6">Game outcome<span class="op">:</span><span class="st"> </span><span class="er">**</span><span class="st">`</span><span class="dt">r game.outcome.stay</span><span class="st">`</span><span class="op">**</span></a></code></pre></div>
+<p><br></p>
+</div>
 </div>
 <div id="challenge-questions" class="section level2">
 <h2>Challenge Questions</h2>
 <p><br></p>
 <p><strong>PART 01:</strong></p>
-<p>Let’s change the rules a little to make outcomes more interesting. Create a board with 5 doors and 2 cars. After the contestant makes an initial selection the host will open one car door and one goat door. If the contestand decides to switch they then have to select from the two remaining doors.</p>
+<p>Let’s change the rules a little to make outcomes more interesting. Create a board with 5 doors and 2 cars. After the contestant makes an initial selection the host will open one car door and one goat door. If the contestant decides to switch they then have to select from the two remaining doors.</p>
+<p>The main changes will be adding a function to build our door numbers for us, and setting the default to 5.</p>
+<p>We can use a convenience function so that we don’t have to type out all of the goats and cars. The repeat function <strong>rep()</strong> allows us to type them once and specify how many of each we want:</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb46-1" title="1"><span class="kw">rep</span>( <span class="kw">c</span>(<span class="st">&quot;goat&quot;</span>,<span class="st">&quot;car&quot;</span>), <span class="dt">times=</span><span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">2</span>) )</a></code></pre></div>
+<pre><code>## [1] &quot;goat&quot; &quot;goat&quot; &quot;goat&quot; &quot;car&quot;  &quot;car&quot;</code></pre>
+<p>The only other change is Step 03, which actually become simpler because we never have a case where we only have one door to choose from. So we can remove the if-else structure and just sample from whichever doors are available (not cars and not current selection).</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" title="1">build_doors &lt;-<span class="st"> </span><span class="cf">function</span>( <span class="dt">n=</span><span class="dv">5</span> ){ <span class="kw">return</span>( <span class="dv">1</span><span class="op">:</span>n ) }</a>
+<a class="sourceLine" id="cb48-2" title="2"></a>
+<a class="sourceLine" id="cb48-3" title="3">create_game &lt;-<span class="st"> </span><span class="cf">function</span>( )</a>
+<a class="sourceLine" id="cb48-4" title="4">{</a>
+<a class="sourceLine" id="cb48-5" title="5">    a.game &lt;-<span class="st"> </span><span class="kw">sample</span>( <span class="dt">x=</span><span class="kw">rep</span>( <span class="kw">c</span>(<span class="st">&quot;goat&quot;</span>,<span class="st">&quot;car&quot;</span>), <span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">2</span>) ), <span class="dt">size=</span><span class="dv">5</span>, <span class="dt">replace=</span>F )</a>
+<a class="sourceLine" id="cb48-6" title="6">    <span class="kw">return</span>( a.game )</a>
+<a class="sourceLine" id="cb48-7" title="7">}</a>
+<a class="sourceLine" id="cb48-8" title="8"></a>
+<a class="sourceLine" id="cb48-9" title="9">select_door &lt;-<span class="st"> </span><span class="cf">function</span>( )</a>
+<a class="sourceLine" id="cb48-10" title="10">{</a>
+<a class="sourceLine" id="cb48-11" title="11">  doors &lt;-<span class="st"> </span><span class="kw">build_doors</span>() </a>
+<a class="sourceLine" id="cb48-12" title="12">  a.pick &lt;-<span class="st"> </span><span class="kw">sample</span>( doors, <span class="dt">size=</span><span class="dv">1</span> )</a>
+<a class="sourceLine" id="cb48-13" title="13">  <span class="kw">return</span>( a.pick )  <span class="co"># number between 1 and 5</span></a>
+<a class="sourceLine" id="cb48-14" title="14">}</a>
+<a class="sourceLine" id="cb48-15" title="15"></a>
+<a class="sourceLine" id="cb48-16" title="16">open_doors &lt;-<span class="st"> </span><span class="cf">function</span>( game, a.pick )</a>
+<a class="sourceLine" id="cb48-17" title="17">{</a>
+<a class="sourceLine" id="cb48-18" title="18">   <span class="co"># reveal one car and one goat</span></a>
+<a class="sourceLine" id="cb48-19" title="19">   </a>
+<a class="sourceLine" id="cb48-20" title="20">   doors &lt;-<span class="st"> </span><span class="kw">build_doors</span>()</a>
+<a class="sourceLine" id="cb48-21" title="21">   </a>
+<a class="sourceLine" id="cb48-22" title="22">   <span class="cf">if</span>( game[ a.pick ] <span class="op">==</span><span class="st"> &quot;car&quot;</span> )</a>
+<a class="sourceLine" id="cb48-23" title="23">   { </a>
+<a class="sourceLine" id="cb48-24" title="24">     opened.car.door &lt;-<span class="st"> </span>doors[ game <span class="op">==</span><span class="st"> &quot;car&quot;</span> <span class="op">&amp;</span><span class="st"> </span>game <span class="op">!=</span><span class="st"> </span>a.pick ]</a>
+<a class="sourceLine" id="cb48-25" title="25">     goat.doors &lt;-<span class="st"> </span>doors[ game <span class="op">!=</span><span class="st"> &quot;car&quot;</span> ] </a>
+<a class="sourceLine" id="cb48-26" title="26">     opened.goat.door &lt;-<span class="st"> </span><span class="kw">sample</span>( goat.doors, <span class="dt">size=</span><span class="dv">1</span> )</a>
+<a class="sourceLine" id="cb48-27" title="27">     opened.doors &lt;-<span class="st"> </span><span class="kw">c</span>( opened.car.door, opened.goat.door )</a>
+<a class="sourceLine" id="cb48-28" title="28">   }</a>
+<a class="sourceLine" id="cb48-29" title="29">   </a>
+<a class="sourceLine" id="cb48-30" title="30">   <span class="cf">if</span>( game[ a.pick ] <span class="op">==</span><span class="st"> &quot;goat&quot;</span> )</a>
+<a class="sourceLine" id="cb48-31" title="31">   { </a>
+<a class="sourceLine" id="cb48-32" title="32">     opened.car.door &lt;-<span class="st"> </span><span class="kw">sample</span>( doors[game<span class="op">==</span><span class="st">&quot;car&quot;</span>], <span class="dt">size=</span><span class="dv">1</span> )</a>
+<a class="sourceLine" id="cb48-33" title="33">     available.goat.doors &lt;-<span class="st"> </span>doors[ game <span class="op">!=</span><span class="st"> &quot;car&quot;</span> <span class="op">&amp;</span><span class="st"> </span>doors <span class="op">!=</span><span class="st"> </span>a.pick ] </a>
+<a class="sourceLine" id="cb48-34" title="34">     opened.goat.door &lt;-<span class="st"> </span><span class="kw">sample</span>( available.goat.doors, <span class="dt">size=</span><span class="dv">1</span> )</a>
+<a class="sourceLine" id="cb48-35" title="35">     opened.doors &lt;-<span class="st"> </span><span class="kw">c</span>( opened.car.door, opened.goat.door )</a>
+<a class="sourceLine" id="cb48-36" title="36">   }</a>
+<a class="sourceLine" id="cb48-37" title="37">   <span class="kw">return</span>( opened.doors ) <span class="co"># two numbers</span></a>
+<a class="sourceLine" id="cb48-38" title="38">}</a>
+<a class="sourceLine" id="cb48-39" title="39"></a>
+<a class="sourceLine" id="cb48-40" title="40">change_door &lt;-<span class="st"> </span><span class="cf">function</span>( <span class="dt">stay=</span>T, opened.doors, a.pick )</a>
+<a class="sourceLine" id="cb48-41" title="41">{</a>
+<a class="sourceLine" id="cb48-42" title="42">   doors &lt;-<span class="st"> </span><span class="kw">build_doors</span>()</a>
+<a class="sourceLine" id="cb48-43" title="43">   </a>
+<a class="sourceLine" id="cb48-44" title="44">   <span class="cf">if</span>( stay )</a>
+<a class="sourceLine" id="cb48-45" title="45">   {</a>
+<a class="sourceLine" id="cb48-46" title="46">     final.pick &lt;-<span class="st"> </span>a.pick</a>
+<a class="sourceLine" id="cb48-47" title="47">   }</a>
+<a class="sourceLine" id="cb48-48" title="48">   <span class="cf">if</span>( <span class="op">!</span><span class="st"> </span>stay )</a>
+<a class="sourceLine" id="cb48-49" title="49">   {</a>
+<a class="sourceLine" id="cb48-50" title="50">     available.doors &lt;-<span class="st"> </span>doors[ doors <span class="op">!=</span><span class="st"> </span>opened.doors <span class="op">&amp;</span><span class="st"> </span>doors <span class="op">!=</span><span class="st"> </span>a.pick ]</a>
+<a class="sourceLine" id="cb48-51" title="51">     final.pick  &lt;-<span class="st"> </span><span class="kw">sample</span>( available.doors, <span class="dt">size=</span><span class="dv">1</span> ) </a>
+<a class="sourceLine" id="cb48-52" title="52">   }</a>
+<a class="sourceLine" id="cb48-53" title="53">  </a>
+<a class="sourceLine" id="cb48-54" title="54">   <span class="kw">return</span>( final.pick )  <span class="co"># number between 1 and 5</span></a>
+<a class="sourceLine" id="cb48-55" title="55">}</a>
+<a class="sourceLine" id="cb48-56" title="56"></a>
+<a class="sourceLine" id="cb48-57" title="57">determine_winner &lt;-<span class="st"> </span><span class="cf">function</span>( final.pick, game )</a>
+<a class="sourceLine" id="cb48-58" title="58">{</a>
+<a class="sourceLine" id="cb48-59" title="59">   <span class="cf">if</span>( game[ final.pick ] <span class="op">==</span><span class="st"> &quot;car&quot;</span> )</a>
+<a class="sourceLine" id="cb48-60" title="60">   {</a>
+<a class="sourceLine" id="cb48-61" title="61">      <span class="kw">return</span>( <span class="st">&quot;WIN&quot;</span> )</a>
+<a class="sourceLine" id="cb48-62" title="62">   }</a>
+<a class="sourceLine" id="cb48-63" title="63">   <span class="cf">if</span>( game[ final.pick ] <span class="op">==</span><span class="st"> &quot;goat&quot;</span> )</a>
+<a class="sourceLine" id="cb48-64" title="64">   {</a>
+<a class="sourceLine" id="cb48-65" title="65">      <span class="kw">return</span>( <span class="st">&quot;LOSE&quot;</span> )</a>
+<a class="sourceLine" id="cb48-66" title="66">   }</a>
+<a class="sourceLine" id="cb48-67" title="67">}</a></code></pre></div>
+<p><br></p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb49-1" title="1">this.game &lt;-<span class="st"> </span><span class="kw">create_game</span>()</a>
+<a class="sourceLine" id="cb49-2" title="2">my.initial.pick &lt;-<span class="st"> </span><span class="kw">select_door</span>()</a>
+<a class="sourceLine" id="cb49-3" title="3">opened.doors &lt;-<span class="st"> </span><span class="kw">open_doors</span>( this.game, my.initial.pick )</a>
+<a class="sourceLine" id="cb49-4" title="4"><span class="co"># save results for both strategies for the game</span></a>
+<a class="sourceLine" id="cb49-5" title="5">my.final.pick.stay &lt;-<span class="st"> </span><span class="kw">change_door</span>( <span class="dt">stay=</span>T, <span class="dt">opened.doors=</span>opened.doors, <span class="dt">a.pick=</span>my.initial.pick )</a>
+<a class="sourceLine" id="cb49-6" title="6">my.final.pick.switch &lt;-<span class="st"> </span><span class="kw">change_door</span>( <span class="dt">stay=</span>F, <span class="dt">opened.door=</span>opened.doors, <span class="dt">a.pick=</span>my.initial.pick )</a>
+<a class="sourceLine" id="cb49-7" title="7"></a>
+<a class="sourceLine" id="cb49-8" title="8">game.outcome.stay &lt;-<span class="st"> </span><span class="kw">determine_winner</span>( <span class="dt">final.pick=</span>my.final.pick.stay, <span class="dt">game=</span>this.game )</a>
+<a class="sourceLine" id="cb49-9" title="9">game.outcome.switch &lt;-<span class="st"> </span><span class="kw">determine_winner</span>( <span class="dt">final.pick=</span>my.final.pick.switch, <span class="dt">game=</span>this.game )</a></code></pre></div>
+<p><br></p>
+<p><strong>Stay:</strong></p>
+<p>Game Setup: <strong>GOAT CAR GOAT GOAT CAR</strong><br />
+Initial selection: <strong>1</strong><br />
+The opened doors: <strong>2 4</strong><br />
+Final door selection: <strong>1</strong><br />
+Game outcome: <strong>LOSE</strong></p>
+<p><strong>Switch:</strong></p>
+<p>Game Setup: <strong>GOAT CAR GOAT GOAT CAR</strong><br />
+Initial selection: <strong>1</strong><br />
+The opened doors: <strong>2 4</strong><br />
+Final door selection: <strong>3</strong><br />
+Game outcome: <strong>LOSE</strong></p>
+<p><br></p>
 <p>How does this new board change the pay-off from the game? Is switching still the best strategy?</p>
+<p><br></p>
 <p><br></p>
 <p><strong>PART 02:</strong></p>
 <p>We are building functions to play a game in a static world. There are always three doors, one car, and two goats.</p>
 <p>What happens if we are in a dynamic world? The game can have three or more doors (in a game with two doors there would be no switching so there is no strategy to study). And we can also have one or more cars up to N-2 (N being the number of doors, there always need to be at least two goats so that the host can open a goat door, even if the contestant selected a goat in the first round).</p>
 <p>How would you change the code to model this new world?</p>
+<p><strong>SOLUTION:</strong></p>
+<p>Once we have the initial game set-up, it actually doesn’t take a lot to make it dynamic. There are only two changes we need to make.</p>
+<p>Since we are using the sample function to randomize the placement of goats and cars, we just need to define a set of goats and cars that match our desired game proportions. Note that we can use the repeat function <strong>rep()</strong> and tell it how many times to repeat each item:</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb50-1" title="1"><span class="kw">rep</span>( <span class="kw">c</span>(<span class="st">&quot;goat&quot;</span>,<span class="st">&quot;car&quot;</span>), <span class="kw">c</span>( <span class="dv">3</span>, <span class="dv">2</span> ) )</a></code></pre></div>
+<pre><code>## [1] &quot;goat&quot; &quot;goat&quot; &quot;goat&quot; &quot;car&quot;  &quot;car&quot;</code></pre>
+<p>So adding this to a function with new game arguments:</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb52-1" title="1">num.goats &lt;-<span class="st"> </span><span class="dv">7</span></a>
+<a class="sourceLine" id="cb52-2" title="2">num.cars &lt;-<span class="st"> </span><span class="dv">3</span></a>
+<a class="sourceLine" id="cb52-3" title="3">create_game &lt;-<span class="st"> </span><span class="cf">function</span>( num.goats, num.cars )</a>
+<a class="sourceLine" id="cb52-4" title="4">{</a>
+<a class="sourceLine" id="cb52-5" title="5">    a.game &lt;-<span class="st"> </span><span class="kw">sample</span>( <span class="dt">x=</span><span class="kw">rep</span>( <span class="kw">c</span>(<span class="st">&quot;goat&quot;</span>,<span class="st">&quot;car&quot;</span>), <span class="kw">c</span>(num.goats,num.cars) ), </a>
+<a class="sourceLine" id="cb52-6" title="6">                      <span class="dt">size=</span>(num.goats<span class="op">+</span>num.cars), <span class="dt">replace=</span>F )</a>
+<a class="sourceLine" id="cb52-7" title="7">    <span class="kw">return</span>( a.game )</a>
+<a class="sourceLine" id="cb52-8" title="8">}</a>
+<a class="sourceLine" id="cb52-9" title="9"></a>
+<a class="sourceLine" id="cb52-10" title="10"><span class="kw">create_game</span>( <span class="dt">num.goats=</span><span class="dv">7</span>, <span class="dt">num.cars=</span><span class="dv">3</span> )</a></code></pre></div>
+<pre><code>##  [1] &quot;car&quot;  &quot;car&quot;  &quot;car&quot;  &quot;goat&quot; &quot;goat&quot; &quot;goat&quot; &quot;goat&quot; &quot;goat&quot; &quot;goat&quot; &quot;goat&quot;</code></pre>
+<p>Then we need a way to generate the proper number of doors for cases we need to select one.</p>
+<p>We can define a function that returns a numeric vector from 1 to N for our door numbers.</p>
+<p>Inside of functions we can use the length of game objects or counts of goats and cars to generate the index when needed:</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb54-1" title="1">build_doors &lt;-<span class="st"> </span><span class="cf">function</span>( n ){ <span class="kw">return</span>( <span class="dv">1</span><span class="op">:</span>n ) }</a>
+<a class="sourceLine" id="cb54-2" title="2"></a>
+<a class="sourceLine" id="cb54-3" title="3"><span class="co"># we had to add a &#39;game&#39; argument so we can get length(game)</span></a>
+<a class="sourceLine" id="cb54-4" title="4"></a>
+<a class="sourceLine" id="cb54-5" title="5">select_door &lt;-<span class="st"> </span><span class="cf">function</span>( game )</a>
+<a class="sourceLine" id="cb54-6" title="6">{</a>
+<a class="sourceLine" id="cb54-7" title="7">  doors &lt;-<span class="st"> </span><span class="kw">build_doors</span>( <span class="dt">n=</span><span class="kw">length</span>(game) ) </a>
+<a class="sourceLine" id="cb54-8" title="8">  a.pick &lt;-<span class="st"> </span><span class="kw">sample</span>( doors, <span class="dt">size=</span><span class="dv">1</span> )</a>
+<a class="sourceLine" id="cb54-9" title="9">  <span class="kw">return</span>( a.pick )  <span class="co"># number between 1 and N</span></a>
+<a class="sourceLine" id="cb54-10" title="10">}</a></code></pre></div>
+<p>The rest of the functions should already work the same:</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb55-1" title="1">build_doors &lt;-<span class="st"> </span><span class="cf">function</span>( n ){ <span class="kw">return</span>( <span class="dv">1</span><span class="op">:</span>n ) }</a>
+<a class="sourceLine" id="cb55-2" title="2"></a>
+<a class="sourceLine" id="cb55-3" title="3">create_game &lt;-<span class="st"> </span><span class="cf">function</span>( num.goats, num.cars )</a>
+<a class="sourceLine" id="cb55-4" title="4">{</a>
+<a class="sourceLine" id="cb55-5" title="5">    a.game &lt;-<span class="st"> </span><span class="kw">sample</span>( <span class="dt">x=</span><span class="kw">rep</span>( <span class="kw">c</span>(<span class="st">&quot;goat&quot;</span>,<span class="st">&quot;car&quot;</span>), <span class="kw">c</span>(num.goats,num.cars) ), </a>
+<a class="sourceLine" id="cb55-6" title="6">                      <span class="dt">size=</span>(num.goats<span class="op">+</span>num.cars), <span class="dt">replace=</span>F )</a>
+<a class="sourceLine" id="cb55-7" title="7">    <span class="kw">return</span>( a.game )</a>
+<a class="sourceLine" id="cb55-8" title="8">}</a>
+<a class="sourceLine" id="cb55-9" title="9"></a>
+<a class="sourceLine" id="cb55-10" title="10">select_door &lt;-<span class="st"> </span><span class="cf">function</span>( game )</a>
+<a class="sourceLine" id="cb55-11" title="11">{</a>
+<a class="sourceLine" id="cb55-12" title="12">  doors &lt;-<span class="st"> </span><span class="kw">build_doors</span>( <span class="dt">n=</span><span class="kw">length</span>(game) ) </a>
+<a class="sourceLine" id="cb55-13" title="13">  a.pick &lt;-<span class="st"> </span><span class="kw">sample</span>( doors, <span class="dt">size=</span><span class="dv">1</span> )</a>
+<a class="sourceLine" id="cb55-14" title="14">  <span class="kw">return</span>( a.pick )  <span class="co"># number between 1 and N</span></a>
+<a class="sourceLine" id="cb55-15" title="15">}</a>
+<a class="sourceLine" id="cb55-16" title="16"></a>
+<a class="sourceLine" id="cb55-17" title="17">open_goat_door &lt;-<span class="st"> </span><span class="cf">function</span>( game, a.pick )</a>
+<a class="sourceLine" id="cb55-18" title="18">{</a>
+<a class="sourceLine" id="cb55-19" title="19">   doors &lt;-<span class="st"> </span><span class="kw">build_doors</span>( <span class="dt">n=</span><span class="kw">length</span>(game) )</a>
+<a class="sourceLine" id="cb55-20" title="20">   doors.that.can.be.opened &lt;-<span class="st"> </span>doors[ game <span class="op">!=</span><span class="st"> &quot;car&quot;</span> <span class="op">&amp;</span><span class="st"> </span>doors <span class="op">!=</span><span class="st"> </span>a.pick ]</a>
+<a class="sourceLine" id="cb55-21" title="21">   opened.door &lt;-<span class="st"> </span><span class="kw">sample</span>( doors.that.can.be.opened, <span class="dt">size=</span><span class="dv">1</span> )</a>
+<a class="sourceLine" id="cb55-22" title="22">   <span class="kw">return</span>( opened.door ) <span class="co"># number between 1 and N</span></a>
+<a class="sourceLine" id="cb55-23" title="23">}</a>
+<a class="sourceLine" id="cb55-24" title="24"></a>
+<a class="sourceLine" id="cb55-25" title="25">change_door &lt;-<span class="st"> </span><span class="cf">function</span>( <span class="dt">stay=</span>T, game, opened.door, a.pick )</a>
+<a class="sourceLine" id="cb55-26" title="26">{</a>
+<a class="sourceLine" id="cb55-27" title="27">   doors &lt;-<span class="st"> </span><span class="kw">build_doors</span>( <span class="kw">length</span>(game) )</a>
+<a class="sourceLine" id="cb55-28" title="28">   </a>
+<a class="sourceLine" id="cb55-29" title="29">   <span class="cf">if</span>( stay )</a>
+<a class="sourceLine" id="cb55-30" title="30">   {</a>
+<a class="sourceLine" id="cb55-31" title="31">     final.pick &lt;-<span class="st"> </span>a.pick</a>
+<a class="sourceLine" id="cb55-32" title="32">   }</a>
+<a class="sourceLine" id="cb55-33" title="33">   <span class="cf">if</span>( <span class="op">!</span><span class="st"> </span>stay )</a>
+<a class="sourceLine" id="cb55-34" title="34">   {</a>
+<a class="sourceLine" id="cb55-35" title="35">     available.doors &lt;-<span class="st"> </span>doors[ doors <span class="op">!=</span><span class="st"> </span>opened.door <span class="op">&amp;</span><span class="st"> </span>doors <span class="op">!=</span><span class="st"> </span>a.pick ]</a>
+<a class="sourceLine" id="cb55-36" title="36">     final.pick  &lt;-<span class="st"> </span><span class="kw">sample</span>( available.doors, <span class="dt">size=</span><span class="dv">1</span> ) </a>
+<a class="sourceLine" id="cb55-37" title="37">   }</a>
+<a class="sourceLine" id="cb55-38" title="38">  </a>
+<a class="sourceLine" id="cb55-39" title="39">   <span class="kw">return</span>( final.pick )  <span class="co"># number between 1 and N</span></a>
+<a class="sourceLine" id="cb55-40" title="40">}</a>
+<a class="sourceLine" id="cb55-41" title="41"></a>
+<a class="sourceLine" id="cb55-42" title="42">determine_winner &lt;-<span class="st"> </span><span class="cf">function</span>( final.pick, game )</a>
+<a class="sourceLine" id="cb55-43" title="43">{</a>
+<a class="sourceLine" id="cb55-44" title="44">   <span class="cf">if</span>( game[ final.pick ] <span class="op">==</span><span class="st"> &quot;car&quot;</span> )</a>
+<a class="sourceLine" id="cb55-45" title="45">   {</a>
+<a class="sourceLine" id="cb55-46" title="46">      <span class="kw">return</span>( <span class="st">&quot;WIN&quot;</span> )</a>
+<a class="sourceLine" id="cb55-47" title="47">   }</a>
+<a class="sourceLine" id="cb55-48" title="48">   <span class="cf">if</span>( game[ final.pick ] <span class="op">==</span><span class="st"> &quot;goat&quot;</span> )</a>
+<a class="sourceLine" id="cb55-49" title="49">   {</a>
+<a class="sourceLine" id="cb55-50" title="50">      <span class="kw">return</span>( <span class="st">&quot;LOSE&quot;</span> )</a>
+<a class="sourceLine" id="cb55-51" title="51">   }</a>
+<a class="sourceLine" id="cb55-52" title="52">}</a></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb56-1" title="1">num.goats &lt;-<span class="st"> </span><span class="dv">7</span></a>
+<a class="sourceLine" id="cb56-2" title="2">num.cars &lt;-<span class="st"> </span><span class="dv">3</span></a>
+<a class="sourceLine" id="cb56-3" title="3">this.game &lt;-<span class="st"> </span><span class="kw">create_game</span>( num.goats, num.cars )</a>
+<a class="sourceLine" id="cb56-4" title="4">my.initial.pick &lt;-<span class="st"> </span><span class="kw">select_door</span>( <span class="dt">game=</span>this.game )</a>
+<a class="sourceLine" id="cb56-5" title="5">opened.door &lt;-<span class="st"> </span><span class="kw">open_goat_door</span>( this.game, my.initial.pick )</a>
+<a class="sourceLine" id="cb56-6" title="6"><span class="co"># save results for both strategies for the game</span></a>
+<a class="sourceLine" id="cb56-7" title="7">my.final.pick.stay &lt;-<span class="st"> </span><span class="kw">change_door</span>( <span class="dt">stay=</span>T, <span class="dt">game=</span>this.game, </a>
+<a class="sourceLine" id="cb56-8" title="8">                                   <span class="dt">opened.door=</span>opened.door, <span class="dt">a.pick=</span>my.initial.pick )</a>
+<a class="sourceLine" id="cb56-9" title="9">my.final.pick.switch &lt;-<span class="st"> </span><span class="kw">change_door</span>( <span class="dt">stay=</span>F, <span class="dt">game=</span>this.game,</a>
+<a class="sourceLine" id="cb56-10" title="10">                                     <span class="dt">opened.door=</span>opened.door, <span class="dt">a.pick=</span>my.initial.pick )</a>
+<a class="sourceLine" id="cb56-11" title="11"></a>
+<a class="sourceLine" id="cb56-12" title="12">game.outcome.stay &lt;-<span class="st"> </span><span class="kw">determine_winner</span>( <span class="dt">final.pick=</span>my.final.pick.stay, <span class="dt">game=</span>this.game )</a>
+<a class="sourceLine" id="cb56-13" title="13">game.outcome.switch &lt;-<span class="st"> </span><span class="kw">determine_winner</span>( <span class="dt">final.pick=</span>my.final.pick.switch, <span class="dt">game=</span>this.game )</a></code></pre></div>
+<p><strong>Stay:</strong></p>
+<p>Game Setup: <strong>GOAT GOAT CAR GOAT CAR CAR GOAT GOAT GOAT GOAT</strong><br />
+Initial selection: <strong>10</strong><br />
+The opened goat door: <strong>2</strong><br />
+Final door selection: <strong>10</strong><br />
+Game outcome: <strong>LOSE</strong></p>
+<p><strong>Switch:</strong></p>
+<p>Game Setup: <strong>GOAT GOAT CAR GOAT CAR CAR GOAT GOAT GOAT GOAT</strong><br />
+Initial selection: <strong>10</strong><br />
+The opened goat door: <strong>2</strong><br />
+Final door selection: <strong>7</strong><br />
+Game outcome: <strong>LOSE</strong></p>
 <hr />
 <p><br> <br></p>
 <style>
@@ -1921,6 +2141,7 @@ blockquote {
 }
 
 </style>
+</div>
 </div>
 
 <div class="footer">

@@ -854,7 +854,7 @@ for( i in 1:length(lat) )
 
 We can't store multiple vectors or part of a data from inside of a vector. We need a more flexible data type. 
 
-A list should do the trick. After constructing it, you can convert it to a data from with the last line. 
+A list should do the trick. After constructing it, you can convert it to a data frame with the last line. 
 
 NOTE, assignment to lists uses a double-bracket. 
 ]
@@ -936,6 +936,6 @@ The beautiful part of simulation is we do not need to do a formal proof of anyth
 
 Using your code from last week (or the solutions if your code is not working properly) create a **play_game()** function that requires no inputs and returns two outcomes for each game played - what would have happened if you had stayed, and what would have happened if you had switched. 
 
-Embed your new grame function inside of a loop for 10,000 iterations and collect wins and losses for each strategy. 
+Embed your new game function inside of a loop for 10,000 iterations and collect wins and losses for each strategy. 
 
 Report your results as a table or an informative chart and discuss the results. What is the best strategy? 
