@@ -512,7 +512,7 @@ Please review the instructions at the end of the lecture notes:
 
 
 
-*** { @unit = "FRI Feb 7th", @title = "YellowDig Practice Problems", @assignment  }
+*** { @unit = "FRI Feb 7th", @title = "YellowDig Practice Problems", @assignment, @foldout  }
 
 <br>
 
