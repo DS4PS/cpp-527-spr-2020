@@ -154,6 +154,7 @@ class: center, middle
 
 ## Loops are powerful because 
 
+
 .pull-left[ 
 
 &lt;img src="images/work-together.gif" width="300"&gt;
@@ -170,9 +171,9 @@ class: center, middle
 
 ]
 
+Unlike humans, the computer does not get tired, so we can scale repetitive tasks. 
 
-unlike humans, the computer does not get tired, &lt;br&gt;
-and it does not make mistakes. 
+
 
 
 
@@ -330,12 +331,6 @@ You loop **over** vectors.
 
 The loop will visit every element of the vector once. 
 
-The first time through **_i_** takes on the first value of your iterator vector. 
-
-Each time the loop starts again, **_i_** takes on the next value in the vector.
-
-_We can use any letter instead of **i**, but it is the most commonly used letter in loops._ 
-
 ]
 
 .pull-right[
@@ -350,6 +345,12 @@ results &lt;- NULL
 }
 ```
 ]
+
+The first time through **_i_** takes on the first value of your iterator vector. 
+
+Each time the loop starts again, **_i_** takes on the next value in the vector.
+
+_We can use any letter instead of **i**, but it is the most commonly used letter in loops._ 
 
 
 
@@ -609,6 +610,7 @@ for( i in iterator.vec )
 
 There is a quick fix for this problem. We need to create a sequence that we can use for our iterator. 
 
+We know that **length(x)** will tell us the total number of elements in x. 
 ]
 
 
@@ -617,8 +619,18 @@ There is a quick fix for this problem. We need to create a sequence that we can 
 
 ```r
 results &lt;- NULL   
+iterator.vec &lt;- c(3,5,7)  
+for( i in iterator.vec )  
+{
+* results[i] &lt;- 2^i
+}
+```
+
+
+```r
+results &lt;- NULL   
 x &lt;- c(3,5,7)  
-*for( i in 1:length(x) )
+for( i in 1:length(x) )   
 {
 * results[i] &lt;- 2^x[i]
 }
@@ -626,12 +638,56 @@ x &lt;- c(3,5,7)
 
 ]
 
-We know that **length(x)** will tell us the total number of elements in x. 
+
 
 So the sequence **1:length(x)** will be the correct dimension, start with 1, and end with length(x). 
 
-Note that with the new iterator **i** is no longer taking on values of **x**. So we also need to start using the index **x[i]** to reference the current value of **x** in each loop. 
 
+
+
+
+
+
+---
+
+
+# Anatomy of a for() Loop
+
+
+.pull-left[ 
+
+## Assignment to the collector 
+
+Note that with the new iterator **i** is no longer taking on values of **x**. So we also need to start using the index **x[i]** to reference the current value of **x** in each loop. 
+]
+
+
+.pull-right[
+
+
+```r
+results &lt;- NULL   
+iterator.vec &lt;- c(3,5,7)  
+for( i in iterator.vec )  
+{
+* results[i] &lt;- 2^i
+}
+```
+
+
+```r
+results &lt;- NULL   
+x &lt;- c(3,5,7)  
+for( i in 1:length(x) )   
+{
+* results[i] &lt;- 2^x[i]
+}
+```
+
+]
+
+
+&lt;br&gt;
 
 
 
@@ -710,9 +766,7 @@ x &lt;- c(3,5,7)
 
 Our iterators do not have to be numeric. We can loop over any kind of vector.  
 
-In this example we have a database of latitude and longitude coordinates for crimes.
 
-We use a reverse geocoding function to find the street address of the locations. 
 
 ]
 
@@ -735,6 +789,10 @@ for( i in 1:length(lat) )
 
 
 ]
+
+In this example we have a database of latitude and longitude coordinates for crimes.
+
+We use a reverse geocoding function to find the street address of the locations. 
 
 
 
@@ -793,7 +851,7 @@ name: while
 
 .pull-left[
 
-![](p-02-loops_files/figure-html/unnamed-chunk-24-1.png)&lt;!-- --&gt;
+![](p-02-loops_files/figure-html/unnamed-chunk-27-1.png)&lt;!-- --&gt;
 
 ]
 
@@ -826,7 +884,7 @@ Start game with $10 in cash and see how long you last. At each step you flip a c
 
 .pull-left[
 
-![](p-02-loops_files/figure-html/unnamed-chunk-26-1.png)&lt;!-- --&gt;
+![](p-02-loops_files/figure-html/unnamed-chunk-29-1.png)&lt;!-- --&gt;
 
 ]
 
@@ -868,9 +926,6 @@ name: complex
 
 Our iterators do not have to be numeric. We can loop over any kind of vector.  
 
-In this example we have a database of latitude and longitude coordinates for crimes.
-
-We use a reverse geocoding function to find the street address of the locations. 
 
 ]
 
@@ -891,8 +946,11 @@ for( i in 1:length(lat) )
 }
 ```
 
-
 ]
+
+In this example we have a database of latitude and longitude coordinates for crimes.
+
+We use a reverse geocoding function to find the street address of the locations. 
 
 
 
@@ -909,9 +967,6 @@ for( i in 1:length(lat) )
 
 This example works fine in the istance where we get one text field back with the address. Since it's a single string value we can store it in the results vector. 
 
-What happens, however, when  when the function returns an address with street, city, and zip separate? 
-
-Can we assign all of those values to a position in a results vector? 
 ]
 
 
@@ -934,6 +989,10 @@ for( i in 1:length(lat) )
 
 ]
 
+What happens, however, when  when the function returns an address with street, city, and zip separate? 
+
+Can we assign all of those values to a position in a results vector? 
+
 
 ---
 
@@ -947,9 +1006,7 @@ for( i in 1:length(lat) )
 
 We can't store multiple vectors or part of a data from inside of a vector. We need a more flexible data type. 
 
-A list should do the trick. After constructing it, you can convert it to a data frame with the last line. 
 
-NOTE, assignment to lists uses a double-bracket. 
 ]
 
 
@@ -971,6 +1028,268 @@ for( i in 1:length(lat) )
 ```
 
 ]
+
+A **list** should do the trick. After constructing it, you can convert it to a data frame with the last line. 
+
+NOTE, **assignment to lists** uses a double-bracket`x[[ ]] &lt;- f()`. 
+
+
+
+
+---
+
+
+# Complex Constructors
+
+
+
+## Lists
+
+Lists are the grab bag of data structures. 
+
+Vectors are very sensitive to data type (when you add two types together you silently invoke implicit casting that can have serious effects on your data).
+
+Matrices and data frames have to maintain their rectangular structure at all times, making it challenging sometimes to add new data. 
+
+Lists allow you to combine different object types and tables with different dimensions easily because the list stores each object separately. It doesn't alter any of the data, but it also doesn't try to reconcile any of it (combining two vectors using c() invokes casting, combining two datasets requires row-congruence, column-congruence, or merges). 
+
+
+
+---
+
+
+# Complex Constructors
+
+
+## Lists
+
+
+You can think of the double-brackets as shelves that store each object  separately 
+
+`x[[ ]] &lt;- f()`. 
+
+When you are ready to use it, you can take it off the shelf: 
+
+`x[[1]] # return first object in list`
+
+
+
+---
+
+# Complex Constructors
+
+## Lists
+
+Lists are often used when we need to return a lot of information from a function, and the information comes in many object types or data dimensions
+
+For example, after running a regression we get an **lm** or linear model object. This is actually just a list of all of the results from the regression:
+
+.pull-left[
+
+```r
+x &lt;- 1:10
+y &lt;- 2*x + rnorm(10)
+m &lt;- lm( y ~ x )
+```
+]
+.pull-right[
+
+```r
+*class( m )
+```
+
+```
+## [1] "lm"
+```
+
+```r
+*mode( m )
+```
+
+```
+## [1] "list"
+```
+]
+
+
+---
+
+# Complex Constructors
+
+## Lists
+
+The **lm** object (class type) is stored using a list (object type or mode). 
+
+Here are all of the separate objects stored in each slot of the list:
+
+
+```r
+names(m)
+```
+
+```
+##  [1] "coefficients"  "residuals"     "effects"       "rank"         
+##  [5] "fitted.values" "assign"        "qr"            "df.residual"  
+##  [9] "xlevels"       "call"          "terms"         "model"
+```
+
+
+---
+
+# Complex Constructors
+
+## Lists
+
+We can access the objects by position or by name:
+
+
+```r
+m$coefficients
+```
+
+```
+## (Intercept)           x 
+##   0.6028007   1.8792732
+```
+
+```r
+m[[1]]
+```
+
+```
+## (Intercept)           x 
+##   0.6028007   1.8792732
+```
+
+
+---
+
+# Complex Constructors
+
+## Lists
+
+Each object retains its original type:
+
+.pull-left[
+
+
+```r
+class( m$residuals )
+```
+
+```
+## [1] "numeric"
+```
+
+```r
+head( m$residuals, 3 )
+```
+
+```
+##          1          2          3 
+## 0.06359446 0.64961211 0.56090484
+```
+
+]
+
+.pull-right[
+
+
+```r
+class( m$model )
+```
+
+```
+## [1] "data.frame"
+```
+
+```r
+head( m$model, 3 )
+```
+
+```
+##          y x
+## 1 2.545668 1
+## 2 5.010959 2
+## 3 6.801525 3
+```
+
+]
+
+---
+
+# Complex Constructors
+
+## Lists
+
+Or print the full list structure using **str()**:
+
+
+```r
+str( m )
+```
+
+```
+## List of 12
+##  $ coefficients : Named num [1:2] 0.603 1.879
+##   ..- attr(*, "names")= chr [1:2] "(Intercept)" "x"
+##  $ residuals    : Named num [1:10] 0.0636 0.6496 0.5609 -1.2784 -0.1332 ...
+##   ..- attr(*, "names")= chr [1:10] "1" "2" "3" "4" ...
+##  $ effects      : Named num [1:10] -34.592 17.069 0.467 -1.317 -0.116 ...
+##   ..- attr(*, "names")= chr [1:10] "(Intercept)" "x" "" "" ...
+##  $ rank         : int 2
+##  $ fitted.values: Named num [1:10] 2.48 4.36 6.24 8.12 10 ...
+##   ..- attr(*, "names")= chr [1:10] "1" "2" "3" "4" ...
+##  $ assign       : int [1:2] 0 1
+##  $ qr           :List of 5
+##   ..$ qr   : num [1:10, 1:2] -3.162 0.316 0.316 0.316 0.316 ...
+##   .. ..- attr(*, "dimnames")=List of 2
+##   .. .. ..$ : chr [1:10] "1" "2" "3" "4" ...
+##   .. .. ..$ : chr [1:2] "(Intercept)" "x"
+##   .. ..- attr(*, "assign")= int [1:2] 0 1
+##   ..$ qraux: num [1:2] 1.32 1.27
+##   ..$ pivot: int [1:2] 1 2
+##   ..$ tol  : num 1e-07
+##   ..$ rank : int 2
+##   ..- attr(*, "class")= chr "qr"
+##  $ df.residual  : int 8
+##  $ xlevels      : Named list()
+##  $ call         : language lm(formula = y ~ x)
+##  $ terms        :Classes 'terms', 'formula'  language y ~ x
+##   .. ..- attr(*, "variables")= language list(y, x)
+##   .. ..- attr(*, "factors")= int [1:2, 1] 0 1
+##   .. .. ..- attr(*, "dimnames")=List of 2
+##   .. .. .. ..$ : chr [1:2] "y" "x"
+##   .. .. .. ..$ : chr "x"
+##   .. ..- attr(*, "term.labels")= chr "x"
+##   .. ..- attr(*, "order")= int 1
+##   .. ..- attr(*, "intercept")= int 1
+##   .. ..- attr(*, "response")= int 1
+##   .. ..- attr(*, ".Environment")=&lt;environment: R_GlobalEnv&gt; 
+##   .. ..- attr(*, "predvars")= language list(y, x)
+##   .. ..- attr(*, "dataClasses")= Named chr [1:2] "numeric" "numeric"
+##   .. .. ..- attr(*, "names")= chr [1:2] "y" "x"
+##  $ model        :'data.frame':	10 obs. of  2 variables:
+##   ..$ y: num [1:10] 2.55 5.01 6.8 6.84 9.87 ...
+##   ..$ x: int [1:10] 1 2 3 4 5 6 7 8 9 10
+##   ..- attr(*, "terms")=Classes 'terms', 'formula'  language y ~ x
+##   .. .. ..- attr(*, "variables")= language list(y, x)
+##   .. .. ..- attr(*, "factors")= int [1:2, 1] 0 1
+##   .. .. .. ..- attr(*, "dimnames")=List of 2
+##   .. .. .. .. ..$ : chr [1:2] "y" "x"
+##   .. .. .. .. ..$ : chr "x"
+##   .. .. ..- attr(*, "term.labels")= chr "x"
+##   .. .. ..- attr(*, "order")= int 1
+##   .. .. ..- attr(*, "intercept")= int 1
+##   .. .. ..- attr(*, "response")= int 1
+##   .. .. ..- attr(*, ".Environment")=&lt;environment: R_GlobalEnv&gt; 
+##   .. .. ..- attr(*, "predvars")= language list(y, x)
+##   .. .. ..- attr(*, "dataClasses")= Named chr [1:2] "numeric" "numeric"
+##   .. .. .. ..- attr(*, "names")= chr [1:2] "y" "x"
+##  - attr(*, "class")= chr "lm"
+```
+
+
 
 
 
