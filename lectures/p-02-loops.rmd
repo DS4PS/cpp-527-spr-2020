@@ -15,7 +15,7 @@ output:
       in_header: header.html
 ---
 
-```{r xaringan-themer, include = FALSE, eval=F}
+```{r xaringan-themer, include = FALSE, eval=T}
 library(xaringanthemer)
 mono_light(
   base_color = "#125972", ## picked to coordinate with rOpenSci logo
@@ -48,12 +48,16 @@ library( pander )
 
 
 
+
 # Table of Contents
 
-- ## [for loops](#for)
-- ## [while loops](#while)
-- ## [complex constructors](#complex)
-- ## [lab-02](#lab-02)
+- #### [for loops](#for)
+- #### [while loops](#while)
+- #### [complex constructors](#complex)
+- #### [lists](#lists)
+- #### [lab-02](#lab-02)
+
+
 
 
 
@@ -955,11 +959,10 @@ NOTE, **assignment to lists** uses a double-bracket`x[[ ]] <- f()`.
 ---
 
 
-# Complex Constructors
+name: lists
 
 
-
-## Lists
+# Lists
 
 Lists are the grab bag of data structures. 
 
@@ -974,10 +977,7 @@ Lists allow you to combine different object types and tables with different dime
 ---
 
 
-# Complex Constructors
-
-
-## Lists
+#  Lists
 
 
 You can think of the double-brackets as shelves that store each object  separately 
@@ -992,9 +992,7 @@ When you are ready to use it, you can take it off the shelf:
 
 ---
 
-# Complex Constructors
-
-## Lists
+#  Lists
 
 Lists are often used when we need to return a lot of information from a function, and the information comes in many object types or data dimensions
 
@@ -1017,9 +1015,7 @@ mode( m )  #<<
 
 ---
 
-# Complex Constructors
-
-## Lists
+# Lists
 
 The **lm** object (class type) is stored using a list (object type or mode). 
 
@@ -1032,9 +1028,7 @@ names(m)
 
 ---
 
-# Complex Constructors
-
-## Lists
+#  Lists
 
 We can access the objects by position or by name:
 
@@ -1046,9 +1040,7 @@ m[[1]]
 
 ---
 
-# Complex Constructors
-
-## Lists
+#  Lists
 
 Each object retains its original type:
 
@@ -1072,9 +1064,7 @@ head( m$model, 3 )
 
 ---
 
-# Complex Constructors
-
-## Lists
+#  Lists
 
 Or print the full list structure using **str()**:
 
@@ -1085,6 +1075,12 @@ str( m )
 
 
 
+---
+
+class: center, middle  
+
+
+# Lab 02
 
 ---
 

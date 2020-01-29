@@ -29,12 +29,16 @@ class: center, middle, inverse, title-slide
 
 
 
+
 # Table of Contents
 
-- ## [for loops](#for)
-- ## [while loops](#while)
-- ## [complex constructors](#complex)
-- ## [lab-02](#lab-02)
+- #### [for loops](#for)
+- #### [while loops](#while)
+- #### [complex constructors](#complex)
+- #### [lists](#lists)
+- #### [lab-02](#lab-02)
+
+
 
 
 
@@ -1039,11 +1043,10 @@ NOTE, **assignment to lists** uses a double-bracket`x[[ ]] &lt;- f()`.
 ---
 
 
-# Complex Constructors
+name: lists
 
 
-
-## Lists
+# Lists
 
 Lists are the grab bag of data structures. 
 
@@ -1058,10 +1061,7 @@ Lists allow you to combine different object types and tables with different dime
 ---
 
 
-# Complex Constructors
-
-
-## Lists
+#  Lists
 
 
 You can think of the double-brackets as shelves that store each object  separately 
@@ -1076,9 +1076,7 @@ When you are ready to use it, you can take it off the shelf:
 
 ---
 
-# Complex Constructors
-
-## Lists
+#  Lists
 
 Lists are often used when we need to return a lot of information from a function, and the information comes in many object types or data dimensions
 
@@ -1114,9 +1112,7 @@ m &lt;- lm( y ~ x )
 
 ---
 
-# Complex Constructors
-
-## Lists
+# Lists
 
 The **lm** object (class type) is stored using a list (object type or mode). 
 
@@ -1136,9 +1132,7 @@ names(m)
 
 ---
 
-# Complex Constructors
-
-## Lists
+#  Lists
 
 We can access the objects by position or by name:
 
@@ -1149,7 +1143,7 @@ m$coefficients
 
 ```
 ## (Intercept)           x 
-##   0.4120779   1.8980876
+##   0.3861575   2.0488744
 ```
 
 ```r
@@ -1158,15 +1152,13 @@ m[[1]]
 
 ```
 ## (Intercept)           x 
-##   0.4120779   1.8980876
+##   0.3861575   2.0488744
 ```
 
 
 ---
 
-# Complex Constructors
-
-## Lists
+#  Lists
 
 Each object retains its original type:
 
@@ -1186,8 +1178,8 @@ head( m$residuals, 3 )
 ```
 
 ```
-##          1          2          3 
-##  0.8666815 -0.0877163 -0.3312307
+##           1           2           3 
+## -1.81556727  0.46618998 -0.02453958
 ```
 
 ]
@@ -1208,19 +1200,17 @@ head( m$model, 3 )
 ```
 
 ```
-##          y x
-## 1 3.176847 1
-## 2 4.120537 2
-## 3 5.775110 3
+##           y x
+## 1 0.6194647 1
+## 2 4.9500963 2
+## 3 6.5082411 3
 ```
 
 ]
 
 ---
 
-# Complex Constructors
-
-## Lists
+#  Lists
 
 Or print the full list structure using **str()**:
 
@@ -1231,14 +1221,14 @@ str( m )
 
 ```
 ## List of 12
-##  $ coefficients : Named num [1:2] 0.412 1.898
+##  $ coefficients : Named num [1:2] 0.386 2.049
 ##   ..- attr(*, "names")= chr [1:2] "(Intercept)" "x"
-##  $ residuals    : Named num [1:10] 0.8667 -0.0877 -0.3312 -0.3254 0.4675 ...
+##  $ residuals    : Named num [1:10] -1.8156 0.4662 -0.0245 0.8152 1.1114 ...
 ##   ..- attr(*, "names")= chr [1:10] "1" "2" "3" "4" ...
-##  $ effects      : Named num [1:10] -34.316 17.24 -0.503 -0.523 0.244 ...
+##  $ effects      : Named num [1:10] -36.86 18.61 0.3 1.22 1.59 ...
 ##   ..- attr(*, "names")= chr [1:10] "(Intercept)" "x" "" "" ...
 ##  $ rank         : int 2
-##  $ fitted.values: Named num [1:10] 2.31 4.21 6.11 8 9.9 ...
+##  $ fitted.values: Named num [1:10] 2.44 4.48 6.53 8.58 10.63 ...
 ##   ..- attr(*, "names")= chr [1:10] "1" "2" "3" "4" ...
 ##  $ assign       : int [1:2] 0 1
 ##  $ qr           :List of 5
@@ -1270,7 +1260,7 @@ str( m )
 ##   .. ..- attr(*, "dataClasses")= Named chr [1:2] "numeric" "numeric"
 ##   .. .. ..- attr(*, "names")= chr [1:2] "y" "x"
 ##  $ model        :'data.frame':	10 obs. of  2 variables:
-##   ..$ y: num [1:10] 3.18 4.12 5.78 7.68 10.37 ...
+##   ..$ y: num [1:10] 0.619 4.95 6.508 9.397 11.742 ...
 ##   ..$ x: int [1:10] 1 2 3 4 5 6 7 8 9 10
 ##   ..- attr(*, "terms")=Classes 'terms', 'formula'  language y ~ x
 ##   .. .. ..- attr(*, "variables")= language list(y, x)
@@ -1292,6 +1282,12 @@ str( m )
 
 
 
+---
+
+class: center, middle  
+
+
+# Lab 02
 
 ---
 
