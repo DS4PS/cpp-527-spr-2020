@@ -547,9 +547,7 @@ Skim the following chapters, reading to get a general sense of concepts and the 
 
 ## Instructions 
 
-The animation shows how simple it is to activate GitHub pages for any project repository so that you can turn markdown files into web-hosted HTML files and share tutorials or reports created from RMD files. 
-
-![](https://github.com/DS4PS/cpp-527-spr-2020/blob/master/lectures/images/github-pages-setup.gif?raw=true)
+The animation in the Unit Overview above shows how simple it is to activate GitHub pages for any project repository so that you can turn markdown files into web-hosted HTML files and share tutorials or reports created from RMD files. 
 
 If we want a website with a bit more functionality, however, we will need to start from an existing template and adapt it. 
 
