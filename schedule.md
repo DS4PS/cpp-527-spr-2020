@@ -479,7 +479,7 @@ You have access to myriad advanced features on the platform. GitHub pages levera
 
 More importantly, GitHub pages can help demonstrate the concept of page templates. We can design the layout of a graphic, table, or section of text on a page then dynamically populate it with data. GitHub pages allow you to do with with basic HTML and Liquid tags:
 
-http://ds4ps.org/barebones-jekyll/page2
+[Table Template Example](http://ds4ps.org/barebones-jekyll/page2)
 
 And the **pagedown** package in R allows you to develop a variety of templates using similar principles:
 
