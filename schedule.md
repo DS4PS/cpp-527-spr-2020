@@ -615,9 +615,9 @@ Create a new **div** section around Step 1 on the Getting Started page.
 ```
 ## Overview of steps required
 
-There are only three simple steps, so using **Beautiful Jekyll** is *literally* as easy as 1-2-3 :)    
+There are only three simple steps, ....  
 
-Here is a 40-second video showing how to get started, with the specific steps below.  For a more complete installation guide, [visit the Beautiful Jekyll page](https://github.com/daattali/beautiful-jekyll#readme).
+Here is a 40-second video ....
 
 <img src="../img/install-steps.gif" style="width:100%;" alt="Installation steps" />
 
@@ -625,7 +625,8 @@ Here is a 40-second video showing how to get started, with the specific steps be
 
 ### 1. Fork the Beautiful Jekyll repository 
 
-Fork the [repository](https://github.com/daattali/beautiful-jekyll) by clicking the Fork button on the top right corner in GitHub.
+Fork the [repository](https://github.com/daattali/beautiful-jekyll) 
+by clicking the Fork button on the top right corner in GitHub.
 
 </div>
 ```
