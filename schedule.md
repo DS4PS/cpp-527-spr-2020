@@ -536,15 +536,183 @@ Skim the following chapters, reading to get a general sense of concepts and the 
 
 
 
-*** { @unit = "TUE Feb 11th", @title = "Lab 03", @assignment  }
+*** { @unit = "TUE Feb 11th", @title = "Lab 03", @assignment, @foldout  }
 
 <br>
 <br>
 
-## Lab-03 - Graphics
+# Lab-03 - Creating a GitHub Page
+
+<br>
+
+## Instructions 
+
+The animation shows how simple it is to activate GitHub pages for any project repository so that you can turn markdown files into web-hosted HTML files and share tutorials or reports created from RMD files. 
+
+![](https://github.com/DS4PS/cpp-527-spr-2020/blob/master/lectures/images/github-pages-setup.gif?raw=true)
+
+If we want a website with a bit more functionality, however, we will need to start from an existing template and adapt it. 
+
+For this lab you will be asked to fork the **beautiful-jekyll** website template:
+
+[Beautiful Jekyll Website Template on GitHub](https://deanattali.com/beautiful-jekyll/)
+
+Follow the instructions in the README file to begin customizing your page. 
+
+In the **`_config.yml`** file in the default directory do the following: 
+
+### Change the website name and description. 
+
+```
+# Name of website
+title: My website
+
+# Short description of your site
+description: A virtual proof that I'm awesome
+```
+
+You can update social network IDs if you like, or replace Dean's info with empty quotes `""` so the social media icons are present but not active. 
+
+### Change the color scheme for the website: 
+
+```
+# Personalize the colors in your website. Colour values can be any valid CSS colour
+
+navbar-col: "#F5F5F5"
+navbar-text-col: "#404040"
+navbar-children-col: "#F5F5F5"
+page-col: "#FFFFFF"
+link-col: "#008AFF"
+hover-col: "#0085A1"
+footer-col: "#F5F5F5"
+footer-text-col: "#777777"
+footer-link-col: "#404040"
+```
+
+### Add Page and Update Navigation
+
+You have forked the master branch of the website, which does not include the "getting started" page on the live site menu:
+
+Navigate to the [getting started page](https://github.com/daattali/beautiful-jekyll/blob/gh-pages/getstarted.md) located on another branch, and copy this file to the main folder on your site. I would copy the text from the **raw** view of the page and just create a new file called **getstarted.md** on your site. 
+
+Now update the navigation bar and add another option called "Getting Started" under "Resources". You will use the text "getstarted" for the URL, excluding the *.md* markdown extension. GitHub pages converts all markdown files to HTML files in the background, so you want to direct the user to the HTML version, which does not require an explicit extension to work in browsers:
+
+```
+# List of links in the navigation bar
+navbar-links:
+  About Me: "aboutme"
+  Resources:
+    - Beautiful Jekyll: "http://deanattali.com/beautiful-jekyll/"
+    - Learn markdown: "http://www.markdowntutorial.com/"
+    - Getting Started: "getstarted"                         # ADD THIS LINK
+  Author's home: "http://deanattali.com"
+```
+  
+### Change the Text Style on the Getting Started Page
+
+Demonstrate that you are able to apply CSS styles to specific elements of a page. 
+
+Create a new **div** section around Step 1 on the Getting Started page. 
+
+```
+## Overview of steps required
+
+There are only three simple steps, so using **Beautiful Jekyll** is *literally* as easy as 1-2-3 :)    
+
+Here is a 40-second video showing how to get started, with the specific steps below.  For a more complete installation guide, [visit the Beautiful Jekyll page](https://github.com/daattali/beautiful-jekyll#readme).
+
+<img src="../img/install-steps.gif" style="width:100%;" alt="Installation steps" />
+
+<div class="gs-section-01">
+
+### 1. Fork the Beautiful Jekyll repository 
+
+Fork the [repository](https://github.com/daattali/beautiful-jekyll) by clicking the Fork button on the top right corner in GitHub.
+
+</div>
+```
+
+Follow the [Barebones Jekyll example](http://ds4ps.org/barebones-jekyll/page1) for customizing a page style by adding a CSS style sheet the bottom of the Getting Started page:
+
+```
+<style>
+
+.gs-section-01 h3 { 
+     color: red }
+
+.gs-section-01 p {
+     font-size: 30px;
+}
+
+</style>
+```
+
+Similarly, add new **div** sections around Step 02 and Step 03 on the page so that each step has different header styles and text. It doesn't have to look nice - just show you are able to selectively change the style on a page. 
+
+### Create a Liquid Table
+
+Using the [Barebones Jekyll Custom Table example](http://ds4ps.org/barebones-jekyll/page2) add a page with a custom table. 
+
+Copy the [liquid-table.html](https://github.com/DS4PS/barebones-jekyll/blob/master/_layouts/liquid-table.html) template and add it as a new layout in your site's layout folder. You will need to change the parent page template on the *liquid-table.html* page to "default" or "page" in your new site (you don't have a *nice-text* layout that you can use as the parent page layout). 
+
+```
+---
+layout: default
+---
+```
+
+Create a new page in your main website folder called **table-demo.md** and copy the page content from the [Barebones Jekyll example](https://github.com/DS4PS/barebones-jekyll/edit/master/page2.md).
+
+You will need to add the ryan-v-ryan.jpg image to your **img** folder for it to be accessible on your new site (you can right-click and save it, then drag it into the image folder on your GitHub site). 
+
+You do not need to include the "See Page Layout" button. 
 
 
-<a class="uk-button uk-button-default" href="https://ds4ps.org/cpp-527-spr-2020/labs/lab-03-instructions.html">LAB-03 Instructions</a>
+```
+---
+layout: liquid-table
+title: 'amiright?'
+reynolds:
+  strengths:
+  - good father
+  - funny
+  - dated alanis morissette
+  weaknesses: 
+  - singing
+  - green lantern movie
+  - tennis backhand 
+gosling:
+  strengths: 
+  - builds houses
+  - is a real boy
+  - never dated alanis morissette
+  weaknesses: 
+  - micky mouse club
+  - cries a lot
+  - not ryan reynolds
+---
+
+![](img/ryan-v-ryan.jpg)  
+
+## Lorem Ipsum
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+```
+
+Add the page to your navigation bar: 
+
+```
+# List of links in the navigation bar
+navbar-links:
+  About Me: "aboutme"
+  Resources:
+    - Beautiful Jekyll: "http://deanattali.com/beautiful-jekyll/"
+    - Learn markdown: "http://www.markdowntutorial.com/"
+    - Getting Started: "getstarted"                         # ADD THIS LINK
+  Table Demo: "table-demo"
+```
+
+When these steps are done, submit a link to (1) your live site and (2) your GitHub repo where the website lives. 
 
 ## Submit Solutions to Canvas:
 
