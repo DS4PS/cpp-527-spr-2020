@@ -440,10 +440,69 @@ Please review the instructions at the end of the lecture notes:
 
 
 
-*** { @unit = "", @title = "Unit Overview" }
+*** { @unit = "", @title = "Unit Overview", @foldout }
 
 
 <br>
+
+## Customized Reporting
+
+A big part of every analysts job is trying to find ways to distill large volumes of data and information down to meaningful bites of knowledge, often for diverse stakeholder audiences that have varying degrees of technical expertise. For this reason, communication skills are extremely valuable for data scientists. You will constantly be challenged to find the interesting story that emerges from an overwhelming amount of data, and find creative ways to tell the story so that information becomes actionable. 
+
+Although it might not sound as edgy as building a machine learning classifier, the ability to create customized reporting formats and automate various steps of analysis will both make you more efficient and also more effective at communication. 
+
+This lab introduces you to one powerful tool for your toolkit - using GitHub pages to build a website quickly and inexpensively (for free, actually). Then use it to host various components of projects including public-facing reports and RMD documents after rendering. 
+
+For the project component of the course we will use a CV template to learn how the **pagedown** package can be used to create highly-customized report templates:
+
+http://nickstrayer.me/cv/
+
+We will also practice automation by the separation of the design elements of reporting from the data contained in the reports. In this example for a CV, Nick Strayer's positions are stored in a CSV file on GitHub:
+
+https://github.com/nstrayer/cv/blob/master/positions.csv
+
+And they are added to the document templates using some custom functions which filter positions and loop through the list to iteratively build the document. 
+
+## GitHub Pages Set-Up
+
+This week's lab will ask you to configure a GitHub page within a repository on your account. GitHub pages are an amazing resource because (1) they allow you to create an unlimited number of websites related to your projects FOR FREE, and (2) they can be created and maintained using Markdown, which simplifies a lot of the complexity of websites. You will learn to link HTML files generated from R Studio so that you can start sharing analytical projects with external audiences. 
+
+The set-up of a simple GitHub page is fairly straight-forward and can be completed in a few basic steps:
+
+![](https://github.com/DS4PS/cpp-527-spr-2020/blob/master/lectures/images/github-pages-setup.gif?raw=true)
+
+This will give you a barebones website with a landing page you can write using Markdown, and a few templates that you can select from. 
+
+You have access to myriad advanced features on the platform. GitHub pages leverage several powerful web frameworks like Jekyll, Bootstrap, Liquid, and Javascript to make customization of static pages both easy and powerful. We will spend some time talking about how the pieces of a website fit together so that you have a rudimentary knowledge of the platform:
+
+[Barebones Jekyll Example](http://ds4ps.org/barebones-jekyll/index)
+
+More importantly, GitHub pages can help demonstrate the concept of page templates. We can design the layout of a graphic, table, or section of text on a page then dynamically populate it with data. GitHub pages allow you to do with with basic HTML and Liquid tags:
+
+http://ds4ps.org/barebones-jekyll/page2
+
+And the **pagedown** package in R allows you to develop a variety of templates using similar principles:
+
+[Pagedown Overview](https://slides.yihui.org/2019-rstudio-conf-pagedown.html#1)
+
+Similar to other work we have done in R, we will start by using some working examples then reverse engineer them so you can see how the pieces fit together. You are not expected to master any of these topics in the short time-frame of the semester. The proper benchmark of knowledge is can you take an existing open source project and adapt it as necessary. 
+
+## Cascading Style Sheets
+
+You will not be required to learn web programming languages like HTML and Javascript (though they are super useful if you invest the time). You do, however, need to become familiar with very basic CSS as it is impossible to do customization without it. CSS started as a somewhat modest project but has evolved into a powerful language. R Markdown documents support CSS, which makes them fully customizable. It will also become more important so you begin to develop dashboards or custom interactive Shiny apps, since CSS is the primary means of controlling layouts and other style elements. 
+
+## Required Reading
+
+Skim the following chapters, reading to get a general sense of concepts and the basics of how each might function. You can skip sections that explain the code in detail. I am more concerned that you understand how these basic pieces fit together, and when you hear terms like "responsive" you conceptually know what people are talking about. 
+
+[Introduction to Web Programming](https://internetingishard.com/html-and-css/introduction/)
+
+[Hello CSS](https://internetingishard.com/html-and-css/hello-css/)
+
+[Responsive Design](https://internetingishard.com/html-and-css/responsive-design/)
+
+[Bootstrap (wikipedia entry)](https://en.wikipedia.org/wiki/Bootstrap_(front-end_framework))
+
 
 
 <br>
@@ -471,7 +530,7 @@ Please review the instructions at the end of the lecture notes:
 
 
 
-*** { @unit = "TUE Feb 4th", @title = "Lab 03", @assignment  }
+*** { @unit = "TUE Feb 11th", @title = "Lab 03", @assignment  }
 
 <br>
 <br>
@@ -587,7 +646,7 @@ In mean.default(grade.levels) :
 
 
 
-*** { @unit = "TUE Feb 11th", @title = "Lab 04", @assignment  }
+*** { @unit = "TUE Feb 18th", @title = "Lab 04", @assignment  }
 
 
 <br>
