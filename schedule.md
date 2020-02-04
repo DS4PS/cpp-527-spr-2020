@@ -766,6 +766,8 @@ So regular expressions can be very useful for searching large databases for gene
 
 [Slides](https://github.com/DS4PS/cpp-527-spr-2020/raw/master/lectures/string-processing-slides.pdf)
 
+### Helpful Reference Material: 
+
 [stringR package](https://cran.r-project.org/web/packages/stringr/vignettes/stringr.html)
 
 [One Page RegEx Cheat Sheet](https://github.com/DS4PS/cpp-527-spr-2020/raw/master/lectures/regular-expressions%20one-page-cheat-sheet.pdf) 
@@ -790,21 +792,21 @@ strings <- c("through","rough","thorough","throw","though","true","threw","thoug
 
 # what will the following return? 
 
-grep( "th?rough", strings, value = TRUE)
+grep( pattern="th?rough", strings, value = TRUE)
 
-grep( ".ough", strings, value = TRUE)
+grep( pattern=".ough", strings, value = TRUE)
 
-grep( "^.ough", strings, value = TRUE)
+grep( pattern="^.ough", strings, value = TRUE)
 
-grep( "ough.", strings, value = TRUE)
+grep( pattern="ough.", strings, value = TRUE)
 
-grep( "[^r]ough", strings, value = TRUE)
+grep( pattern="[^r]ough", strings, value = TRUE)
 
 # these are not as useful
 
-grep( "tr*", strings, value = TRUE)
+grep( pattern="tr*", strings, value = TRUE)
 
-grep( "t*o", strings, value = TRUE)
+grep( pattern="t*o", strings, value = TRUE)
 ```
 
 <br>
