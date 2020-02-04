@@ -877,6 +877,22 @@ In mean.default(grade.levels) :
 [1] 3.8
 ```
 
+### RegEx Example
+
+We have an large database where all of the addresses and geographic coordinates are stored as follows:
+
+```r
+x <- c("100 LANGDON ST
+MADISON, WI
+(43.07794869500003, -89.39083342499998)", "00 N STOUGHTON RD E WASHINGTON AVE
+MADISON, WI
+(43.072951239000076, -89.38668964199996)")
+```
+
+Write a function that accepts the address vector **x** as the input, and returns a vector of numeric coordinates.
+
+Note that the length of addresses can change, so you will need to use regular expressions (instead of just a substr() function) to generate proper results. 
+
 <br>
 
 
