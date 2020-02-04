@@ -732,9 +732,80 @@ When these steps are done, submit a link to (1) your live site and (2) your GitH
 
 
 
-*** { @unit = "", @title = "Unit Overview" }
+*** { @unit = "", @title = "Unit Overview", @reading, @foldout }
 
 <br>
+
+## Text as Data
+
+So this week comes with an up-front warning. You can get a PhD in Natural Language Processing, which is an entire field devote to computation tools used to process and analyze text as data. We have one week to cover the topic!
+
+We obviously cannot go too deep into this interesting field, but let's at least motivate some of the R functionality with a couple of cool examples. 
+
+[Which Hip-Hop Artist Has the Largest Vocabulary?](https://pudding.cool/projects/vocabulary/index.html)
+
+[Who is the Anonymous Op-Ed Writer inside the Trump Administration?](http://varianceexplained.org/r/op-ed-text-analysis/)
+
+[Sentiment Analysis](https://www.kaggle.com/rtatman/tutorial-sentiment-analysis-in-r)
+
+These examples all demonstrate interesting uses of text as data. They are also examples of the types of insight that can come from analysis with big data - the patterns are hiding in plain sight but our brains cannot hold enough information at one time to see it.  Once we can find a system to extract hidden patterns from language we can go beyond seeking large public databases to generate insights, and we can start using all of Twitter, all published news stories, or all of the internet to identify trends and detect outliers. 
+
+## String Processing & Regular Expressions
+
+The core of all text analysis requires two sets of skills. Text is computer science is referred to as "strings", a reference to the fact that spoken languages mean nothing to computers so they just treat them as strings of letters (words) or strings of words (sentences). String processing refers to a set of functions and conventions that are used to manipulate text as data. If you think about the data steps for regular data, we clean combine, transform, and merge data inside of data frames. Similarly there are operations for important text datasets (often lots of documents full of words), cleaning them (removing words, fixing spelling errors), merging documents, etc. Core R contains many string processing functions, and there are lots of great packages. 
+
+"Regular expression" are a set of functions used to aid in processing text by defining very precise ways to query a text database by looking for specific strings, or more often strings that match some specific pattern that has meaning. For example, if I gave you the following text with everything but punctuation replaced by X, you could still tell me what the word are for: 
+
+* xxxxx@xxx.com   (email address) 
+* www.xxxxxxxx.xxx   (web URL)
+* @xxxxxxx  (social media handle) 
+
+So regular expressions can be very useful for searching large databases for general classes of text, or alternatively for searching for generic text that occurs only in a very specific context (at the beginning or end of a word, in the middle of a phrase, etc.). 
+
+[Chapter](https://ds4ps.org/cpp-527-spr-2020/lectures/string-processing.html)
+
+[Slides](https://github.com/DS4PS/cpp-527-spr-2020/raw/master/lectures/string-processing-slides.pdf)
+
+[stringR package](https://cran.r-project.org/web/packages/stringr/vignettes/stringr.html)
+
+[One Page RegEx Cheat Sheet](https://github.com/DS4PS/cpp-527-spr-2020/raw/master/lectures/regular-expressions%20one-page-cheat-sheet.pdf) 
+
+[RegEx cheat sheet in R](https://github.com/DS4PS/cpp-527-spr-2020/raw/master/lectures/RegExCheatsheetInR.pdf)
+
+
+## Practice
+
+The function **grep( pattern, string )** works as follows:
+
+> Search for the pattern in each of the strings in the character vector at the top, *strings*. 
+
+The search pattern in each case below represents a regular expression. 
+
+What will the following cases return? 
+
+
+```r
+
+strings <- c("through","rough","thorough","throw","though","true","threw","thought","thru","trough")
+
+# what will the following return? 
+
+grep( "th?rough", strings, value = TRUE)
+
+grep( ".ough", strings, value = TRUE)
+
+grep( "^.ough", strings, value = TRUE)
+
+grep( "ough.", strings, value = TRUE)
+
+grep( "[^r]ough", strings, value = TRUE)
+
+# these are not as useful
+
+grep( "tr*", strings, value = TRUE)
+
+grep( "t*o", strings, value = TRUE)
+```
 
 <br>
 <br>
