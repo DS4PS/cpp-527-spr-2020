@@ -455,11 +455,11 @@ This lab introduces you to one powerful tool for your toolkit - using GitHub pag
 
 For the project component of the course we will use a CV template to learn how the **pagedown** package can be used to create highly-customized report templates:
 
-http://nickstrayer.me/cv/
+[Auto-Generated Resume](http://nickstrayer.me/cv/)
 
 We will also practice automation by the separation of the design elements of reporting from the data contained in the reports. In this example for a CV, Nick Strayer's positions are stored in a CSV file on GitHub:
 
-https://github.com/nstrayer/cv/blob/master/positions.csv
+[Positions CSV](https://github.com/nstrayer/cv/blob/master/positions.csv)
 
 And they are added to the document templates using some custom functions which filter positions and loop through the list to iteratively build the document. 
 
