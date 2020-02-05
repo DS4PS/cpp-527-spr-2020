@@ -605,6 +605,19 @@ navbar-links:
     - Getting Started: "getstarted"                         # ADD THIS LINK
   Author's home: "http://deanattali.com"
 ```
+ 
+The **index.html** file contains text from the landing page of the website. You will find some page title and descriptions in the YAML header of this file:
+
+````
+---
+layout: page
+title: My website
+subtitle: This is where I will tell my friends way too much about me
+use-site-title: true
+---
+````
+
+
   
 ### Change the Text Style on the Getting Started Page
 
