@@ -925,13 +925,13 @@ Note that the length of addresses can change, so you will need to use regular ex
 
 
 
-*** { @unit = "TUE Feb 18th", @title = "Lab 04", @assignment  }
+*** { @unit = "MON Feb 24th", @title = "Lab 04", @assignment, @foldout  }
 
 
 <br>
 <br>
 
-## Lab-04 - 
+## Lab-04 - Text Analysis
 
 
 <a class="uk-button uk-button-default" href="https://ds4ps.org/cpp-527-spr-2020/labs/lab-04-instructions.html">LAB-04 Instructions</a>
