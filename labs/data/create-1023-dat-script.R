@@ -143,4 +143,6 @@ c("ein", "orgname", "mission", "code01", "codedef01", "code02",
 saveRDS( d4, "IRS-1023-EZ-MISSIONS.rds" )
 
 
-            
+cat( paste0( "\n* **", names(d4), "**: " ) )
+
+     
