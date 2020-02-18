@@ -925,11 +925,23 @@ Note that the length of addresses can change, so you will need to use regular ex
 
 
 
+
+
+
+
+
+
+
+** Week 5 - Text Analysis 
+
+
 *** { @unit = "MON Feb 24th", @title = "Lab 04", @assignment, @foldout  }
 
 
 <br>
 <br>
+
+
 
 ## Lab-04 - Text Analysis
 
@@ -945,6 +957,41 @@ Note that the length of addresses can change, so you will need to use regular ex
 
 
 
+*** { @unit = "FRI Feb 21st", @title = "YellowDig Discussion", @assignment, @foldout }
+
+<br>
+<br>
+
+# The Crisis of Scientific Reproducibility
+
+The topic this week is an introduction to the hugely important topic of reproducibility in science, the ability to reproduce results from ground-breaking scientific work that was published in top journals. For a long-time there was an assumption that peer-review meant that each scientist subjected their work to fellow scientists that were experts on their topic, and thus it provides a solid barrier to error-prone and work from being published. 
+
+The notion of reproducibility, however, grew from fields like physics and chemistry where early lab experiments could be described with enough precision for another scientist to mix the same chemicals, or recreate the same conditions for a gravity experiment, and easily verify whether the claims in the paper were defensible. 
+
+Things get a lot more complicated now that (1) the data requirements necessary to publish in top journals have expanded, (2) methods have become much more complicated, and (3) science is very competitive with high-stakes rewards for winning grants or covetted endowed professor positions, resulting in proprietary data, data collection techniques, or lab conditions like stem cell lines or bacteria strains that cannot be easily replicated. As a result, peer reviewers have to take a lot of what authors say on face value without having enough information to challenge certain assertions, or without having access to the raw data and thousands of lines of code that produces the results that are being defended in the paper. Furthermore, weaknesses in how statistical methods are reported have introduced systematic bias into the types of research that gets published in top journals (it has to be splashy, and thus more likely to be anomoly studies than reproducible work). 
+
+This week's topic introduces you to the fascinating topic of the replication crisis in science. Your task will be to read two articles on reproduciblity in science: 
+
+[When the Revolution Came for Amy Cuddy, New York Times Magazine, 2017](https://github.com/DS4PS/cpp-527-spr-2020/raw/master/articles/when-the-revolution-came-for-amy-cuddy.pdf)
+
+[How Quality Control Could Save Science](https://github.com/DS4PS/cpp-527-spr-2020/raw/master/articles/how-quality-control-could-save-science.pdf)
+
+You are welcome to skim additional articles on the topic conveniently catalogued by Nature Magazine:
+
+[Challenges in irreproducible research](https://www.nature.com/collections/prbfkwmwvz)
+
+For the discussion topic this week, I would like you to argue either: 
+
+(1) that the reproducibiilty crisis can be effectively ended if science adopts new technologies and better practices, or
+
+(2) that the problems with reproducibility are so engrained in the limits of science and in the DNA of academic institutions that there will always be problems with reproducility, and attempts to address it are insufficient in their ability to get to the root of the problem, or naive about human nature.
+
+Pick a side and make your case! 
+
+<a class="uk-button uk-button-primary" href="{{page.canvas.yellowdig_url}}">YELLOWDIG</a>
+
+<br>
+<br>
 
 
 
@@ -952,7 +999,10 @@ Note that the length of addresses can change, so you will need to use regular ex
 
 
 
-** Week 5 - Data APIs 
+
+
+** Week 6 - Data APIs & Tidy Data
+
 
 
 *** { @unit = "", @title = "Unit Overview" }
@@ -964,19 +1014,9 @@ Note that the length of addresses can change, so you will need to use regular ex
 
 
 
-*** { @unit = "FRI Feb 14th", @title = "YellowDig Practice Problems", @assignment }
-
-<br>
-<br>
-
-<a class="uk-button uk-button-primary" href="{{page.canvas.yellowdig_url}}">YELLOWDIG</a>
-
-<br>
-<br>
 
 
-
-*** { @unit = "TUE Feb 18th", @title = "Lab 05", @assignment  }
+*** { @unit = "FRI Feb 28th", @title = "Lab 05", @assignment  }
 
 <br>
 <br>
@@ -991,15 +1031,6 @@ Note that the length of addresses can change, so you will need to use regular ex
 
 <br>
 <br>
-
-
-
-
-
-
-** Week 6 - Tidy Data 
-
-
 
 
 *** { @unit = "", @title = "Unit Overview" }
@@ -1027,22 +1058,6 @@ Note that the length of addresses can change, so you will need to use regular ex
 
 
 
-
-*** { @unit = "TUE Feb 25th", @title = "Lab 06", @assignment  }
-
-<br>
-<br>
-
-## Lab-06 - 
-
-<a class="uk-button uk-button-default" href="https://ds4ps.org/cpp-527-spr-2020/labs/lab-06-instructions.html">LAB-06 Instructions</a>
-
-## Submit Solutions to Canvas:
-
-<a class="uk-button uk-button-primary" href="{{page.canvas.assignment_url}}">SUBMIT LAB</a>
-
-<br>
-<br>
 
 
 
@@ -1094,6 +1109,21 @@ Create a new GitHub repository and upload your code-through to generate an activ
 <br>
 <br>
 
+
+
+*** { @unit = "MON Mar 2nd", @title = "R Package", @assignment  }
+
+<br>
+
+
+<a class="uk-button uk-button-default" href="https://ds4ps.org/cpp-527-spr-2020/labs/final-project-instructions.html">Final Project Instructions</a>
+
+## Submit to Canvas:
+
+<a class="uk-button uk-button-primary" href="{{page.canvas.assignment_url}}">SUBMIT DASHBOARD</a>
+
+<br>
+<br>
 
 
 
