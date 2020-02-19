@@ -1089,9 +1089,13 @@ Add your codethrough files (the HTML specifically) to your new website on GitHub
 <br>
 
 
-*** { @unit = "MON Mar 2nd", @title = "R Package", @assignment  }
+*** { @unit = "MON Mar 2nd", @title = "Build an R Package", @assignment  }
 
 <br>
+
+## Build an R Package
+
+This tutorial will teach you how to build and share a package in R. At some point you might develop a tool that you want to upload to the CRAN so it is widely available. More likely, if you are working with a team of analysts within an organization you will begin building a library of functions that are specific to the project. At some point it will be more efficient for the team to create a package to maintain the project code so that team members can update or enhance the functions, and others can easily update the functions by re-installing the package. 
 
 Complete the tuturial on "packaging" your R code from Labs 01 and 02 into a new **montyhall** package to make it easier to run simulations to evaluate game strategies. 
 
