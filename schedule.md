@@ -1007,9 +1007,28 @@ Pick a side and make your case!
 
 
 
-*** { @unit = "", @title = "Unit Overview" }
+*** { @unit = "", @title = "Unit Overview", @foldout }
 
 <br>
+
+## Working with Data APIs
+
+
+## Tutorial on DataUSA APIs
+
+Members of the MIT Media Lab spun out a company called Datawheel. Their goal is to make public data more accessible as well as useful. Their team boasts a number of graphic design experts and data visualization geniuses. They have found ways to take large and confusing government datasets, and make them interesting and accessible. 
+
+One cool aspect of their [DataUSA](https://datausa.io/) project is that to make it work they ended up downloading a bunch of large and clumbsy US government open datasets, cleaning up their formats, and hosting new copies on their own servers. In order for their website to function, each city view must be able to pull data from over a dozen databases quickly, so they have architected the new data structures so that users can query data at different levels like city, county, or state. Data is quickly aggregated accordingly. 
+
+The really great part, though, is that they have made their API endpoints freely available to the public. Since they have cleaned up over a dozen government datasets and how host them on their fast servers, they have made it easy to access a lot of statistics quickly. 
+
+The lab this week will draw from a Gist that explains the structure of the DataUSA API, and teached the basics of how data APIs function. 
+
+[DataUSA API Tutorial](https://gist.github.com/lecy/0aa782a873cd174573f32d243233ca5b)
+
+We will also look at some different types of APIs, such as the Census Bureau's automatic geocoding tool that allows you to upload a spreadsheet with 10,000 addresses, and will return a new spreadsheet with all addresses geocoded and matched to Census tracts. 
+
+This tool is not technically an API, but you can still automate calls by writing an R script that will upload files to the site for your so that you can batch process more than 10,000 addresses at a time. 
 
 <br>
 <br>
