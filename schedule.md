@@ -1089,7 +1089,7 @@ Add your codethrough files (the HTML specifically) to your new website on GitHub
 <br>
 
 
-*** { @unit = "MON Mar 2nd", @title = "Build an R Package", @assignment  }
+*** { @unit = "MON Mar 2nd", @title = "Build an R Package", @assignment, @foldout  }
 
 <br>
 
