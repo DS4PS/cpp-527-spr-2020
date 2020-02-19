@@ -96,6 +96,8 @@ What you should see:
 
 You will now have a directory in your current folder called **montyhall**. This will contain the files you need for your package. 
 
+![](images/new-r-package.png)
+
 
 ## Document Your Functions
 
