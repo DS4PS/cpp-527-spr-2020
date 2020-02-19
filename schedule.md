@@ -1036,6 +1036,17 @@ This tool is not technically an API, but you can still automate calls by writing
 
 
 
+*** { @unit = "FRI Feb 28th", @title = "YellowDig Practice Problems", @assignment  }
+
+<br>
+
+<a class="uk-button uk-button-primary" href="{{page.canvas.yellowdig_url}}">YELLOWDIG</a>
+
+<br><br>
+
+
+
+
 
 *** { @unit = "FRI Feb 28th", @title = "Lab 05", @assignment  }
 
@@ -1059,13 +1070,7 @@ This tool is not technically an API, but you can still automate calls by writing
 
 
 
-*** { @unit = "FRI Feb 21st", @title = "YellowDig Practice Problems", @assignment  }
 
-<br>
-
-<a class="uk-button uk-button-primary" href="{{page.canvas.yellowdig_url}}">YELLOWDIG</a>
-
-<br><br>
 
 
 
