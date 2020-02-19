@@ -20,11 +20,19 @@ knitr::opts_chunk$set(echo = TRUE)
 
 This tutorial will take you through the steps of creating a new package in R. 
 
-There are three primary tasks: 
+There are five primary tasks: 
 
 1. Create a package skeleton (set of empty files and folders). 
 2. Add your R code to the skeleton directory. 
-3. 
+3. Create documentation for your package (similar to knitting RMD files). 
+4. Install your new package on your computer and test it out. 
+5. Upload the package to GitHub. 
+
+
+The examples below will walk you through the steps. You will also need to download the Monty Hall Problem functions that we completed during Labs 01 and 02. This script contains some roxygen text to get you started with the process of documentation. 
+
+[Download R Script](https://www.dropbox.com/s/u8k1co2bb7eldzj/monty-hall-problem.R?dl=1)
+
 
 
 ## Install Development Packages
@@ -130,7 +138,7 @@ Add your roxygen comments to your R scripts:
 sum <- function(..., na.rm = TRUE) {}
 ```
 
-
+Note that good documentation describes all of the arguments needed by the function, including the required data types of each object. And clearly describe what will be returned when the function runs (type of object, what it contains). 
 
 Place your documented R scripts into the "R" folder in your package directory, then try:
 
@@ -149,7 +157,9 @@ You should see:
 # Writing create_game.Rd
 ```
 
-You will now have a new folder in your *montyhall* directory called "man", short for "manuals". 
+You will see some errors as well if you have not yet finished documenting your functions. Ignore them for now. 
+
+You will now have a new folder in your *montyhall* directory called "man", short for "manuals". The documentation files have an .Rd (R documentation) extension. 
 
 
 ## Install Your Package
@@ -216,8 +226,13 @@ In a new R session try:
 
 ```{r, eval=F}
 library( montyhall )
+create_game()
+```
+
+```{r, echo=F}
 montyhall::create_game()
 ```
+
 
 
 
@@ -230,3 +245,98 @@ help( "create_game" )
 ```
 
 
+## Update Your Package Description 
+
+Navigate to the main "montyhall" package folder on your computer and open the file called "DESCRIPTION" in a text editor (your computer will have a text editor like notebook). You will see something like this: 
+
+```{r, eval=F}
+Package: montyhall
+Title: What the Package Does (One Line, Title Case)
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "First",
+           family = "Last",
+           role = c("aut", "cre"),
+           email = "first.last@example.com",
+           comment = c(ORCID = "YOUR-ORCID-ID"))
+Description: What the package does (one paragraph).
+License: What license it uses
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.1
+```
+
+Since we use dplyr in the package, we need to add another line to import and attach it. Add: 
+
+```
+Depends: 
+   dplyr
+```
+
+Now complete the rest of the fields from "Title" to "Description". 
+
+
+```{r, eval=F}
+Package: montyhall
+Title: What the Package Does (One Line, Title Case)
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "First",
+           family = "Last",
+           role = c("aut", "cre"),
+           email = "first.last@example.com",
+           comment = c(ORCID = "YOUR-ORCID-ID"))
+Description: What the package does (one paragraph).
+Depends:
+	dplyr
+License: What license it uses
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.1
+```
+
+
+
+# GitHub Hosting
+
+
+You have a couple of options for sharing your new package with others. You could submit the package to the CRAN so that everyone in the world could install it in R using **install.packages("montyhall")**. 
+
+We cannot use this option because (1) it's a homework assignment so we don't want to burden people with the task of reviewing a new package, (2) package names on the CRAN must be unique so everyone from the class would have to name it something different, and (3) the CRAN requires that the package passes some robustness checks to ensure everything is documented correctly and all of the code is running smoothly. 
+
+A simpler option is to host your package on GitHub. Complete the following steps to upload your code to a new repository on GitHub:
+
+
+1. Install the git client on your computer: [LINK](https://git-scm.com/downloads). 
+2. Install GitHub Desktop application: [LINK](https://desktop.github.com/).
+3. Open GitHub in a browser and navigate to your profile. 
+4. Create a new repository titled "montyhall". Check the "Create with README" option.
+5. Copy the URL for your new repository. 
+6. Open GitHub desktop and select **File >> Clone Repository**. 
+7. Select the desired location of the folder and paste the URL into the appropriate dialogue. 
+8. Clone your GitHub repo. 
+9. Open the new "montyhall" folder that was just created by GitHub on your machine.
+10. Transfer all of the files **inside** of your old "montyhall" folder into the GitHub version. 
+11. You should see the files appear in the GitHub Desktop app. In the "summary" field type something like "initial commit" and at the bottom left select "Commit to master". 
+12. Now up at the top select "Push origin". 
+
+This last step sends all of the files to GitHub. They sould appear on your repo page shortly. 
+
+Now others should be able to install your package by typing: 
+
+```{r, eval=F}
+devtools::install_github( "yourGitHubName/montyhall" )
+```
+
+
+
+
+# Package Creation Resources
+
+These are a few good resources for reference: 
+
+[A nice tutorial by Fong Chun Chan](http://tinyheero.github.io/jekyll/update/2015/07/26/making-your-first-R-package.html)
+
+[The official R Packages book by Hadley Wickham and Jenny Bryant](https://r-pkgs.org/index.html)
+
+[Roxygen documentation on CRAN](https://cran.r-project.org/web/packages/roxygen2/vignettes/rd.html)
