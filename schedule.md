@@ -1065,7 +1065,7 @@ Pick a side and make your case!
 
 
 
-*** { @unit = "MON Mar 2nd", @title = "Code-Through Assignment", @assignment }
+*** { @unit = "MON Mar 2nd", @title = "Code-Through Assignment", @assignment, @foldout }
 
 <br>
 
@@ -1073,7 +1073,7 @@ Pick a side and make your case!
 
 Since you are sharing your code-through with your classmates on Yellowdig, it will serve as your discussion topic this week.
 
-Create a new GitHub repository and upload your code-through to generate an active URL for your tutorial that you can share with classmates. 
+Add your codethrough files (the HTML specifically) to your new website on GitHub repository and generate an active URL for your tutorial so that you can share with classmates. Note that you cannot host Shiny apps or other dynamic apps on GitHub - they must be static HTML pages. 
 
 <a class="uk-button uk-button-default" href="https://ds4ps.org/cpp-527-spr-2020/LABS/code-through-assignment.html">Code-Through Instructions</a>
 
@@ -1088,6 +1088,23 @@ Create a new GitHub repository and upload your code-through to generate an activ
 <br>
 <br>
 
+
+*** { @unit = "MON Mar 2nd", @title = "R Package", @assignment  }
+
+<br>
+
+Complete the tuturial on "packaging" your R code from Labs 01 and 02 into a new **montyhall** package to make it easier to run simulations to evaluate game strategies. 
+
+<a class="uk-button uk-button-default" href="https://ds4ps.org/cpp-527-spr-2020/labs/create-r-package.html">Final Project Instructions</a>
+
+## Submit to Canvas:
+
+To receive credit for the assignment, submit the URL to your package on GitHub.
+
+<a class="uk-button uk-button-primary" href="{{page.canvas.assignment_url}}">SUBMIT PACKAGE</a>
+
+<br>
+<br>
 
 
 
@@ -1107,19 +1124,7 @@ Create a new GitHub repository and upload your code-through to generate an activ
 
 
 
-*** { @unit = "MON Mar 2nd", @title = "R Package", @assignment  }
 
-<br>
-
-
-<a class="uk-button uk-button-default" href="https://ds4ps.org/cpp-527-spr-2020/labs/final-project-instructions.html">Final Project Instructions</a>
-
-## Submit to Canvas:
-
-<a class="uk-button uk-button-primary" href="{{page.canvas.assignment_url}}">SUBMIT DASHBOARD</a>
-
-<br>
-<br>
 
 
 
