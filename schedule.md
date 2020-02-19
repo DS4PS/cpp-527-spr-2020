@@ -1099,7 +1099,7 @@ Since you are sharing your code-through with your classmates on Yellowdig, it wi
 
 Add your codethrough files (the HTML specifically) to your new website on GitHub repository and generate an active URL for your tutorial so that you can share with classmates. Note that you cannot host Shiny apps or other dynamic apps on GitHub - they must be static HTML pages. 
 
-<a class="uk-button uk-button-default" href="https://ds4ps.org/cpp-527-spr-2020/LABS/code-through-assignment.html">Code-Through Instructions</a>
+<a class="uk-button uk-button-default" href="https://ds4ps.org/cpp-527-spr-2020/labs/code-through-assignment.html">Code-Through Instructions</a>
 
 ## Submit to Canvas:
 
