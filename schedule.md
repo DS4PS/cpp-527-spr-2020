@@ -1146,8 +1146,8 @@ This assignment teaches you to use RMD templates to simplify and automate the pr
 
 We will explore the process by reverse-engineering a simple example that was created to build resumes:
 
-[Example CV as PDF](https://github.com/DS4PS/cv/raw/master/strayer_cv.pdf)
-[Example CV as HTML](http://nickstrayer.me/cv/)
+* [Example CV as PDF](https://github.com/DS4PS/cv/raw/master/strayer_cv.pdf)  
+* [Example CV as HTML](http://nickstrayer.me/cv/)  
 
 Begin by reading about the process:
 
