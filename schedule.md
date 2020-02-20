@@ -1136,12 +1136,71 @@ To receive credit for the assignment, submit the URL to your package on GitHub.
 
 
 
-*** { @unit = "MON Mar 2nd", @title = "Report Template Assignment", @assignment  }
+*** { @unit = "MON Mar 2nd", @title = "Report Template Assignment", @assignment, @foldout }
 
 <br>
 
+## Automating Report Generation
 
-<a class="uk-button uk-button-default" href="https://ds4ps.org/cpp-527-spr-2020/labs/final-project-instructions.html">Final Project Instructions</a>
+This assignment teaches you to use RMD templates to simplify and automate the process of generating reports. 
+
+We will explore the process by reverse-engineering a simple example that was created to build resumes:
+
+[Example CV as PDF](https://github.com/DS4PS/cv/raw/master/strayer_cv.pdf)
+[Example CV as HTML](http://nickstrayer.me/cv/)
+
+Begin by reading about the process:
+
+[Automated Reporting](https://ds4ps.org/cpp-527-spr-2020/lectures/report-automation.html)
+
+
+## Instructions 
+
+For this assignment you will need to clone Nick Strayer's CV project: 
+
+[CV Project on GitHub](https://github.com/DS4PS/cv)
+
+You can do this in the GitHub desktop application under **File >> Clone >> URL** then type in the project URL: 
+
+https://github.com/DS4PS/cv
+
+Note, since the project is actively being developed this version on DS4PS is frozen in time for pedagogical purposes. You can follow the link to his repo to see what he has added. 
+
+A quick note on the [difference between "cloning" a project and "forking" a GitHub project](https://github.community/t5/Support-Protips/The-difference-between-forking-and-cloning-a-repository/ba-p/1372): 
+
+> A fork is a copy of a repository that allows you to freely experiment with changes without affecting the original project, althgouh a connection exists between your fork and the original repository itself. In this way, your fork acts as a bridge between the original repository and your personal copy where you can contribute back to the original project using *Pull Requests*. 
+> 
+> Unlike forking, when cloning you won't be able to pull down changes from the original repository you cloned from, and if the project is owned by someone else you won't be able to contribute back to it unless you are specifically invited as a collaborator. Cloning is ideal for instances when you need a way to quickly get your own copy of a repository where you may not be contributing to the original project.
+
+In this instance we are not contributing back to the project to improve it. We just want our own local copy to work with, so cloning is the best option. 
+
+## Build Your Resume
+
+After cloning the files, you should have local copies on your desktop. You will need to edit at least two files: 
+
+* select either the index.Rmd file ([CV format](http://nickstrayer.me/cv/)) or resume.Rmd ([short resume format](http://nickstrayer.me/cv/resume.html)) 
+* positions.csv
+
+The "index.Rmd" and "resume.Rmd" files contains the pagedown code to generate the resume. You will need to adapt the code as appropriate for your purposes Be sure to retain the helper functions, as you are required to pull position data from the CSV file instead of hard-coding it in the file. You can create your own section titles and content. List as many positions, projects,  or internships as you can to reach at least 2 pages. 
+
+Second, delete Nick's content form the "positions.csv" file and replace it with your own content for your positions. 
+
+When you are done, knit your file to generate your HTML resume. 
+
+Create a new repository on your GitHub account called "CV". Initiate with a README file. Clone the repository to your computer, and copy all of the updated files from your project. Commit these files to GitHub so they are in the new CV repo. 
+
+Go into settings and activate your GitHub page for this repository. You do not have to select a template.
+
+You should now be able to view your HTML resume online.
+
+For the assignment submit the following: 
+
+* The URL of your GitHub CV repository 
+* The URL of your resume or CV 
+* A zipped folder with all of the files from the repor
+
+
+
 
 ## Submit to Canvas:
 
