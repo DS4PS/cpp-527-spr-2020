@@ -144,7 +144,7 @@ Each line in the spreadsheet contains basic information about activities:
 In total there are approximately 40 entries currently in the following section categories: 
 
 ```{r}
-table( position_data$section ) %>% knitr::kable()
+table( position_data$section ) %>% knitr::kable( align="l" )
 ```
 
 
