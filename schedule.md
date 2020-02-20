@@ -1199,12 +1199,12 @@ For the assignment submit the following:
 * The URL of your resume or CV 
 * A zipped folder with all of the files from the repor
 
-
+Consider creating a GitHub site to host a portfolio of projects you are working on. You can add the CV and your code-through assignments to the site. 
 
 
 ## Submit to Canvas:
 
-<a class="uk-button uk-button-primary" href="{{page.canvas.assignment_url}}">SUBMIT DASHBOARD</a>
+<a class="uk-button uk-button-primary" href="{{page.canvas.assignment_url}}">SUBMIT PROJECT</a>
 
 <br>
 <br>
