@@ -1152,7 +1152,7 @@ Which pattern would you use to match all state names with a W, no matter if the 
 <br>
 
 
-## Scaling Your Analysis
+## Scaling Your Analysis w Functions and Loops
 
 If you recall from CPP 526 we discussed the example where Ben Balter, [GitHub’s official government evangelist](https://readwrite.com/2014/08/14/github-government-ben-balter-open-source/), created a project to make Washington DC open GIS files more accessible and useful by converting them all to a format more amenable to open-source projects (geoJSON files).
 
@@ -1281,7 +1281,7 @@ plot( msp_dorling )
 3. Create a dorling-msa-geojson GitHub repository. 
 4. Upload the files and add instructions to the README for people to use them as alternatives to regular Census tract maps to improve the visualization of demographic data in urban environments. 
 
-For example: 
+For example, once you have finished it will be possible to do the following: 
 
 ```r
 # dorling cartogram of Phoenix Census Tracts
@@ -1296,6 +1296,22 @@ Start with pseudo-code and write down the steps. I would recommend writing a cou
 * Using the MSA data frame you just created, download the census data and shapefile. 
 * Convert a current MSA object to a Dorling cartogram object. 
 
+Test your code with a single city until it is functional:
+
+```r
+these.minneapolis <- crosswalk$msaname == "MINNEAPOLIS-ST. PAUL, MN-WI"
+```
+
+At that point you can scale your steps by generalizing the city name. 
+
+```r
+city.names <- unique( crosswalk$cbsaname )
+
+for( i in city.names )
+{
+  # your code here 
+}
+```
 
 <br>
 <br>
