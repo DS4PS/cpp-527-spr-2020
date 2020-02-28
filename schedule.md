@@ -1011,9 +1011,6 @@ Pick a side and make your case!
 
 <br>
 
-## Working with Data APIs
-
-
 ## Tutorial on DataUSA APIs
 
 Members of the MIT Media Lab spun out a company called Datawheel. Their goal is to make public data more accessible as well as useful. Their team boasts a number of graphic design experts and data visualization geniuses. They have found ways to take large and confusing government datasets, and make them interesting and accessible. 
@@ -1139,7 +1136,7 @@ Which pattern would you use to match all state names with a W, no matter if the 
 
 
 
-*** { @unit = "MON Mar 2", @title = "Lab 05", @assignment, @foldout  }
+*** { @unit = "OPTIONAL", @title = "Lab 05", @assignment, @foldout  }
 
 <br>
 
