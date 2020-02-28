@@ -1036,7 +1036,98 @@ This tool is not technically an API, but you can still automate calls by writing
 
 
 
-*** { @unit = "FRI Feb 28th", @title = "YellowDig Practice Problems", @assignment  }
+*** { @unit = "FRI Feb 28th", @title = "YellowDig Practice Problems", @assignment, @foldout  }
+
+<br>
+
+## Casting
+
+If you recall some of the rules with implicit casting, R will try to select the data type that preserves the most information. 
+
+```r
+> x <- 1:3
+> y <- c("a","b","c")
+> c( x, y )
+[1] "1" "2" "3" "a" "b" "c"
+
+> x.as.string <- as.character( x )
+> x.as.string
+[1] "1" "2" "3"
+> as.numeric( x.as.string )
+[1] 1 2 3
+
+> as.numeric( y )
+[1] NA NA NA
+Warning message:
+NAs introduced by coercion 
+```
+
+Note the rules for conversion when you combine numeric and logical vectors: 
+
+```r
+> x <- c(TRUE,FALSE,TRUE)
+> c( x, FALSE )
+[1]  TRUE FALSE  TRUE FALSE
+
+> c( x, 1 )
+[1] 1 0 1 1
+
+> c( x, "ONE" )
+[1] "TRUE"  "FALSE" "TRUE"  "ONE"  
+
+> x2 <- c( x, 1 )
+> as.logical( x2 )
+[1]  TRUE FALSE  TRUE  TRUE
+
+> x3 <- c( x, 2 )
+> as.logical( x3 )
+[1]  TRUE FALSE  TRUE  TRUE
+
+> x4 <- c( x, 0 )
+> as.logical( x4 )
+[1]  TRUE FALSE  TRUE FALSE
+```
+
+Try to guess how it treats the following cases before you run the code:
+
+```r
+x <- c(TRUE,FALSE,TRUE)
+c( x, 2 )
+
+x2 <- c( x, 1.1 )
+as.logical( x2 )
+
+x3 <- c( x, 0.9 )
+as.logical( x3 )
+
+x4 <- c( x, log(1) )
+as.logical( x4 )
+
+x5 <- c( x, -1 )
+as.logical( x5 )
+```
+
+
+## RegEx Practice 
+
+```r
+# How many of these state names contain a W? 
+> states <- c("New Mexico","New York","Washington","West Virginia")
+> grep( pattern = "w", x = states, value = TRUE )
+[1] "New Mexico" "New York"  
+> grep( pattern = "W", x = states, value = TRUE )
+[1] "Washington"    "West Virginia"
+```
+
+Which pattern would you use to match all state names with a W, no matter if the W is capital or lowercase? You are not allowed to use the *ignore.case* argument in **grep()**. 
+
+
+
+
+
+<br>
+
+
 
 <br>
 
@@ -1048,14 +1139,167 @@ This tool is not technically an API, but you can still automate calls by writing
 
 
 
-*** { @unit = "FRI Feb 28th", @title = "Lab 05", @assignment  }
+*** { @unit = "MON Mar 2", @title = "Lab 05", @assignment, @foldout  }
+
+<br>
+
+<hr>
+
+*THIS LAB IS OPTIONAL*
+
+<hr>
+
+<br>
+
+
+## Scaling Your Analysis
+
+If you recall from CPP 526 we discussed the example where Ben Balter, [GitHub’s official government evangelist](https://readwrite.com/2014/08/14/github-government-ben-balter-open-source/), created a project to make Washington DC open GIS files more accessible and useful by converting them all to a format more amenable to open-source projects (geoJSON files).
+
+Ben wrote a script that downloaded all of Washington DC’s open data files, converted them to better formats, then uploaded them to GitHub so others have access:
+
+[https://github.com/benbalter/dc-maps](https://github.com/benbalter/dc-maps)
+
+The geoJSON files can also be read into R directly from GitHub, making it easy to incorporate the spatial maps and data into a wide variety of projects:
+
+```r
+library( geojsonio )
+library( sp )
+github <- "https://raw.githubusercontent.com/benbalter/dc-maps/master/maps/2006-traffic-volume.geojson"
+traffic <- geojson_read( x=github, method="local", what="sp" )
+plot( traffic, col="steelblue" )
+```
+
+Recall the lab where you created one Dorling cartogram for your neighborhood clustering project:
+
+![](file:///C:/Users/jdlecy/Dropbox/00%20-%20PEDA/00%20-%20GITHUB/COURSE-CPP-529-PRACTICUM/cpp-529-master/LABS/lab-03-tutorial_files/figure-html/unnamed-chunk-21-1.png)
+
+
+
+```r
+library( geojsonio )   # read shapefiles
+library( sp )          # work with shapefiles
+library( sf )          # work with shapefiles - simple features format
+library( tmap )        # theme maps
+library( dplyr )       # data wrangling
+library( pander )      # nice tables 
+
+
+crosswalk <- "https://raw.githubusercontent.com/DS4PS/cpp-529-master/master/data/cbsatocountycrosswalk.csv"
+crosswalk <- read.csv( crosswalk, stringsAsFactors=F, colClasses="character" )
+
+# search for citie names by strings, use the ^ anchor for "begins with" 
+grep( "^MIN", crosswalk$msaname, value=TRUE ) 
+
+# select all FIPS for Minneapolis
+these.minneapolis <- crosswalk$msaname == "MINNEAPOLIS-ST. PAUL, MN-WI"
+these.fips <- crosswalk$fipscounty[ these.minneapolis ]
+these.fips <- na.omit( these.fips )
+
+state.fips <- substr( these.fips, 1, 2 )
+county.fips <- substr( these.fips, 3, 5 )
+
+dat <- data.frame( name="MINNEAPOLIS-ST. PAUL, MN-WI",
+                   state.fips, county.fips, fips=these.fips )               
+dat
+```
+
+|name                        |state.fips |county.fips |fips  |
+|:---------------------------|:----------|:-----------|:-----|
+|MINNEAPOLIS-ST. PAUL, MN-WI |27         |003         |27003 |
+|MINNEAPOLIS-ST. PAUL, MN-WI |27         |019         |27019 |
+|MINNEAPOLIS-ST. PAUL, MN-WI |27         |025         |27025 |
+|MINNEAPOLIS-ST. PAUL, MN-WI |27         |037         |27037 |
+|MINNEAPOLIS-ST. PAUL, MN-WI |27         |053         |27053 |
+|MINNEAPOLIS-ST. PAUL, MN-WI |27         |059         |27059 |
+|MINNEAPOLIS-ST. PAUL, MN-WI |27         |123         |27123 |
+|MINNEAPOLIS-ST. PAUL, MN-WI |27         |139         |27139 |
+|MINNEAPOLIS-ST. PAUL, MN-WI |27         |141         |27141 |
+|MINNEAPOLIS-ST. PAUL, MN-WI |27         |163         |27163 |
+|MINNEAPOLIS-ST. PAUL, MN-WI |27         |171         |27171 |
+|MINNEAPOLIS-ST. PAUL, MN-WI |55         |093         |55093 |
+|MINNEAPOLIS-ST. PAUL, MN-WI |55         |109         |55109 |
+
+
+Now download shapefiles with Census data:
+
+```r
+library( tidycensus )
+
+# census_api_key("YOUR KEY GOES HERE")
+# key <- "abc123"
+# census_api_key( key )
+
+
+# Minneapolis metro area spans two states - 
+# Minnesota = 27
+# Wisconsin = 55
+
+msp.pop1 <-
+get_acs( geography = "tract", variables = "B01003_001",
+         state = "27", county = county.fips[state.fips=="27"], geometry = TRUE ) %>% 
+         select( GEOID, estimate ) %>%
+         rename( POP=estimate )
+
+msp.pop2 <-
+get_acs( geography = "tract", variables = "B01003_001",
+         state = "55", county = county.fips[state.fips=="55"], geometry = TRUE ) %>% 
+         select( GEOID, estimate ) %>%
+         rename( POP=estimate )
+
+msp.pop <- rbind( msp.pop1, msp.pop2 )
+
+plot( msp.pop )
+```
+
+![](file:///C:/Users/jdlecy/Dropbox/00%20-%20PEDA/00%20-%20GITHUB/COURSE-CPP-529-PRACTICUM/cpp-529-master/LABS/lab-04-instructions_files/figure-html/unnamed-chunk-9-1.png)
+
+Convert to a Dorling cartogram: 
+
+```r
+# convert sf map object to an sp version
+msp.sp <- as_Spatial( msp )
+class( msp.sp )
+
+# project map and remove empty tracts
+msp.sp <- spTransform( msp.sp, CRS("+init=epsg:3395"))
+msp.sp <- msp.sp[ msp.sp$POP != 0 & (! is.na( msp.sp$POP )) , ]
+
+# convert census tract polygons to dorling cartogram
+# no idea why k=0.03 works, but it does - default is k=5
+msp.sp$pop.w <- msp.sp$POP / 9000 # max(msp.sp$POP)   # standardizes it to max of 1.5
+msp_dorling <- cartogram_dorling( x=msp.sp, weight="pop.w", k=0.05 )
+plot( msp_dorling )
+```
+
+![](file:///C:/Users/jdlecy/Dropbox/00%20-%20PEDA/00%20-%20GITHUB/COURSE-CPP-529-PRACTICUM/cpp-529-master/LABS/lab-04-instructions_files/figure-html/unnamed-chunk-9-2.png)
+
+## Instructions: 
+
+1. Create an R script that will convert all US Metro Area shapefiles into Dorling cartograms, one new shapefile for each metro area.  
+2. Save each Dorling cartogram as a geoJSON file. 
+3. Create a dorling-msa-geojson GitHub repository. 
+4. Upload the files and add instructions to the README for people to use them as alternatives to regular Census tract maps to improve the visualization of demographic data in urban environments. 
+
+For example: 
+
+```r
+# dorling cartogram of Phoenix Census Tracts
+github.url <- "https://raw.githubusercontent.com/DS4PS/cpp-529-master/master/data/phx_dorling.geojson"
+phx <- geojson_read( x=github.url,  what="sp" )
+plot( phx )
+```
+
+Start with pseudo-code and write down the steps. I would recommend writing a couple of functions: 
+
+* Select and parse state and county FIPS codes based upon a city name, return a data frame. 
+* Using the MSA data frame you just created, download the census data and shapefile. 
+* Convert a current MSA object to a Dorling cartogram object. 
+
 
 <br>
 <br>
 
-
-
-<a class="uk-button uk-button-default" href="https://ds4ps.org/cpp-527-spr-2020/labs/lab-05-instructions.html">LAB-05 Instructions</a>
 
 ## Submit Solutions to Canvas:
 
