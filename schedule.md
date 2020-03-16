@@ -1011,6 +1011,10 @@ Pick a side and make your case!
 
 <br>
 
+## Nice Overview of APIs
+
+[Data journalists describe the value of APIs.](https://medium.com/trendct-data/a-gentle-guide-to-apis-for-data-journalists-2a6b0e6fcc1a)
+
 ## Tutorial on DataUSA APIs
 
 Members of the MIT Media Lab spun out a company called Datawheel. Their goal is to make public data more accessible as well as useful. Their team boasts a number of graphic design experts and data visualization geniuses. They have found ways to take large and confusing government datasets, and make them interesting and accessible. 
